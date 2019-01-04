@@ -1,10 +1,37 @@
 ## 182. Duplicate Emails
 
-
 - 难度： 简单
-- 通过率： 50.8%
+- 通过率： 50.9%
 - 题目链接：[https://leetcode.com/problems/duplicate-emails](https://leetcode.com/problems/duplicate-emails)
 
+
+### 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>编写一个 SQL 查询，查找&nbsp;<code>Person</code> 表中所有重复的电子邮箱。</p>
+
+<p><strong>示例：</strong></p>
+
+<pre>+----+---------+
+| Id | Email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+</pre>
+
+<p>根据以上输入，你的查询应返回以下结果：</p>
+
+<pre>+---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+</pre>
+
+<p><strong>说明：</strong>所有电子邮箱都是小写字母。</p>
 
 
 ### 解法：

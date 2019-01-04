@@ -1,17 +1,25 @@
 ## 1. Two Sum
 
-
 - 难度： 简单
-- 通过率： 39.6%
+- 通过率： 39.7%
 - 题目链接：[https://leetcode.com/problems/two-sum](https://leetcode.com/problems/two-sum)
 
-<p>There are two sorted arrays <b>nums1</b> and <b>nums2</b> of size m and n respectively.</p>
 
-<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
+### 题目描述
 
-<p>You may assume <strong>nums1</strong> and <strong>nums2</strong>&nbsp;cannot be both empty.</p>
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
+<p>给定一个整数数组 <code>nums</code>&nbsp;和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那&nbsp;<strong>两个</strong>&nbsp;整数，并返回他们的数组下标。</p>
 
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+
+<p><strong>示例:</strong></p>
+
+<pre>给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[<strong>0</strong>] + nums[<strong>1</strong>] = 2 + 7 = 9
+所以返回 [<strong>0, 1</strong>]
+</pre>
 
 ### 解法：
 
