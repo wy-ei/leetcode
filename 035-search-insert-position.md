@@ -39,3 +39,29 @@
 
 
 ### 解法：
+
+二分查找而已，二分查找结束后，如果没有找到 `lo` 会指向在有序数组中 target 该插入的位置（如果要将 target 插入数组的话）。 
+
+```python
+def searchInsert(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: int
+    """
+
+    lo = 0
+    hi = len(nums)
+
+    while lo < hi:
+        mid = lo + (hi - lo) // 2
+
+        if nums[mid] < target:
+            lo = mid + 1
+        elif nums[mid] > target:
+            hi = mid
+        else:
+            return mid
+
+    return lo
+```

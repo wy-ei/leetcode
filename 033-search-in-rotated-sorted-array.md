@@ -117,7 +117,7 @@ def search(nums, target):
 
 ### 关于二分查找
 
-在二分查找中 `lo` 初始化为 0，对 `hi` 的初始化有两种方案，不同的方案 while 条件写法也不同
+在二分查找中 `lo` 初始化为 0，对 `hi` 的初始化有两种方案，不同的方案 while 条件写法不同，对 `hi` 更新的策略也不同。
 
 
 当 hi 为 `len(nums)` 时，`hi` 是当前有效范围的上边界，这个时候 while 循环有效条件是 `lo < hi`
@@ -127,18 +127,27 @@ lo = 0
 hi = len(nums)
 
 while lo < hi:
-    pass
+    mid = lo + (hi - lo) // 2
+    
+    if nums[mid] > target:
+        hi = mid   # 注意这里
 ```
+
+这是因为 `hi` 是指向上边界的 `hi` 所指内容，不在下次迭代的有效的搜索范围内。
 
 当 hi 为 `len(nums) - 1` 时，`hi` 是当前有效范围中最后一个元素的下标，这个时候 while 循环的有效条件是 `lo <= hi`
 
 ```python
 lo = 0
-hi = len(nums)
+hi = len(nums) - 1
 
 while lo <= hi:
-    pass
+    mid = lo + (hi - lo) // 2
+    
+    if nums[mid] > target:
+        hi = mid - 1   # 注意这里
 ```
+
 
 另外在求 mid 值得时候，常见的有下面这量种方法：
 
