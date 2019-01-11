@@ -89,7 +89,7 @@ class Solution:
 
 ### 寻找上下界
 
-在 C++ 算法模块中存在 `lowe_bound` 和 `upper_bound` 这两个函数，它们都位于二分查找类别下。在[这里](http://www.cplusplus.com/reference/algorithm/lower_bound/) 看到了 `lower_bound` 的一种写法：
+在 C++ 算法模块中存在 `lowe_bound` 和 `upper_bound` 这两个函数，它们都位于二分查找类别下。在[这里](http://www.cplusplus.com/reference/algorithm/lower_bound/)看到了 `lower_bound` 的一种写法：
 
 ```c++
 template <class ForwardIterator, class T>
