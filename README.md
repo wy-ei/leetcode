@@ -10,4 +10,5 @@
 
 **第 2 天（2019-01-11）** 
 
-[39. Combination Sum](./039-combination-sum.md)
+- [39. Combination Sum](./039-combination-sum.md)
+- [40. Combination Sum II](./040-combination-sum-ii.md)
