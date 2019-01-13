@@ -19,3 +19,7 @@
 - [43. Multiply Strings](./043-multiply-strings.md)
 - [46. Permutations](./046-permutations.md)
 
+**第 4 天（2019-01-13）**
+
+- [48. Rotate Image](./048-rotate-image.md)
+- [49. Group Anagrams](./049-group-anagrams.md)

@@ -55,3 +55,30 @@
 
 
 ### 解法：
+
+从外层向内，对矩阵的最外层进行旋转。这里采用 `offset` 用来确定层数，使用 `width` 来记录当前矩阵的大小，使用 `top,right,bottom,right` 来记录矩阵边界的索引。
+
+```python
+class Solution:
+    def rotate(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: void Do not return anything, modify matrix in-place instead.
+        """
+        m = matrix
+        rank = len(matrix)
+        
+        for offset in range(0, rank // 2):
+            width = rank - 2 * offset
+            for j in range(0, width - 1):
+                top = offset
+                left = offset
+                bottom = offset + width - 1
+                right = offset + width - 1
+                
+                t = m[top][left+j]
+                m[top][left+j] = m[bottom-j][left]
+                m[bottom-j][left] = m[bottom][right-j]
+                m[bottom][right-j] = m[top+j][right]
+                m[top+j][right] = t
+```
