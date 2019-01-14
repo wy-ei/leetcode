@@ -32,53 +32,37 @@
 1. 一个值为负的元素不可能是最大子序列的第一个元素
 2. 和为负的子序列不可能是最大子序列的前缀序列
 
-《数据结构与算法分析》中解法的 Python 版本代码：
+《数据结构与算法分析》中解法如下：
 
-```python
-class Solution:
-    def maxSubArray(self, nums):
-        max_sum = 0
-        sum_ = 0
-        
-        for n in nums:
-            sum_ += n
-            if sum_ > max_sum:
-                max_sum = sum_
-            elif sum_ < 0:
-                sum_ = 0
-                
-        return max_sum
-```
+![](./images/max_sub_array.jpg)
 
-但是**此算法对于本题不能得出正确的解**，问题在于如果数组全部为负数，这个算法会给出长度为 0 的子序列，这不符合本题题目要求。
+但是**此算法对于本题不能得出正确的解**，问题在于如果数组全部为负数，这个算法会给出长度为 0 的子序列，这不符合本题题目要求。这是因为此算法认为最大子序列和不能为负，即 `max_sum` 不会小于 0，当数组中所有元素均为负时，那就出错了。
 
 所以上面的第一条结论在此处不适用：
 
 1. ~~一个值为负的元素不可能是最大子序列的第一个元素~~
 2. 和为负的子序列不可能是最大子序列的前缀序列
 
-因此本题需要做如下改变：当 `sum` 大于 0 的时候，再将当前值加到 `sum` 上，否则让 `sum` 等于该值。最后和 `max_sum` 做比较。
+因此本题需要做如下改变：
+
+1. 修改 `max_sum` 的初始值为 `nums[0]`
+2. 将 `esle if` 修改为 `if`，因为就算 `sum_ > max_sum`，`sum_` 也有可能小于 0。
 
 本题 Aaccept 的代码如下：
 
 ```python
 class Solution:
     def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
         max_sum = nums[0]
         sum_ = 0
         
         for n in nums:
-            if sum_ > 0:
-                sum_ += n
-            else:
-                sum_ = n
-
+            sum_ += n
             if sum_ > max_sum:
                 max_sum = sum_
+
+            if sum_ < 0:
+                sum_ = 0
                 
         return max_sum
 ```
