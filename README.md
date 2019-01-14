@@ -23,3 +23,8 @@
 
 - [48. Rotate Image](./048-rotate-image.md)
 - [49. Group Anagrams](./049-group-anagrams.md)
+
+**第 5 天（2019-01-14）**
+
+- [50. Pow(x, n)](./050-powx-n.md)
+- [53. Maximum Subarray](./053-maximum-subarray.md)
