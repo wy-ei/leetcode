@@ -1,5 +1,6 @@
 ## 58. Length of Last Word
 
+
 - 难度： 简单
 - 通过率： 32.1%
 - 题目链接：[https://leetcode.com/problems/length-of-last-word](https://leetcode.com/problems/length-of-last-word)
@@ -23,3 +24,26 @@
 
 
 ### 解法：
+
+此题很容易，无需多言。
+
+```python
+class Solution:
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        i = len(s) - 1
+
+        while i >= 0 and s[i] == ' ':
+            i -= 1
+        
+        length = 0
+        while i >= 0 and s[i] != ' ':
+            i -= 1
+            length + = 1
+
+        return length
+```
