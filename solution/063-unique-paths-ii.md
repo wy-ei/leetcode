@@ -40,7 +40,7 @@
 
 ### 解法：
 
-只需要在[上一题](./062-unique-paths.md)的基础上稍加修改即可。
+只需要在 [上一题](./062-unique-paths.md) 的基础上稍加修改即可。
 
 ```python
 from collections import defaultdict

@@ -29,6 +29,10 @@
 
 [51. N-Queens](./solution/051-n-queens.md) / [56. Merge Intervals](./solution/056-merge-intervals.md)
 
-**第 7 天（2019-01-15）**
+**第 7 天（2019-01-16）**
 
 [57. Insert Interval](./solution/057-insert-interval.md) / [58. Length of Last Word](./solution/058-length-of-last-word.md)
+
+**第 8 天（2019-01-17）**
+
+[62. Unique Paths](./solution/062-unique-paths.md) / [63. Unique Paths II](./solution/063-unique-paths-ii.md)
