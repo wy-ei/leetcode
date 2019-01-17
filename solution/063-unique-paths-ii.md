@@ -39,3 +39,36 @@
 
 
 ### 解法：
+
+只需要在[上一题](./062-unique-paths.md)的基础上稍加修改即可。
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def uniquePathsWithObstacles(self, obstacle_grid):
+        """
+        :type obstacleGrid: List[List[int]]
+        :rtype: int
+        """
+        
+        m = len(obstacle_grid)
+        n = len(obstacle_grid[0])
+        
+        dp = defaultdict(int)
+        dp[(m-1,n-1)] = 1
+        
+        for col in range(n-1, -1, -1):
+            for row in range(m-1, -1, -1):
+                if obstacle_grid[row][col] == 1:
+                    dp[(row, col)] = 0
+                    continue
+                
+                if row < m-1:
+                    dp[(row, col)] += dp[(row+1, col)]
+                
+                if col < n-1:
+                    dp[(row, col)] += dp[(row, col+1)]
+        
+        return dp[(0,0)]
+```
