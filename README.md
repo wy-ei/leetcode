@@ -4,6 +4,8 @@
 
 准备开始 100 天 LeetCode 编程挑战，每天用一个小时来完成 LeetCode 上的题目，持续 100 天。
 
+---
+
 **第 1 天（2019-01-10）** 
 
 [34. Find First and Last Position of Element in Sorted Array](./solution/034-find-first-and-last-position-of-element-in-sorted-array.md)
@@ -11,7 +13,6 @@
 **第 2 天（2019-01-11）** 
 
 [39. Combination Sum](./solution/039-combination-sum.md) / [40. Combination Sum II](./solution/040-combination-sum-ii.md)
-
 
 **第 3 天（2019-01-12）** 
 
@@ -36,3 +37,7 @@
 **第 8 天（2019-01-17）**
 
 [62. Unique Paths](./solution/062-unique-paths.md) / [63. Unique Paths II](./solution/063-unique-paths-ii.md)
+
+**第 9 天（2019-01-18）**
+
+[66. Plus One](./solution/066-plus-one.md) / [67. Add Binary](./solution/067-add-binary.md) / [68. Text Justification](./solution/068-text-justification.md)

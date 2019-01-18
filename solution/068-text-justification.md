@@ -73,3 +73,75 @@ maxWidth = 20
 
 
 ### 解法：
+
+再也不想做 hard 类型的题了。
+
+```python
+class Solution:
+    def fullJustify(self, words, max_width):
+        """
+        :type words: List[str]
+        :type maxWidth: int
+        :rtype: List[str]
+        """
+        rows = []
+        
+        row_words = []
+        row_length = 0
+        row_words_length = 0
+        for word in words:
+            word_length = len(word)
+            
+            if row_length + word_length <= max_width:
+                row_words_length += word_length
+                row_length += word_length + 1
+                row_words.append(word)
+            else:
+                rows.append((row_words, row_words_length))
+                row_words = [word]
+                row_words_length = word_length
+                row_length = word_length + 1
+        rows.append((row_words, row_words_length))
+
+        return self.merge(rows, max_width)
+
+    def merge(self, rows, max_width):
+        str_rows = []
+        for row_count, row in enumerate(rows):
+            row_words = row[0]
+            row_words_length = row[1]
+            words_count = len(row_words)
+            space_count = max_width - row_words_length
+            
+            gap_count = words_count - 1
+            if gap_count == 0:
+                gap_space_count = 0
+                remain_space_count = 0
+            else:
+                gap_space_count = space_count // gap_count
+                remain_space_count = space_count % gap_count
+            
+            if row_count == len(rows) - 1:
+                gap_space_count = 1
+                remain_space_count = 0
+            
+            row_str_list = []
+            for i, word in enumerate(row_words):
+                row_str_list.append(word)
+                if i == len(row_words) - 1:
+                    break
+                row_str_list.append(' ' * gap_space_count)
+                if remain_space_count > 0:
+                    row_str_list.append(' ')
+                    remain_space_count -= 1
+            
+            str_row = ''.join(row_str_list)
+            
+            # 处理一行只有一个单词或最后一行的情况
+            if max_width != len(str_row):
+                str_row += (' ' * (max_width - len(str_row)))
+            
+            str_rows.append(str_row)
+
+        return str_rows
+```

@@ -31,3 +31,28 @@
 
 
 ### 解法：
+
+最后一位加一，然后向前进位。
+
+```python
+class Solution:
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        digits[-1] += 1
+        
+        cy = 0
+        for i in range(len(digits)-1, -1, -1):
+            n = (digits[i] + cy)
+            digits[i] = n % 10
+            cy = n // 10
+            if cy == 0:
+                break
+
+        if cy > 0:
+            digits = [cy] + digits
+        
+        return digits
+```
