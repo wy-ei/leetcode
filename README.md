@@ -41,3 +41,7 @@
 **第 9 天（2019-01-18）**
 
 [66. Plus One](./solution/066-plus-one.md) / [67. Add Binary](./solution/067-add-binary.md) / [68. Text Justification](./solution/068-text-justification.md)
+
+**第 10 天（2019-01-19）**: 
+
+[69. Sqrt(x)](./solution/069-sqrtx.md) / [70. Climbing Stairs](./solution/070-climbing-stairs.md) / [71. Simplify Path](./solution/071-simplify-path.md)

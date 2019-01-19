@@ -26,3 +26,35 @@
 
 
 ### 解法：
+
+```python
+<<< path = '/a/b/./c//d/../e/f'
+<<< path.split('/')
+>>> ['', 'a', 'b', '.', 'c', '', 'd', '..', 'e', 'f']
+```
+
+遇到空白跳过，遇到 `.` 跳过，遇到字符将字符入栈，遇到 `..` 出栈一个字符。
+
+```python
+class Solution:
+    def simplifyPath(self, path):
+        """
+        :type path: str
+        :rtype: str
+        """
+        
+        components = path.split('/')
+        stack = []
+
+        for component in components:
+            if component == '' or component == '.':
+                continue
+                
+            if component == '..' and len(stack) > 0:
+                stack.pop()
+                continue
+                
+            stack.append(component)
+
+        return '/' + '/'.join(stack)
+ ```

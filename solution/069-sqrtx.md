@@ -31,3 +31,28 @@
 
 
 ### 解法：
+
+采用牛顿法来解，解释见 [使用牛顿迭代法求平方根](https://github.com/wy-ei/notebook/issues/50)
+
+```python
+import math
+class Solution:
+    def mySqrt(self, n):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if n <= 1:
+            return n
+        
+        e = 1e-15
+        
+        x = n
+        x_next = (x + n / x) / 2
+        
+        while abs(x_next - x) > e:
+            x = x_next
+            x_next = (x + n / x) / 2
+        
+        return math.floor(x)
+```
