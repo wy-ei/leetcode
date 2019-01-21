@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/sort-colors](https://leetcode.com/problems/sort-colors)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -30,4 +30,29 @@
 </ul>
 
 
-### 解法：
+## 解法：
+
+一遍扫描，把 0 往前移动，把 2 往后移动，移动完成后 1 也自然就放在了合适的位置。
+
+```python
+def sortColors(nums):
+    """
+    :type nums: List[int]
+    :rtype: void Do not return anything, modify nums in-place instead.
+    """
+
+    lo = 0
+    hi = len(nums) - 1
+    i = 0
+
+    while i <= hi:
+        if nums[i] == 0:
+            nums[lo],nums[i] = nums[i],nums[lo]
+            lo += 1
+            i += 1
+        elif nums[i] == 2:
+            nums[hi],nums[i] = nums[i],nums[hi]
+            hi -= 1
+        else:
+            i += 1
+```
