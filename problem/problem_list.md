@@ -76,8 +76,7 @@
 - [76. Minimum Window Substring](./solution/076-minimum-window-substring.md)
 - [77. Combinations](./solution/077-combinations.md)
 - [78. Subsets](./solution/078-subsets.md)
-- [79. Word Search](./solution/079-word-search.md)
-- [80. Remove Duplicates from Sorted Array II](./solution/080-remove-duplicates-from-sorted-array-ii.md)
+
 - [81. Search in Rotated Sorted Array II](./solution/081-search-in-rotated-sorted-array-ii.md)
 - [82. Remove Duplicates from Sorted List II](./solution/082-remove-duplicates-from-sorted-list-ii.md)
 - [83. Remove Duplicates from Sorted List](./solution/083-remove-duplicates-from-sorted-list.md)

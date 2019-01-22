@@ -49,3 +49,29 @@ for (int i = 0; i &lt; len; i++) {
 
 
 ### 解法：
+
+服了，自己折腾了半天想不出好办法。看了一下别人的解答，竟然如此简洁。
+
+本问题有以下需要解决的点：
+
+1. 当前元素是否重复
+2. 当前元素应该移动到何处
+
+使用 i 始终指向放置下一个元素的位置，即如果当前元素尚未重复两次，那么就 i+1。
+
+```python
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        i = 0
+        for n in nums:
+            if i < 2 or n != nums[i - 2]:
+                nums[i] = n
+                i += 1
+
+        return i
+```

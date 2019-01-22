@@ -53,3 +53,7 @@
 **第 12 天（2019-01-21）**:
 
 [75. Sort Colors](./solution/075-sort-colors.md) / [77. Combinations](./solution/077-combinations.md) / [78. Subsets](./solution/078-subsets.md)
+
+**第 13 天（2019-01-22）**:
+
+[79. Word Search](./solution/079-word-search.md) / [80. Remove Duplicates from Sorted Array II](./solution/080-remove-duplicates-from-sorted-array-ii.md)
