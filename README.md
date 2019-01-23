@@ -57,3 +57,7 @@
 **第 13 天（2019-01-22）**:
 
 [79. Word Search](./solution/079-word-search.md) / [80. Remove Duplicates from Sorted Array II](./solution/080-remove-duplicates-from-sorted-array-ii.md)
+
+**第 14 天（2019-01-23）**:
+
+[81. Search in Rotated Sorted Array II](./solution/081-search-in-rotated-sorted-array-ii.md) / [82. Remove Duplicates from Sorted List II](./solution/082-remove-duplicates-from-sorted-list-ii.md) / [83. Remove Duplicates from Sorted List](./solution/083-remove-duplicates-from-sorted-list.md)
