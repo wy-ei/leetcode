@@ -61,3 +61,7 @@
 **第 14 天（2019-01-23）**:
 
 [81. Search in Rotated Sorted Array II](./solution/081-search-in-rotated-sorted-array-ii.md) / [82. Remove Duplicates from Sorted List II](./solution/082-remove-duplicates-from-sorted-list-ii.md) / [83. Remove Duplicates from Sorted List](./solution/083-remove-duplicates-from-sorted-list.md)
+
+**第 15 天（2019-01-24）**:
+
+优化 2019-01-23 的代码，并写文字解释。
