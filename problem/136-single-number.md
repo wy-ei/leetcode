@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/single-number](https://leetcode.com/problems/single-number)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -27,4 +27,4 @@
 <strong>输出:</strong> 4</pre>
 
 
-### 解法：
+## 解法：

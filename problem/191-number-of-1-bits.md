@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/number-of-1-bits](https://leetcode.com/problems/number-of-1-bits)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -48,4 +48,4 @@
 如果多次调用这个函数，你将如何优化你的算法？</p>
 
 
-### 解法：
+## 解法：

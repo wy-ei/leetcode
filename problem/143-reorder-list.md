@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/reorder-list](https://leetcode.com/problems/reorder-list)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,4 +23,4 @@
 <pre>给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3.</pre>
 
 
-### 解法：
+## 解法：

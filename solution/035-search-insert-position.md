@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/search-insert-position](https://leetcode.com/problems/search-insert-position)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -38,7 +38,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 二分查找而已，二分查找结束后，如果没有找到 `lo` 会指向在有序数组中 target 该插入的位置（如果要将 target 插入数组的话）。 
 

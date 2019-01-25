@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/excel-sheet-column-number](https://leetcode.com/problems/excel-sheet-column-number)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -44,4 +44,4 @@
 特别感谢&nbsp;<a href="http://leetcode.com/discuss/user/ts">@ts</a>&nbsp;添加此问题并创建所有测试用例。</p>
 
 
-### 解法：
+## 解法：

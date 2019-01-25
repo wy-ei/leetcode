@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/summary-ranges](https://leetcode.com/problems/summary-ranges)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -24,4 +24,4 @@
 <strong>解释: </strong>2,3,4 可组成一个连续的区间;&nbsp;8,9 可组成一个连续的区间。</pre>
 
 
-### 解法：
+## 解法：

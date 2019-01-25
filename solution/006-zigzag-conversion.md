@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -43,7 +43,7 @@ T     S     G</pre>
 
 
 
-### 解法 1
+## 解法 1
 
 顺序地遍历每个字符，然后判断该字符应该放在哪一行。可以在迭代的过程中维护一个行指针，该指针用于指出当前字符应该放在哪一行。这个指针在 0 到 `num_rows` 之间往返。
 
@@ -75,6 +75,6 @@ class Solution:
         return ''.join(rows)
 ```
 
-### 解法 2
+## 解法 2
 
 如果仔细分析每一行的各个字符在字符串中的下标，是能够发现规律的。这里不再尝试该方法了。详见[Solution](https://leetcode.com/problems/zigzag-conversion/solution/)。

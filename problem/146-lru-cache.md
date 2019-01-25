@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/lru-cache](https://leetcode.com/problems/lru-cache)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,4 +34,4 @@ cache.get(4);       // 返回  4
 </pre>
 
 
-### 解法：
+## 解法：

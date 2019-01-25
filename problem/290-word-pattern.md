@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/word-pattern](https://leetcode.com/problems/word-pattern)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -37,4 +37,4 @@
 你可以假设&nbsp;<code>pattern</code>&nbsp;只包含小写字母，&nbsp;<code>str</code>&nbsp;包含了由单个空格分隔的小写字母。&nbsp; &nbsp;&nbsp;</p>
 
 
-### 解法：
+## 解法：

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/add-binary](https://leetcode.com/problems/add-binary)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -24,7 +24,7 @@
 <strong>输出:</strong> &quot;10101&quot;</pre>
 
 
-### 解法：
+## 解法：
 
 逐项相加向前进位即可。
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/valid-number](https://leetcode.com/problems/valid-number)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -24,4 +24,4 @@
 <code>C++</code>函数的形式已经更新了。如果你仍然看见你的函数接收&nbsp;<code>const char *</code> 类型的参数，请点击重载按钮重置你的代码。</p>
 
 
-### 解法：
+## 解法：

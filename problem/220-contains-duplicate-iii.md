@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/contains-duplicate-iii](https://leetcode.com/problems/contains-duplicate-iii)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -27,4 +27,4 @@
 <strong>输出:</strong> false</pre>
 
 
-### 解法：
+## 解法：

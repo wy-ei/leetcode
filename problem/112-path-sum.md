@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/path-sum](https://leetcode.com/problems/path-sum)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -28,4 +28,4 @@
 <p>返回 <code>true</code>, 因为存在目标和为 22 的根节点到叶子节点的路径 <code>5-&gt;4-&gt;11-&gt;2</code>。</p>
 
 
-### 解法：
+## 解法：

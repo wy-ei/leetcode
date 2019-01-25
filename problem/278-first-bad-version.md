@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/first-bad-version](https://leetcode.com/problems/first-bad-version)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -26,4 +26,4 @@
 所以，4 是第一个错误的版本。&nbsp;</code></pre>
 
 
-### 解法：
+## 解法：

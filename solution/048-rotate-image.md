@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/rotate-image](https://leetcode.com/problems/rotate-image)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -54,7 +54,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 从外层向内，对矩阵的最外层进行旋转。这里采用 `offset` 用来确定层数，使用 `width` 来记录当前矩阵的大小，使用 `top,right,bottom,right` 来记录矩阵边界的索引。
 

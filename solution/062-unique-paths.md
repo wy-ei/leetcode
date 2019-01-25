@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/unique-paths](https://leetcode.com/problems/unique-paths)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -38,7 +38,7 @@
 <strong>输出:</strong> 28</pre>
 
 
-### 解法 1 - 动态规划：
+## 解法 1 - 动态规划：
 
 本题可用动态规划来做，用数组 m 来保存各个位置到右下角的路线数量。从右下角向左上角遍历，各个位置到右下角的路线数量为：
 
@@ -73,7 +73,7 @@ class Solution:
         return dp[(0,0)]
 ```
 
-### 解法 2 - 排列组合
+## 解法 2 - 排列组合
 
 另外，从左上角走到右下角一个需要走 m+n-2 步，其中向下走 m-1 步，向右走 n-1 步，因此一共有 `C(m+n-1,m-1)` 中路线。
 

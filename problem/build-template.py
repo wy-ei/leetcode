@@ -29,10 +29,10 @@ for problem in problems['stat_status_pairs'][-300:]:
         '- 通过率： {:.1f}%'.format(ac_rate),
         '- 题目链接：[{}]({})'.format(url, url),
         '\n',
-        '### 题目描述\n',
+        '## 题目描述\n',
         '来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)\n',
         text,
-        '\n### 解法：'
+        '\n## 解法：'
     ]
     
     markdowm_content = '\n'.join(markdowm_content)

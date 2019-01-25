@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/multiply-strings](https://leetcode.com/problems/multiply-strings)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -31,7 +31,7 @@
 </ol>
 
 
-### 解法 1：
+## 解法 1：
 
 这个题考察了乘法的原理，在手动计算乘法的时候，每乘完一次，就尝试进位。但其实可以在最后进行进位。
 
@@ -84,7 +84,7 @@ def multiply(num1, num2):
     return ''.join(map(str, result))
 ```
 
-### 解法 2：
+## 解法 2：
 
 [在 leetcode 讨论区](https://leetcode.com/problems/multiply-strings/discuss/17605/Easiest-JAVA-Solution-with-Graph-Explanation)看到另一个思路。
 

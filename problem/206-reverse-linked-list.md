@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/reverse-linked-list](https://leetcode.com/problems/reverse-linked-list)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -20,4 +20,4 @@
 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
 
 
-### 解法：
+## 解法：

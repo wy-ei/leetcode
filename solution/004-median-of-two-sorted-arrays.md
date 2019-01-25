@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -33,7 +33,7 @@ nums2 = [3, 4]
 
 
 
-### 解法 1
+## 解法 1
 
 最直接的方法，将两个数组 merge 然后返回中位数。时间复杂度为 `O(m+n)`，需要额外空间存储合并后的数组，空间复杂度为 `O(m+n)`。
 
@@ -80,7 +80,7 @@ class Solution:
 ```
 
 
-### 解法 2
+## 解法 2
 
 不合并，直接找到中位数的下标位置，然后返回中位数。
 
@@ -158,7 +158,7 @@ class Solution:
 ```
 
 
-### 解法 3
+## 解法 3
 
 这个解法的思路来自于<a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation">这里</a>，这个方法可谓精妙。
 

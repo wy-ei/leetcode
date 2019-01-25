@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/combination-sum](https://leetcode.com/problems/combination-sum)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -41,7 +41,7 @@
 ]</pre>
 
 
-### 解法：
+## 解法：
 
 此问题可以采用回溯法来搜索可行解。
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/find-median-from-data-stream](https://leetcode.com/problems/find-median-from-data-stream)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -40,4 +40,4 @@ findMedian() -&gt; 2</pre>
 </ol>
 
 
-### 解法：
+## 解法：

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/first-missing-positive](https://leetcode.com/problems/first-missing-positive)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,4 +34,4 @@
 <p>你的算法的时间复杂度应为O(<em>n</em>)，并且只能使用常数级别的空间。</p>
 
 
-### 解法：
+## 解法：

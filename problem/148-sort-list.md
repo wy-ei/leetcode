@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/sort-list](https://leetcode.com/problems/sort-list)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,4 +23,4 @@
 <strong>输出:</strong> -1-&gt;0-&gt;3-&gt;4-&gt;5</pre>
 
 
-### 解法：
+## 解法：

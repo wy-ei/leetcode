@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/valid-anagram](https://leetcode.com/problems/valid-anagram)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -29,4 +29,4 @@
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
 
 
-### 解法：
+## 解法：

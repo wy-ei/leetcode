@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/longest-common-prefix](https://leetcode.com/problems/longest-common-prefix)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -31,4 +31,4 @@
 <p>所有输入只包含小写字母&nbsp;<code>a-z</code>&nbsp;。</p>
 
 
-### 解法：
+## 解法：

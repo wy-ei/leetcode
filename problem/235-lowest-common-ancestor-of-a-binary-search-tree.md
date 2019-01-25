@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -42,4 +42,4 @@
 </ul>
 
 
-### 解法：
+## 解法：

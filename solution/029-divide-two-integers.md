@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/divide-two-integers](https://leetcode.com/problems/divide-two-integers)
 
 
-### 题目描述
+## 题目描述
 
 <p>给定两个整数，被除数&nbsp;<code>dividend</code>&nbsp;和除数&nbsp;<code>divisor</code>。将两数相除，要求不使用乘法、除法和 mod 运算符。</p>
 
@@ -30,7 +30,7 @@
 </ul>
 
 
-### 解法：
+## 解法：
 
 不使用乘法、除法和 mod 运算符来完成除法，那么就只能使用减法了，一种方法是先将除数和被除数都转换为正数，然后不断地从被除数中减去除数，减一个除数商就加一。但是这种方法显得太慢了，因此考虑在迭代中倍增除数，这样商就可以每次 +1 +2 +4 ...。在某一时刻，当被除数小于除数的时候，把除数还原为初始值，然后继续倍增。
 

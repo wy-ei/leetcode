@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/powx-n](https://leetcode.com/problems/powx-n)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/valid-sudoku](https://leetcode.com/problems/valid-sudoku)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -24,7 +24,7 @@
 <p>数独部分空格内已填入了数字，空白格用&nbsp;<code>&#39;.&#39;</code>&nbsp;表示。</p>
 
 
-### 解法：
+## 解法：
 
 这个题就是简单地检查各行各列以及各个子块中有没有重复的数字出现。
 

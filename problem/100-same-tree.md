@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/same-tree](https://leetcode.com/problems/same-tree)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -46,4 +46,4 @@
 </pre>
 
 
-### 解法：
+## 解法：

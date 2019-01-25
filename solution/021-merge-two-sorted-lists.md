@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -18,7 +18,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 本题很容易解答，其中一个技巧是创建一个 head，这样可以避免单独从 l1 和 l2 中找出头结点。
 

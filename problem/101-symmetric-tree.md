@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/symmetric-tree](https://leetcode.com/problems/symmetric-tree)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,4 +34,4 @@
 <p>如果你可以运用递归和迭代两种方法解决这个问题，会很加分。</p>
 
 
-### 解法：
+## 解法：

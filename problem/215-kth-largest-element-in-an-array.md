@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -27,4 +27,4 @@
 <p>你可以假设 k 总是有效的，且 1 &le; k &le; 数组的长度。</p>
 
 
-### 解法：
+## 解法：

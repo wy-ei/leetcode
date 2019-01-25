@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/rotate-list](https://leetcode.com/problems/rotate-list)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -31,4 +31,4 @@
 向右旋转 4 步:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
 
 
-### 解法：
+## 解法：

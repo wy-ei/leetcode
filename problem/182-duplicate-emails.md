@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/duplicate-emails](https://leetcode.com/problems/duplicate-emails)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,4 +34,4 @@
 <p><strong>说明：</strong>所有电子邮箱都是小写字母。</p>
 
 
-### 解法：
+## 解法：

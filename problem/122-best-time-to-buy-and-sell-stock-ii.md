@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -39,4 +39,4 @@
 <strong>解释:</strong> 在这种情况下, 没有交易完成, 所以最大利润为 0。</pre>
 
 
-### 解法：
+## 解法：

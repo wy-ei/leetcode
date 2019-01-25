@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/sliding-window-maximum](https://leetcode.com/problems/sliding-window-maximum)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -37,4 +37,4 @@
 <p>你能在线性时间复杂度内解决此题吗？</p>
 
 
-### 解法：
+## 解法：

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/number-of-digit-one](https://leetcode.com/problems/number-of-digit-one)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -18,4 +18,4 @@
 <strong>解释: </strong>数字 1 出现在以下数字中: 1, 10, 11, 12, 13 。</pre>
 
 
-### 解法：
+## 解法：

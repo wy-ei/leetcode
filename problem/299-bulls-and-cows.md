@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/bulls-and-cows](https://leetcode.com/problems/bulls-and-cows)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,4 +34,4 @@
 <p><strong>说明: </strong>你可以假设秘密数字和朋友的猜测数都只包含数字，并且它们的长度永远相等。</p>
 
 
-### 解法：
+## 解法：

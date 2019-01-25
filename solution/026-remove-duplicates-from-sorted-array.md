@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -49,7 +49,7 @@ for (int i = 0; i &lt; len; i++) {
 </pre>
 
 
-### 解法 1
+## 解法 1
 
 使用一个下标 j 指向数组第一个元素，然后从第二个元素开始和 nums[j] 比较，如果发现不同，那么就要把这个元素放到 j+1 的位置上。这样 j 始终指向数组中个元素 考虑到数组可能无重复，这么做会引起不必要的赋值，所以加一个判断。
 
@@ -71,7 +71,7 @@ def removeDuplicates(nums):
     return j + 1
 ```
 
-### 解法 2：
+## 解法 2：
 
 在[这里](https://leetcode.com/problems/remove-duplicates-from-sorted-array/discuss/11782/Share-my-clean-C%2B%2B-code)看到如下解法，稍作改进如下：
 

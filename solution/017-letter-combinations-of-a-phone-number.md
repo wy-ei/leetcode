@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -26,7 +26,7 @@
 
 
 
-### 解法一：
+## 解法一：
 
 使用深度优先遍历
 
@@ -66,7 +66,7 @@ class Solution:
         return result
 ```
 
-### 解法二
+## 解法二
 
 使用递归
 

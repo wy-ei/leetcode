@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/scramble-string](https://leetcode.com/problems/scramble-string)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -64,4 +64,4 @@ r   g  ta  e
 <strong>输出:</strong> false</pre>
 
 
-### 解法：
+## 解法：

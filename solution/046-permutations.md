@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/permutations](https://leetcode.com/problems/permutations)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -25,7 +25,7 @@
 ]</pre>
 
 
-### 解法 1. Heap Permute：
+## 解法 1. Heap Permute：
 
 采用著名的 [Heap's algorithm](https://en.wikipedia.org/wiki/Heap's_algorithm) 来解答。
 
@@ -76,7 +76,7 @@ T(n) = n((n-1)((n-2)((n-3)… + 2) + 2) + 2
 
 故时间复杂度为 O(n!)
 
-### 解法 2. DFS
+## 解法 2. DFS
 
 这个方法就简单多了，只需要深度优先搜索就可以了。
 

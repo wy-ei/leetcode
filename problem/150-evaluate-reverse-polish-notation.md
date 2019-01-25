@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -48,4 +48,4 @@
 = 22</pre>
 
 
-### 解法：
+## 解法：

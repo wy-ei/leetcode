@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/reverse-bits](https://leetcode.com/problems/reverse-bits)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -40,4 +40,4 @@
 如果多次调用这个函数，你将如何优化你的算法？</p>
 
 
-### 解法：
+## 解法：

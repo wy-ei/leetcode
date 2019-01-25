@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/binary-search-tree-iterator](https://leetcode.com/problems/binary-search-tree-iterator)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -40,4 +40,4 @@ iterator.hasNext(); // 返回 false</pre>
 </ul>
 
 
-### 解法：
+## 解法：

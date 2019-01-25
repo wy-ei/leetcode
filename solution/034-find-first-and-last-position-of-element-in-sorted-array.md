@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -26,7 +26,7 @@
 <strong>输出:</strong> [-1,-1]</pre>
 
 
-### 解法：
+## 解法：
 
 使用二分查找来寻找上界和下界。和二分查找不同之处在于找到 target 之后，需要判断 mid 是不是上下界，如果不是就继续更新 lo 或者 hi。
 

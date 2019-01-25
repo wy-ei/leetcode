@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,7 +34,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 使用 `substring_start_index` 始终指向子字符串的开头，在一个 `map` 中记录各个字符出现的索引，如果在 `map` 中发现之前出现过的字符，那么子字符串的起始位置就应该调整到前面那个重复的字符处，因为子字符串不可能包含那个重复的字符。最长的子字符串只能出现在非重复的字符出现的时候。
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/triangle](https://leetcode.com/problems/triangle)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -28,4 +28,4 @@
 <p>如果你可以只使用 <em>O</em>(<em>n</em>)&nbsp;的额外空间（<em>n</em> 为三角形的总行数）来解决这个问题，那么你的算法会很加分。</p>
 
 
-### 解法：
+## 解法：

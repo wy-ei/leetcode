@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/maximum-subarray](https://leetcode.com/problems/maximum-subarray)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,7 +23,7 @@
 <p>如果你已经实现复杂度为 O(<em>n</em>) 的解法，尝试使用更为精妙的分治法求解。</p>
 
 
-### 解法：
+## 解法：
 
 第一次看到这个问题是在《数据结构与算法分析》的第一章，作者给出了这个问题的至少 3 个解，暴力搜索、分治、和下面这个方法，下面这个方法算是最容易理解，也最为高效的。
 

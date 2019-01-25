@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -25,7 +25,7 @@
 </pre>
 
 
-### 解法 1
+## 解法 1
 
 直接暴力搜索，尝试所有的开头和结尾。时间复杂度为 `O(n^3)`，不符合要求。
 
@@ -62,7 +62,7 @@ class Solution:
 ```
 
 
-### 解法 2
+## 解法 2
 
 确定一个中心，然后向两边扩展找到各个中心的对应的最长回文串。因为回文串中心可以是一个字符，也可以是两个字符（或中心位于两个字符中间），这样以来共有 2n - 1 个可能的中心，因此时间复杂度为 `O(n^2)`
 

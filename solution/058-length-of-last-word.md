@@ -6,7 +6,7 @@
 - 题目链接：[https://leetcode.com/problems/length-of-last-word](https://leetcode.com/problems/length-of-last-word)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,7 +23,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 此题很容易，无需多言。
 

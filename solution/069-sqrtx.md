@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/sqrtx](https://leetcode.com/problems/sqrtx)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -30,7 +30,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 采用牛顿法来解，解释见 [使用牛顿迭代法求平方根](https://github.com/wy-ei/notebook/issues/50)
 

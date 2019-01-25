@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,7 +23,7 @@
 </ul>
 
 
-### 解法：
+## 解法：
 
 一开始考虑到没有 pre 结点，在循环中加了不少判断，代码写的很长。后来看了看别人的代码，发现可以自己创建一个 pre 节点，一下就把问题简化了。
 在 while 循环中给 `pre.next`, `pre.next.next` 起名字 `cur`，`_next` 可以让逻辑更清晰一些。

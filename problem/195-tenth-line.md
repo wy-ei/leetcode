@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/tenth-line](https://leetcode.com/problems/tenth-line)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -37,4 +37,4 @@ Line 10
 2. 至少有三种不同的解法，请尝试尽可能多的方法来解题。</p>
 
 
-### 解法：
+## 解法：

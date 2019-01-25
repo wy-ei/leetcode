@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/candy](https://leetcode.com/problems/candy)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -35,4 +35,4 @@
      第三个孩子只得到 1 颗糖果，这已满足上述两个条件。</pre>
 
 
-### 解法：
+## 解法：

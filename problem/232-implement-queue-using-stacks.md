@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -37,4 +37,4 @@ queue.empty(); // 返回 false</pre>
 </ul>
 
 
-### 解法：
+## 解法：

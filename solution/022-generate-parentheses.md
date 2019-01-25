@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/generate-parentheses](https://leetcode.com/problems/generate-parentheses)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -24,7 +24,7 @@
 
 
 
-### 解法：
+## 解法：
 
 想了好久没想出来，看了看答案，看到了这个解法。
 

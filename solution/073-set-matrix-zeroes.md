@@ -53,7 +53,7 @@
 
 ## 解法：
 
-### 解法 1：m+n 空间
+## 解法 1：m+n 空间
 
 使用两个 set 记录下含有 0 的行和含有 0 的列，然后遍历这两个 set 将相应的行和列置为 0。这是最直接的想法。
 
@@ -85,7 +85,7 @@ class Solution:
                 matrix[row][col] = 0
 ```
 
-### 解法 2：不使用额外空间
+## 解法 2：不使用额外空间
 
 在 leetcode 上看了一下[大佬的解答](https://leetcode.com/problems/set-matrix-zeroes/discuss/26014/Any-shorter-O(1)-space-solution)，我咋没想到哩。
 

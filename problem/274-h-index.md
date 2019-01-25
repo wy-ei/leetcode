@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/h-index](https://leetcode.com/problems/h-index)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -27,4 +27,4 @@
 <p><strong>说明:&nbsp;</strong>如果 <em>h </em>有多种可能的值，<em>h</em> 指数是其中最大的那个。</p>
 
 
-### 解法：
+## 解法：

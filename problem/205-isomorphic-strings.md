@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/isomorphic-strings](https://leetcode.com/problems/isomorphic-strings)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -35,4 +35,4 @@
 你可以假设&nbsp;<em><strong>s&nbsp;</strong></em>和 <strong><em>t </em></strong>具有相同的长度。</p>
 
 
-### 解法：
+## 解法：

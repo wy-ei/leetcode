@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -48,7 +48,7 @@ for (int i = 0; i &lt; len; i++) {
 }</pre>
 
 
-### 解法：
+## 解法：
 
 服了，自己折腾了半天想不出好办法。看了一下别人的解答，竟然如此简洁。
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -68,7 +68,7 @@ p = &quot;mis*is*p*.&quot;
 <strong>输出:</strong> false</pre>
 
 
-### 解法 1
+## 解法 1
 
 使用动态规划，利用一个二维数组来记录模式与字符串的匹配情况，具体说来 `match[i][j] == True` 表示 `s[0:i]` 与 `p[0:j]` 匹配。
 
@@ -121,7 +121,7 @@ class Solution:
         return match[len(s)][len(p)]
 ```
 
-### 解法 2
+## 解法 2
 
 另外可以使用 NFA（非确定有限状态机）来解决，参加普林斯顿出的算法（第四版）
 

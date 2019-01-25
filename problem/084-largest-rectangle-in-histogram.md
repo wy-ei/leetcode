@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/largest-rectangle-in-histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -33,4 +33,4 @@
 <strong>输出:</strong> 10</pre>
 
 
-### 解法：
+## 解法：

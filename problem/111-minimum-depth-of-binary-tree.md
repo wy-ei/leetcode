@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -28,4 +28,4 @@
 <p>返回它的最小深度 &nbsp;2.</p>
 
 
-### 解法：
+## 解法：

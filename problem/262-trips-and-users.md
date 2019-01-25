@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/trips-and-users](https://leetcode.com/problems/trips-and-users)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -58,4 +58,4 @@
 非常感谢&nbsp;<a href="https://leetcode.com/discuss/user/cak1erlizhou">@cak1erlizhou</a>&nbsp;详细的提供了这道题和相应的测试用例。</p>
 
 
-### 解法：
+## 解法：

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/combination-sum-ii](https://leetcode.com/problems/combination-sum-ii)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -42,7 +42,7 @@
 ]</pre>
 
 
-### 解法：
+## 解法：
 
 本题和 [39. Combination Sum](./039-combination-sum.md) 的区别在于本题中存在重复元素，且同一个元素不能多次使用。如果采用[ 39 题的解法](./039-combination-sum.md)，会出现重复。但只需要稍做改动即可。
 

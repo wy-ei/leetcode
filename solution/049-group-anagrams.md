@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/group-anagrams](https://leetcode.com/problems/group-anagrams)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -29,7 +29,7 @@
 </ul>
 
 
-### 解法：
+## 解法：
 
 这个题的重点是找到一种办法，把字母组成相同的单词，编码成一个相同的 `key`，然后将通过一个 `map` 把这些单词存在同一个数组中。
 

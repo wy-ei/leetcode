@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/remove-element](https://leetcode.com/problems/remove-element)
 
 
-### 题目描述
+## 题目描述
 
 <p>给定一个数组 <em>nums&nbsp;</em>和一个值 <em>val</em>，你需要<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>移除所有数值等于&nbsp;<em>val&nbsp;</em>的元素，返回移除后数组的新长度。</p>
 
@@ -52,7 +52,7 @@ for (int i = 0; i &lt; len; i++) {
 </pre>
 
 
-### 解法 1：
+## 解法 1：
 
 简单，但缺点是容易出现没必要的赋值。
 
@@ -71,7 +71,7 @@ def removeElement(nums, val):
     return i
 ```
 
-### 解法 2：
+## 解法 2：
 
 看看别人写的代码，真是自愧不如。遇到 val 就把数组最后一个元素换过来，然后缩短数组长度。
 

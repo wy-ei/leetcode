@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -28,4 +28,4 @@
 <p><strong>进阶:&nbsp;</strong>请选用C语言的用户尝试使用&nbsp;<em>O</em>(1) 空间复杂度的原地解法。</p>
 
 
-### 解法：
+## 解法：

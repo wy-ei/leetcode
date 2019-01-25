@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/binary-tree-paths](https://leetcode.com/problems/binary-tree-paths)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -28,4 +28,4 @@
 <strong>解释:</strong> 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3</pre>
 
 
-### 解法：
+## 解法：

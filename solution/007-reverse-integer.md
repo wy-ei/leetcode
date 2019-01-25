@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/reverse-integer](https://leetcode.com/problems/reverse-integer)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -35,7 +35,7 @@
 
 
 
-### 解法
+## 解法
 
 这题很容易，需要注意的是负数取余在 Python 中和 C 语言不同。为了避免出错，不妨转换为正数后处理。
 

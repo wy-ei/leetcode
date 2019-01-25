@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/repeated-dna-sequences](https://leetcode.com/problems/repeated-dna-sequences)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -20,4 +20,4 @@
 <strong>输出:</strong> [&quot;AAAAACCCCC&quot;, &quot;CCCCCAAAAA&quot;]</pre>
 
 
-### 解法：
+## 解法：

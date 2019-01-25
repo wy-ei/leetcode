@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/palindrome-number](https://leetcode.com/problems/palindrome-number)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -36,7 +36,7 @@
 <p>你能不将整数转为字符串来解决这个问题吗？</p>
 
 
-### 解法：
+## 解法：
 
 超级简单，根据题意负数不可能是回文数，把数字逆转过来，如果和原来的数相等，就是回文数。
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/pascals-triangle-ii](https://leetcode.com/problems/pascals-triangle-ii)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -26,4 +26,4 @@
 <p>你可以优化你的算法到 <em>O</em>(<em>k</em>) 空间复杂度吗？</p>
 
 
-### 解法：
+## 解法：

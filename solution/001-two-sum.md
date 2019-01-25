@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/two-sum](https://leetcode.com/problems/two-sum)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -21,7 +21,7 @@
 所以返回 [<strong>0, 1</strong>]
 </pre>
 
-### 解法：
+## 解法：
 
 需要在数组中寻找两个数使其和为 target，可以将数组中的值存放在 map 中并记录下标，这样在遍历的过程中，如果当前元素为 a，那么寻找 target - a 的值时就能够得到加速。
 

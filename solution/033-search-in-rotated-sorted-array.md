@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -31,7 +31,7 @@
 <strong>输出:</strong> -1</pre>
 
 
-### 解法 1
+## 解法 1
 
 在 leetcode 上看到这个[解答](https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14435/Clever-idea-making-it-simple)，非常简洁，深深被折服。
 
@@ -77,7 +77,7 @@ def search(nums, target):
                     
 ```
 
-### 解法 2
+## 解法 2
 
 target 和 `nums[mid]` 的位置有以下几种情况：
 

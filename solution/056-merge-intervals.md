@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/merge-intervals](https://leetcode.com/problems/merge-intervals)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -25,7 +25,7 @@
 <strong>解释:</strong> 区间 [1,4] 和 [4,5] 可被视为重叠区间。</pre>
 
 
-### 解法：
+## 解法：
 
 先按照 `interval.start` 排序
 

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/sum-root-to-leaf-numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -45,4 +45,4 @@
 因此，数字总和 = 495 + 491 + 40 = <code>1026</code>.</pre>
 
 
-### 解法：
+## 解法：

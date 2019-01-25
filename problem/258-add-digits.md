@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/add-digits](https://leetcode.com/problems/add-digits)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -22,4 +22,4 @@
 你可以不使用循环或者递归，且在 O(1) 时间复杂度内解决这个问题吗？</p>
 
 
-### 解法：
+## 解法：

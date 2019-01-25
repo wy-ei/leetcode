@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/peeking-iterator](https://leetcode.com/problems/peeking-iterator)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -23,4 +23,4 @@
 <p><strong>进阶：</strong>你将如何拓展你的设计？使之变得通用化，从而适应所有的类型，而不只是整数型？</p>
 
 
-### 解法：
+## 解法：

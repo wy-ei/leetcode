@@ -65,3 +65,8 @@
 **第 15 天（2019-01-24）**:
 
 优化 2019-01-23 的代码，并写文字解释。
+
+
+**第 16 天（2019-01-25）**:
+
+[88. Merge Sorted Array](./solution/088-merge-sorted-array.md) / [93. Restore IP Addresses](./solution/093-restore-ip-addresses.md)

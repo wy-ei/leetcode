@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/different-ways-to-add-parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -31,4 +31,4 @@
 (((2*3)-4)*5) = 10</pre>
 
 
-### 解法：
+## 解法：

@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/climbing-stairs](https://leetcode.com/problems/climbing-stairs)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -34,7 +34,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 上 n 层楼梯，可以上到 n-1 层然后一步跨一阶上去，也可以上到 n-2 层一步跨两阶上去。因此上 n 层楼的走法等于上 n-1 层楼和上 n-2 层楼的走法之和。这也算是动态规划类型的问题了。
 

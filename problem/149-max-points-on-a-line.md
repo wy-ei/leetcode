@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/max-points-on-a-line](https://leetcode.com/problems/max-points-on-a-line)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -40,4 +40,4 @@
 0 &nbsp;1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5 &nbsp;6</pre>
 
 
-### 解法：
+## 解法：

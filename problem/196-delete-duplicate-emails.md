@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/delete-duplicate-emails](https://leetcode.com/problems/delete-duplicate-emails)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -32,4 +32,4 @@ Id 是这个表的主键。
 </pre>
 
 
-### 解法：
+## 解法：

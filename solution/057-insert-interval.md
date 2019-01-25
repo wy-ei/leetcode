@@ -5,7 +5,7 @@
 - 题目链接：[https://leetcode.com/problems/insert-interval](https://leetcode.com/problems/insert-interval)
 
 
-### 题目描述
+## 题目描述
 
 来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
 
@@ -27,7 +27,7 @@
 </pre>
 
 
-### 解法：
+## 解法：
 
 这道题的难度被定为 hard，我开始不以为然，然后自己上手编了一下，提交了 5 次才成功，而且代码修修补补写的很烂。主要问题在于没有看透此问题的本质，因此用了一些笨办法。
 
