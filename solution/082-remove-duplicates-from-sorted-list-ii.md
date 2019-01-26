@@ -25,9 +25,6 @@
 
 ## 解法：
 
-Runtime: 44 ms, faster than 100.00% of Python3 online submissions for Remove Duplicates from Sorted List II.
-
-
 对重复节点进行计数，使用 `pre` 指向具有相同值得节点中的第一个，`cur` 以此遍历链表，同时和 `pre` 的值比较，值相同的 `count += 1`，不相同的时候判断 `count` 是不是 1，如果是 1，就将 `pre` 加入结果中。
 
 在遍历结束后，`pre` 节点因为还没有遇到下一个值不同的节点，所以还没有做处理（插入结果链表中，或是抛弃），这个时候只需要判断 `count` 的值是否为 1 即可。

@@ -35,3 +35,34 @@
 
 
 ## 解法：
+
+对于字符串 s 的解码方式，可以是在 `s[0:-1]` 的基础上，将 `s[-1]` 解码，这样 s 的解码结果数就等于 `s[0:-1]` 的解码结果数。
+
+也可以在 `s[0:-2]` 的基础上，将 `s[-2]` 和 `s[-1]` 合在一起解码，如果能够解码成功，其解码结果数就等于对 `s[0:-2]` 解码的结果数。
+
+```python
+class Solution:
+    def numDecodings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if len(s) == 0 or s[0] == '0':
+            return 0
+        
+        if len(s) == 1:
+            return 1
+        
+        a, b = 1, 1
+        for i in range(2, len(s)):
+            ans = 0
+            if s[i] != '0':
+                ans += b
+            if s[i-1] == '1' or (s[i-1] == '2' and s[i] <= '6'):
+                ans += a
+
+            a = b
+            b = ans
+
+        return b
+```
