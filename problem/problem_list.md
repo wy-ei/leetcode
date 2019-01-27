@@ -87,10 +87,8 @@
 
 - [89. Gray Code](./solution/089-gray-code.md)
 - [90. Subsets II](./solution/090-subsets-ii.md)
-- [91. Decode Ways](./solution/091-decode-ways.md)
 - [92. Reverse Linked List II](./solution/092-reverse-linked-list-ii.md)
 
-- [94. Binary Tree Inorder Traversal](./solution/094-binary-tree-inorder-traversal.md)
 - [95. Unique Binary Search Trees II](./solution/095-unique-binary-search-trees-ii.md)
 - [96. Unique Binary Search Trees](./solution/096-unique-binary-search-trees.md)
 - [97. Interleaving String](./solution/097-interleaving-string.md)
