@@ -70,3 +70,29 @@ class Solution:
 
         return result
 ```
+
+上面的方法，在出队的时候一次出一个节点，为了区别节点的层级，额外加入了 depth 信息。其实没有必要。可以一次性把同一层的节点全部出队并处理。
+
+```python
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        queue = []
+        result = []
+        
+        if root:
+            queue.append(root)
+
+        while queue:
+            values = []
+            for _ in range(len(queue)):
+                node = queue.pop(0)
+                values.append(node.val)
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            result.append(values)            
+
+        return result
+```

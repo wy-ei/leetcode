@@ -40,7 +40,8 @@ class Solution:
         :type l2: ListNode
         :rtype: ListNode
         """
-        ret = []
+        head = ListNode(0)
+        p = head
         carry = 0
         while l1 or l2:
             sum_ = carry
@@ -51,9 +52,10 @@ class Solution:
                 sum_ += l2.val
                 l2 = l2.next
             carry = sum_ // 10
-            ret.append(sum_ % 10)
+            p.next = ListNode(sum_ % 10)
+            p = p.next
 
         if carry > 0:
-            ret.append(carry)
-        return ret
+            p.next = ListNode(carry)
+        return head.next
 ```

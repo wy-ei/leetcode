@@ -47,3 +47,30 @@
 
 
 ## 解法：
+
+
+
+```python
+class Solution:
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+        if (p == None) ^ (q == None):
+            return False
+        
+        if (p == None) and (q == None):
+            return True
+        
+        if p.val != q.val:
+            return False
+        
+        if not self.isSameTree(p.left, q.left):
+            return False
+        if not self.isSameTree(p.right, q.right):
+            return False
+
+        return True
+```
