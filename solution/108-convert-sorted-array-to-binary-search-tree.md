@@ -28,3 +28,21 @@
 
 
 ## 解法：
+
+将已排序的序列中中间切分，切分点作为根节点，左右两边分别用来构建左右子树。如此递归进行即可。
+
+```python
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        if not nums:
+            return None
+        
+        mid = len(nums) // 2
+        root = TreeNode(nums[mid])
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid+1:])
+        
+        return root
+```
+
+[](https://github.com/wy-ei/leetcode/tree/master/solution/108-convert-sorted-array-to-binary-search-tree.md)

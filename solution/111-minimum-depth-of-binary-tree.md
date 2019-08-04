@@ -29,3 +29,25 @@
 
 
 ## 解法：
+
+层次遍历，遇到第一个没有左右孩子的节点时停止。
+
+```python
+class Solution:
+    def minDepth(self, root):
+        if not root:
+            return 0
+        
+        queue = [(root, 1)]
+        
+        while queue:
+            node, depth = queue.pop(0)
+            if not (node.left or node.right):
+                return depth
+            
+            depth += 1
+            if node.left:
+                queue.append((node.left, depth))
+            if node.right:
+                queue.append((node.right, depth))
+```

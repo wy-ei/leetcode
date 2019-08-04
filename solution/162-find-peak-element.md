@@ -41,7 +41,7 @@
 
 ```python
 class Solution:
-    def findPeakElement(self, nums) -> int:
+    def findPeakElement(self, nums: List[int]) -> int:
         lo, hi = 0, len(nums) - 1
 
         while lo < hi:
