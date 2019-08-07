@@ -28,3 +28,30 @@
 
 
 ## 解法：
+
+当一个数出现三次的时候，如果能够通过某种方式将其抵消掉，这样就可以保留下只出现过一次的数了。
+
+注意到下面的运算规律：
+
+```
+0 ^ a = a
+a ^ a = 0
+
+0 & a = 0
+a & a = a
+a & ~a = 0
+```
+
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        even, odd, mask = 0, 0, 0
+        for num in nums:
+            even ^= odd & num
+            odd ^= num
+            mask = (odd & even)
+            even &= ~mask
+            odd &= ~mask
+        return odd
+```

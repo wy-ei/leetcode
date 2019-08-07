@@ -41,18 +41,18 @@ class Solution:
         :type digits: List[int]
         :rtype: List[int]
         """
-        digits[-1] += 1
         
-        cy = 0
+        digits[-1] += 1
+        carry = 0
         for i in range(len(digits)-1, -1, -1):
-            n = (digits[i] + cy)
+            n = digits[i] + carry
             digits[i] = n % 10
-            cy = n // 10
-            if cy == 0:
+            carry = n // 10
+            if carry == 0:
                 break
 
-        if cy > 0:
-            digits = [cy] + digits
+        if carry > 0:
+            digits = [carry] + digits
         
         return digits
 ```

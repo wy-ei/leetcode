@@ -28,3 +28,28 @@
 
 
 ## 解法：
+
+快慢指针找到链表的中点，使用两个指针限制左右子树的链表范围。不要将原链表断开，有副作用。
+
+```python
+class Solution:
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        return self._list_to_BST(head, None)
+        
+    def list_to_BST(self, start, end):
+        if start == end:
+            return None
+        
+        fast = start
+        slow = start
+        
+        while fast and fast.next and fast != end and fast.next != end:
+            fast = fast.next.next
+            slow = slow.next
+            
+        root = TreeNode(slow.val)
+        root.left = self.list_to_BST(start, slow)
+        root.right = self.list_to_BST(slow.next, end)
+        
+        return root
+```

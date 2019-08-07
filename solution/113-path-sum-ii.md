@@ -35,3 +35,25 @@
 
 
 ## 解法：
+
+深度优先遍历，在深入的同时，传入余下的路线应有的 sum。
+
+```python
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+        result = []
+        self.dfs(root, [], sum, result)
+        return result
+        
+    def dfs(self, node, nodes, sum):
+        if not node:
+            return
+        
+        if not node.left and not node.right and sum == node.val:
+            result.append(nodes + [node.val])
+
+        if node.left:
+            self.dfs(node.left, nodes + [node.val], sum - node.val, result)
+        if node.right:
+            self.dfs(node.right, nodes + [node.val], sum - node.val, result)
+```

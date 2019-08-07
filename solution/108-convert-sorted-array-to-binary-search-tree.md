@@ -45,4 +45,4 @@ class Solution:
         return root
 ```
 
-[](https://github.com/wy-ei/leetcode/tree/master/solution/108-convert-sorted-array-to-binary-search-tree.md)
+[https://github.com/wy-ei/leetcode](https://github.com/wy-ei/leetcode/tree/master/solution/108-convert-sorted-array-to-binary-search-tree.md)

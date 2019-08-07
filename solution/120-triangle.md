@@ -29,3 +29,26 @@
 
 
 ## 解法：
+
+从下向上，每个数和它下面两个中较小的那个相加，这样结束后第一行的那个数就是最短路径了。
+
+```
+2
+3  4
+6  5  7
+4  1  8  3
+```
+
+
+```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        row = list(triangle[-1])
+        n_row = len(triangle)
+
+        for upper_row in reversed(triangle[:-1]):
+            for i in range(len(upper_row)):
+                row[i] = upper_row[i] + min(row[i], row[i+1])
+        
+        return row[0]
+```

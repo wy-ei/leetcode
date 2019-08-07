@@ -29,3 +29,22 @@
 
 
 ## 解法：
+
+仿佛回到了大学一年级。
+
+```python
+class Solution:
+    def generate(self, n_rows: int) -> List[List[int]]:
+        triangle = []
+        last_row = []
+        
+        for i_row in range(n_rows):
+            row_len = i_row + 1
+            row = [1] * row_len
+            for i in range(1, row_len - 1):
+                row[i] = last_row[i-1] + last_row[i]
+            triangle.append(row)
+            last_row = row
+
+        return triangle
+```

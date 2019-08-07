@@ -32,3 +32,38 @@
 
 
 ## 解法：
+
+
+从第一天开始累积收益，收益小于 0 时，说明在此之前都不能买。收益大于 0 时，和当前的最大收益比较，保存较大的。
+
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_profit = 0
+        profit = 0
+        
+        for i in range(1, len(prices)):
+            profit += prices[i] - prices[i-1]
+            if profit < 0:
+                profit = 0
+            else:
+                max_profit = max(max_profit, profit)
+            
+        return max_profit
+```
+
+另外一个思路，不断更新当前日期之前的最小值，作为买入价格，然后和当天的价格做差，就是当前卖出的收益，不断更新最大收益。（这个方法很棒）
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_profit = 0
+        min_price = float('inf')
+        
+        for price in prices:
+            min_price = min(price, min_price)
+            max_profit = max(max_profit, price - min_price)
+            
+        return max_profit
+```

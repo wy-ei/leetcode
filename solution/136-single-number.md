@@ -28,3 +28,18 @@
 
 
 ## 解法：
+
+
+- 异或满足交换律：a ^ b ^ c <=> a ^ c ^ b
+- 任何数与 0 异或还是这个数： 0 ^ n => n
+- 相同的数异或结果为 0：n ^ n => 0
+
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        xor = 0
+        for num in nums:
+            xor ^= num
+        return xor
+```

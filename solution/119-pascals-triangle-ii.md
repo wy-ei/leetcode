@@ -27,3 +27,18 @@
 
 
 ## 解法：
+
+中规中矩的实现，不知道第 n 行的值，是不是有一个推导公式可以直接得出来，不过不想深究了。
+
+```python
+class Solution:
+    def getRow(self, row_index: int) -> List[int]:
+        row = [1] * (row_index + 1)
+        
+        for i_row in range(row_index):
+            for i in range(i_row, 0, -1):
+                row[i] = row[i-1] + row[i]
+
+        return row
+```
+

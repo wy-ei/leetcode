@@ -30,26 +30,26 @@ class Solution:
         """
         results = []
 
-        self.__restoreIpAddresses(s, [], results)
+        self._restore(s, [], results)
 
         return results
     
-    def __restoreIpAddresses(self, s, ip_parts, results):
-        if len(ip_parts) == 4 and not s:
-            results.append('.'.join(ip_parts))
+    def _restore(self, remain_str, segments, results):
+        if len(segments) == 4 and not remain_str:
+            results.append('.'.join(segments))
             return
 
-        if len(ip_parts) == 4 or not s:
+        if len(segments) == 4 and remain_str:
             return
         
-        for length in range(1, min(3, len(s)) + 1):
-            part = s[0:length]
+        for length in range(1, min(3, len(remain_str)) + 1):
+            segment = remain_str[:length]
 
-            if length > 1 and part[0] == '0':
+            if length > 1 and segment[0] == '0':
                 return
             
-            if length == 3 and int(part) > 255:
+            if length == 3 and int(segment) > 255:
                 return
 
-            self.__restoreIpAddresses(s[length:], ip_parts + [part], results)
+            self._restore(remain_str[length:], segments + [segment], results)
 ```

@@ -41,12 +41,12 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         if not inorder:
             return None
-        
-        root = TreeNode(preorder.pop(0))
+            
+        root = TreeNode(preorder[0])
 
         i = inorder.index(root.val)
-        root.left = self.buildTree(preorder, inorder[:i])
-        root.right = self.buildTree(preorder, inorder[i+1:])
-            
-        return root
+        root.left = self.buildTree(preorder[1:i+i], inorder[:i])
+        root.right = self.buildTree(preorder[i+1:], inorder[i+1:])
+        
+        return root    
 ```
