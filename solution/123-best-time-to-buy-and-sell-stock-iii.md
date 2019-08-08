@@ -39,3 +39,33 @@
 
 
 ## 解法：
+
+计算在 i 天前能获得的最大收益，和在 i 天后能够获得的最大收益。如此，计算 i 天之前和之后的收益和，得出最大收益。
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if len(prices) < 2:
+            return 0
+        
+        profit_before = []
+        profit_after = [] 
+        
+        min_price = float('inf')
+        for price in prices:
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
+            profit_before.append(max_profit)
+
+        max_price = float('-inf')
+        for price in reversed(prices):
+            max_price = max(max_price, price)
+            max_profit = max(max_profit, max_price - price)
+            profit_after.append(max_profit)
+        profit_after = reversed(profit_after)
+        
+        profit = map(lambda x: x[0] + x[1], zip(profit_before, profit_after))
+        max_profit = max(profit)
+
+        return max_profit
+```

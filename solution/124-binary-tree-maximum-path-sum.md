@@ -38,3 +38,42 @@
 
 
 ## 解法：
+
+如果一个节点包含在最大和路径中, 有下面两种情况:
+
+1. 该节点加上左右子树中路径和较大且大于 0 的那个子树（可能不存在），一起构成最大路径。
+2. 该节点的左右子树都在最大路径中, 与该节点一起构成了最终的最大路径。
+
+```
+    10  <--- 第二种情况
+   / \
+  9  20 <--- 第一种情况
+    /  \
+   15   7
+```
+
+```python
+class Solution:
+    def maxPathSum(self, root: TreeNode) -> int:
+        max_sum = float('-inf')
+        
+        def max_path_sum(node):
+            nonlocal max_sum
+            
+            if not node:
+                return 0
+
+            max_left = max_path_sum(node.left)
+            max_right = max_path_sum(node.right)
+            
+            max_child = max(max_left, max_right)
+            sum_child = max_left + max_right
+            
+            max_sum = max(sum_child + node.val, max_sum)
+            
+            return max(max_child + node.val, 0)
+        
+        max_path_sum(root)
+        
+        return max_sum
+```
