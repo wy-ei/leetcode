@@ -24,3 +24,24 @@
 
 
 ## 解法：
+
+直接采用回溯法暴力搜索即可。
+
+```python
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        result = []
+        
+        def helper(s, res):
+            if not s:
+                result.append(res)
+                return
+                
+            for i in range(len(s)):
+                if s[:i+1] == s[:i+1][::-1]:
+                    helper(s[i+1:], res + [s[:i+1]])
+        
+        helper(s, [])
+        
+        return result
+```

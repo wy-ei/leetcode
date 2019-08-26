@@ -15,3 +15,24 @@
 
 
 ## 解法：
+
+```python
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        clone = self.copy(head, {})
+        return clone
+        
+    def copy(self, node, mp):
+        if not node:
+            return None
+        
+        if node in mp:
+            return mp[node]
+        else:
+            mp[node] = Node(node.val, None, None)
+        
+        mp[node].next = self.copy(node.next, mp)
+        mp[node].random = self.copy(node.random, mp)
+        
+        return mp[node]
+```

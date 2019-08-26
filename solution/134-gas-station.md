@@ -58,3 +58,24 @@ cost = [3,4,3]
 
 
 ## 解法：
+
+最直接、最容易想到的解法是两重循环，但是会超时。下面这个解法只用一层循环。
+
+当 `sum(cost) > sum(gas)` 的时候肯定无解，否则一定有解。
+
+从加油站 `i` 到 `i+1` 需要保证油箱里剩余的油量大于等于 0，否则说明不能到达该加油站，不能将该站以及之前的站作为起点。
+
+```python
+class Solution:
+    def canCompleteCircuit(self, gas, cost) -> int:
+        if sum(gas) < sum(cost):
+            return -1
+        
+        rest, start = 0, 0
+        for i in range(len(gas)):
+            rest += gas[i] - cost[i]
+            if rest < 0:
+                start = i+1
+                rest = 0
+        return start
+```

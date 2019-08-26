@@ -22,3 +22,24 @@
 
 
 ## 解法：
+
+使用动态规划，记录下在各个位置之前需要进行的划分次数。
+
+`dp[i]` 就表示前 i 个字符需要划分的次数。初始状态下 `dp = [-1, 0, 1, 2, ...]`
+
+对于回文串 `s[start:end]`，`dp[end+1] = min(dp[end+1], dp[start] + 1)`
+
+取 `dp[0] = -1` 可以简化状态方程的更新过程。
+
+
+```python
+class Solution:
+    def minCut(self, s: str) -> List[List[str]]:
+        dp = [i for i in range(-1, len(s))]
+        for end in range(len(s)):
+            for start in range(end+1):
+                if s[start:end+1] == s[start:end+1][::-1]:
+                    dp[end+1] = min(dp[end+1], dp[start]+1)
+                    
+        return dp[-1]
+```

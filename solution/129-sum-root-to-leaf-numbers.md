@@ -46,3 +46,30 @@
 
 
 ## 解法：
+
+深度优先遍历。
+
+```python
+class Solution:
+    def sumNumbers(self, root: TreeNode) -> int:
+        result = 0
+        
+        def dfs(node, num):
+            nonlocal result
+            
+            if not node:
+                return
+            
+            num = num * 10 + node.val
+            
+            if (node.left is None) and (node.right is None):
+                result += num
+                return
+                        
+            dfs(node.left, num)
+            dfs(node.right, num)
+        
+        dfs(root, 0)
+        
+        return result
+```
