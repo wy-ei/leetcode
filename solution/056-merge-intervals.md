@@ -61,20 +61,14 @@
 
 
 ```python
-# Definition for an interval.
-# class Interval:
-#     def __init__(self, s=0, e=0):
-#         self.start = s
-#         self.end = e
-
 class Solution:
     def merge(self, intervals):
-        intervals.sort(key=lambda interval:interval.start)
+        intervals.sort(key=lambda interval: interval[0])
         
         i = 0
         for interval in intervals:
-            if interval.start <= intervals[i].end:
-                intervals[i].end = max(intervals[i].end, interval.end)
+            if interval[0] <= intervals[i][1]:
+                intervals[i][1] = max(intervals[i][1], interval[1])
             else:
                 i += 1
                 intervals[i] = interval

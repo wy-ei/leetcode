@@ -55,3 +55,45 @@ class Solution(object):
         if left_opened > 0:
             self.__generateParenthesis(left_remained, left_opened - 1, s + ')', results)
 ```
+
+2020-1-4 更新
+
+不使用递归求解，消耗内存更小，速度更快。
+
+```cpp
+class Solution {
+public:
+vector<string> generateParenthesis(int n) {
+        vector<string> parentheses = {"("};
+        vector<int> left_counts = {1};
+        vector<string> new_parentheses;
+        vector<int> new_left_counts;
+        
+        for (int i = 1; i < n * 2; i++) {
+            new_parentheses.clear();
+            new_left_counts.clear();
+            new_parentheses.reserve(parentheses.size() * 2);
+            new_left_counts.reserve(parentheses.size() * 2);
+
+            for (int j = 0; j < parentheses.size(); j++) {
+                string &str = parentheses[j];
+                int left = left_counts[j];
+                int right = str.size() - left;
+
+                if (left < n) {
+                    new_parentheses.emplace_back(str + "(");
+                    new_left_counts.emplace_back(left + 1);
+                }
+
+                if (left > right) {
+                    new_parentheses.emplace_back(str + ")");
+                    new_left_counts.emplace_back(left);
+                }
+            }
+            parentheses.swap(new_parentheses);
+            left_counts.swap(new_left_counts);
+        }
+        return parentheses;
+    }
+};
+```

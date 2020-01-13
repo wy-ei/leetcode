@@ -45,7 +45,7 @@ class Solution:
         if n <= 1:
             return n
         
-        e = 1e-15
+        e = 1e-4
         
         x = n
         x_next = (x + n / x) / 2

@@ -79,7 +79,7 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
     'c': {'a', 'd'},
     'd': {'b'}
 }
-
+```
 
 提前构造图时没有必要的，要想提前造图，需要对各个单词两两计算差异，但在遍历的随着余下的节点的规模减小，计算量也会慢慢下降。
 

@@ -32,16 +32,8 @@
 这道题的难度被定为 hard，我开始不以为然，然后自己上手编了一下，提交了 5 次才成功，而且代码修修补补写的很烂。主要问题在于没有看透此问题的本质，因此用了一些笨办法。
 
 
-以后要深刻把握问题的关键，想明白了再动手。
+下面是 LeetCode 上 StefanPochmann 的解法：[7+ lines, 3 easy solutions](https://leetcode.com/problems/insert-interval/discuss/21622/7%2B-lines-3-easy-solutions)，这段代码实在是太帅了。
 
-
-下面是 StefanPochmann 大神的解法：[7+ lines, 3 easy solutions](https://leetcode.com/problems/insert-interval/discuss/21622/7%2B-lines-3-easy-solutions)
-
-```
-         -----------
--- ---- ---- ----- ---  -------
-     ^                    ^
-```
 
 ```python
 # Definition for an interval.
@@ -68,6 +60,31 @@ class Solution:
         return left + [Interval(start, end)] + right
 ```
 
+下面的解法会直观一点，先处理相交区间之前的子区间，然后合并区间，最后处理相交区间后面的子区间。
+
+```python
+class Solution:
+    def insert(self, intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+        ret = []
+        n = len(intervals)
+        i = 0
+        while i < n and intervals[i][1] < new_interval[0]:
+            ret.append(intervals[i])
+            i += 1
+            
+        while i < n and intervals[i][0] <= new_interval[1]:
+            new_interval[0] = min(intervals[i][0], new_interval[0])
+            new_interval[1] = max(intervals[i][1], new_interval[1])
+            i += 1
+        ret.append(new_interval)
+        
+        while i < n:
+            ret.append(intervals[i])
+            i += 1
+        
+        return ret
+```
+
 
 ### 启发：
 
@@ -79,3 +96,9 @@ if max(start_1, start_2) <= min(end_1, end_2):
 else:
     return False
 ```
+
+```
+----  -----
+```
+
+观察不相交的区间的特征，`max_left > min_right`，根据这个特征就可以很容易地判断两个区间是否相交。

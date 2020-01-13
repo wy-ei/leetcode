@@ -105,5 +105,47 @@ def atoi(self, str):
         return 2 ** 31 - 1
 
     return x
+```
 
+用 C++ 解：
+
+```cpp
+int myAtoi(string str) {
+    int n = 0;
+    auto it = str.begin();
+    while(isblank(*it)){
+        ++it;
+    }
+    int sign = 1;
+
+    if(*it == '+' || *it == '-'){
+        if(*it == '-'){
+            sign = -1;
+        }
+        ++it;
+    }
+
+
+    int int_min = numeric_limits<int>::min();
+    int int_max = numeric_limits<int>::max();
+
+    while(isdigit(*it) && it != str.end()){
+        int m = sign * (*it - '0');
+
+        if(sign == 1){
+            if((int_max / 10 < n) || (int_max / 10 == n && int_max % 10 <= m)){
+                return int_max;
+            }
+        }else{
+            if((int_min / 10 > n) || (int_min / 10 == n && int_min % 10 >= m)){
+                return int_min;
+            }
+        }
+
+        n = n * 10 + m;
+        ++it;
+    }
+
+    return n;
+}
 ```

@@ -30,3 +30,19 @@
 
 
 ## 解法：
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        // dp[i] = max(mun[i] + dp[i-2], dp[i-1])
+        int dp[2] = {0, 0};
+        for(int num: nums){
+            int n = max(num + dp[0], dp[1]);
+            dp[0] = dp[1];
+            dp[1] = n; 
+        }
+        return dp[1];
+    }
+};
+```

@@ -60,9 +60,7 @@ public:
 		}
 
 		if (!fast) {
-			ListNode* ret = head->next;
-			delete head;
-			return ret;
+			
 		}
 
 		while (fast->next) {
@@ -70,19 +68,50 @@ public:
 			pre = pre->next;
 		}
 
-
 		// n = 1, remove the last one
 		if (n == 1) {
 			delete pre->next;
 			pre->next = nullptr;
 		}
 		else {
-			ListNode* next = pre->next->next;
-			delete pre->next;
-			pre->next = next;
+			
 		}
 		return head;
 	}
 };
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *fast = head, *slow = head;
+        while(n--){
+            fast = fast->next;
+        }
+        // remove first node
+        if(!fast){
+            ListNode* ret = head->next;
+            delete head;
+            return ret;
+        }
+
+        while(fast->next){
+            fast = fast->next;
+            slow = slow->next;
+        }
+        
+        ListNode* next = slow->next;
+        slow->next = slow->next->next;
+        delete next;
+        
+        return head;
+    }
+};
 ```

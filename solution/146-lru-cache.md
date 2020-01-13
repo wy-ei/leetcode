@@ -35,3 +35,42 @@ cache.get(4);       // 返回  4
 
 
 ## 解法：
+
+```cpp
+
+class LRUCache {
+public:
+    LRUCache(int capacity):cap_(capacity){}
+
+    int get(int key) {
+        auto it = map_.find(key);
+        if(it == map_.end()){
+            return -1;
+        }
+        int value = it->second->second;
+        list_.splice(list_.end(), list_, it->second);
+        return value;
+    }
+
+    void put(int key, int value) {
+        auto it = map_.find(key);
+        if(it != map_.end()){
+            it->second->second = value;
+            list_.splice(list_.end(), list_, it->second);
+            return;
+        }
+        if(list_.size() == cap_){
+            it = map_.find(list_.front().first);
+            map_.erase(it);
+            list_.pop_front();
+        }
+        list_.emplace_back(key, value);
+        map_[key] = --list_.end();
+    }
+
+private:
+    list<pair<int, int>> list_;
+    unordered_map<int, list<pair<int, int>>::iterator> map_;
+    int cap_;
+};
+```

@@ -43,31 +43,32 @@
 但是值得注意的是，在交换之前 `nums[k]` 之后的元素是递减的，交换之后，依然没有打破递减的规律，所以不需要进行排序，只需要翻转一下即可。 
 
 
-```python
-class Solution:
-    def reverse(self, nums, start, end):
-        end -= 1
-        while start < end:
-            nums[start], nums[end] = nums[end], nums[start]
-            start += 1
-            end -= 1
-        
-    def nextPermutation(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
-        k = len(nums) - 2
-        while k >= 0 and nums[k] >= nums[k+1]:
-            k -= 1
+```cpp
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        if(nums.size() < 2) return;
+        auto first = nums.begin();
+        auto last = nums.end();
+        auto i = last - 1;
+        while(true){
+            auto ii = i;
+            --i;
+            if(*i < *ii){
+                auto j = last - 1;
+                while(*j <= *i){
+                    --j;
+                }
+                swap(*i, *j);
+                reverse(ii, last);
+                return;
+            }
             
-        if k == -1:
-            self.reverse(nums, 0, len(nums))
-            return
-        
-        for i in range(len(nums) - 1, 0, -1):
-            if nums[i] > nums[k]:
-                nums[i], nums[k] = nums[k], nums[i]
-                self.reverse(nums, k+1, len(nums))
-                return
+            if(i == first){
+                reverse(first, last);
+                return;
+            }
+        }
+    }
+};
 ```

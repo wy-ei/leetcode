@@ -21,3 +21,31 @@
 
 
 ## 解法：
+
+把链表节点以此插到新链表的头部即可。
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode *p = head;
+        ListNode *next;        
+        head = nullptr;
+        while(p){
+            next = p->next;
+            p->next = head;
+            head = p;
+            p = next;
+        }
+        return head;
+    }
+};
+```
