@@ -1,0 +1,75 @@
+## 54. 二叉搜索树的第k大节点
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>给定一棵二叉搜索树，请找出其中第k大的节点。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> root = [3,1,4,null,2], k = 1
+   3
+  / \
+ 1   4
+  \
+&nbsp;  2
+<strong>输出:</strong> 4</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre><strong>输入:</strong> root = [5,3,6,2,4,null,null,1], k = 3
+       5
+      / \
+     3   6
+    / \
+   2   4
+  /
+ 1
+<strong>输出:</strong> 4</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p>1 &le; k &le; 二叉搜索树元素个数</p>
+
+
+## 解法：
+
+右孩子、父节点、左孩子，按照这样的顺序遍历二叉搜索树，遍历的各个节点的值就是递减的。
+
+因此，遍历同时计数，遍历到第 k 个的时候，保存结果即可。
+
+```c++
+class Solution {
+public:
+    int kthLargest(TreeNode* root, int k) {
+        int i = 0, res;
+        traversal(root, k, &i, &res);
+        return res;
+    }
+private:
+    void traversal(TreeNode* node, int k, int *i, int *res){
+        if(node == nullptr){
+            return;
+        }
+
+        traversal(node->right, k, i, res);
+
+        *i = *i + 1;
+        if(*i == k){
+            *res = node->val;
+            return;
+        }
+
+        traversal(node->left, k, i, res);
+    }
+};
+```

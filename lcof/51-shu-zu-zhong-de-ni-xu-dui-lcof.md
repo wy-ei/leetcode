@@ -1,0 +1,97 @@
+## 51. 数组中的逆序对
+
+- 难度：Hard
+- 题目链接：[https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入</strong>: [7,5,6,4]
+<strong>输出</strong>: 5</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 数组长度 &lt;= 50000</code></p>
+
+
+## 解法：
+
+这个题可真巧妙啊，利用归并排序巧妙地计算出了数组中的逆序对个数。
+
+考虑下面的数组，数组被分为了两个有序的子数组，现在要对这两个子数组进行归并。
+
+```
+[                 ]
+ 1 3 4 5 | 2 5 6 7
+
+[1                ]
+   3 4 5 | 2 5 6 7
+```
+
+在归并 `2` 的时候，第一个子数组中还有 3 个未归并，因此 `2` 和左边子数组中余下的元素构成逆序对。归并 `3` 的时候 `3` 肯定是小于其后的所有元素的，因此不构成逆序对。
+
+基于以上分析，只需要在归并右边的数组中的元素时，累加左边数组中余下的元素的数量，就可以得到上面这个数组的逆序对了。
+
+左右两边的有序子数组，也是归并得到的。在归并得到它们的时候，可以计算出子数组中未排序时候的逆序对数量。
+
+所以，在归并排序的 merge 阶段，合并右侧数组时候，累加左侧子数组元素的数量，就可以统计出整个数组的逆序对数量了。
+
+
+```c++
+class Solution {
+public:
+    int reversePairs(vector<int>& nums) {
+        vector<int> aux(nums.size());
+        int reverse_pairs_num = merge_sort(nums, aux, 0, nums.size());
+        return reverse_pairs_num;
+    }
+
+private:
+    static int merge_sort(vector<int>& nums, vector<int>& aux, int lo, int hi){
+        if(hi - lo <= 1){
+            return 0;
+        }
+        
+        int reverse_pairs_num = 0;
+        auto mid = lo + (hi - lo) / 2;
+
+        reverse_pairs_num += merge_sort(nums, aux, lo, mid);
+        reverse_pairs_num += merge_sort(nums, aux, mid, hi);
+        reverse_pairs_num += merge(nums, aux, lo, mid, hi);
+
+        return reverse_pairs_num;
+    }
+
+    static int merge(vector<int>& nums, vector<int>& aux, int lo, int mid, int hi){
+        copy(nums.begin()+lo, nums.begin()+hi, aux.begin()+lo);
+        
+        auto i = lo, j = mid;
+        int reverse_pairs_num = 0;
+
+        for(int k=lo;k<hi;k++){
+            if(i == mid){
+                nums[k] = aux[j++];
+            }else if(j == hi){
+                nums[k] = aux[i++];
+            }else if(aux[i] <= aux[j]){
+                nums[k] = aux[i++];
+            }else{
+                nums[k] = aux[j++];
+                reverse_pairs_num += mid - i;
+            }
+        }
+        
+        return reverse_pairs_num;
+    }
+};
+```

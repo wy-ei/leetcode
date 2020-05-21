@@ -65,7 +65,7 @@ class Solution:
 
 
     def __divide(self, dividend, divisor):
-        quotient = 0; # 商    
+        quotient = 0 # 商    
         origin_divisor = divisor
         i = 1
         while dividend >= divisor:

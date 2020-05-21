@@ -36,11 +36,11 @@
 把 6 放到 4 的位置后，需要让后缀最小，也就是 `{8,7,4}` 这三个数构成的数最小，即 `478`，这样就得到了答案，`5 6 4 7 8`
 
 
-这个 4 的寻找方法，就是从后向前，找第一个满足 `nums[k] < nums[k+1]` 的这个 `nums[k]`，也就是第一个比后一个元素小的元素。只有替换这个元素，原数组构成的数才会增大。
+这个 4 的寻找方法，就是从后向前，找第一个满足 `nums[i] < nums[i+1]` 的这个 `nums[i]`，也就是第一个比后一个元素小的元素。只有替换这个元素，原数组构成的数才会增大。
 
-找到这个数之后，在去它后面的数中，寻找第一个大于它的数 `nums[i]`，把这个数和 `nums[k]` 交互，而后对 k 后面的所有元素排序，这就得到了答案。
+找到这个数之后，在去它后面的数中，寻找第一个大于它的数 `nums[j]`，把这个数和 `nums[i]` 交互，而后对 i 后面的所有元素排序，让这些元素呈升序排列，这就得到了答案。
 
-但是值得注意的是，在交换之前 `nums[k]` 之后的元素是递减的，交换之后，依然没有打破递减的规律，所以不需要进行排序，只需要翻转一下即可。 
+但是值得注意的是，在交换之前 `nums[i]` 之后的元素是递减的，交换之后，依然没有打破递减的规律，所以不需要进行排序，只需要翻转一下即可。 
 
 
 ```cpp
@@ -48,27 +48,20 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         if(nums.size() < 2) return;
-        auto first = nums.begin();
-        auto last = nums.end();
-        auto i = last - 1;
-        while(true){
-            auto ii = i;
-            --i;
-            if(*i < *ii){
-                auto j = last - 1;
-                while(*j <= *i){
-                    --j;
-                }
-                swap(*i, *j);
-                reverse(ii, last);
-                return;
-            }
-            
-            if(i == first){
-                reverse(first, last);
-                return;
-            }
+        int i = nums.size() - 2;
+        while(i >= 0 && nums[i] >= nums[i+1]){
+            i--;
         }
+        if(i < 0){
+            reverse(nums.begin(), numss.end());
+            return;
+        }
+        int j = nums.size() - 1;
+        while(j >= 0 && nums[j] <= nums[i]){
+            j--;
+        }
+        ::swap(nums[i], nums[j]);
+        reverse(nums.begin()+i+1, nums.end());
     }
 };
 ```

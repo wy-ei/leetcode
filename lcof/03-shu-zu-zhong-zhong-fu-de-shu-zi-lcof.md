@@ -1,0 +1,53 @@
+## 03. 数组中重复的数字
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>找出数组中重复的数字。</p>
+
+<p><br>
+在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>
+[2, 3, 1, 0, 2, 5, 3]
+<strong>输出：</strong>2 或 3 
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>2 &lt;= n &lt;= 100000</code></p>
+
+
+## 解法：
+
+由于已经说明了数组中的元素的范围为 [0,n-1]，因此可以考虑使用每个元素作为下标，在原数组中去标记，意思是该下标对应的值出现过。如果出现重复的数，那么就会在标记之前发现已经被标记过了，这样就找到了。但是因为数组中的值还需要在后面被使用，不能直接覆盖掉它，但是同时又要使用它来标记。做法很简单，把该值减去 n，这个数就变成负的了。每次遇到一个负数，可以把它 +n，恢复出原来的数。某个下标对应的数值为负，说明数组中值为该下标的数存在。
+
+```c++
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        for(int i = 0; i < nums.size(); i++){
+            int n = nums[i];
+            if(n < 0){
+                n += nums.size();
+            }
+            if(nums[n] < 0){
+                return n;
+            }else{
+                nums[n] -= nums.size();
+            }
+        }
+        // 不会发生
+        return -1;
+    }
+};
+```

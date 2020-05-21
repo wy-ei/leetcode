@@ -1,0 +1,98 @@
+## 56 - II. 数组中数字出现的次数 II
+
+- 难度：Medium
+- 题目链接：[https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>在一个数组 <code>nums</code> 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>nums = [3,4,3,3]
+<strong>输出：</strong>4
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><strong>输入：</strong>nums = [9,1,7,9,7,9,7]
+<strong>输出：</strong>1</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10000</code></li>
+	<li><code>1 &lt;= nums[i] &lt; 2^31</code></li>
+</ul>
+
+<p>&nbsp;</p>
+
+
+## 解法：
+
+最近几道题一道比一道有意思，本题想了许久，毫无头绪，看了下别人的解答后，感觉太妙了。
+
+只需要统计一下所有数中 0~31 位上 `1` 出现的次数，然后用 3 取余，不就是只出现一次的那个数中 0~31 位上 1 的个数吗。
+
+```c++
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ret = 0;
+        for(int i=0;i<32;i++){
+            int mask = 1 << i;
+            int count = 0;
+            for(int n: nums){
+                if(n & mask){
+                    count += 1;
+                }
+            }
+            if(count % 3 == 1){
+                ret += mask;
+            }
+        }
+        return ret;
+    }
+};
+```
+
+因为最后各个位上 `1` 的个数要使用 `3` 取余，因此不妨只记录 `0 1 2` 大于 `2` 的时候就变成 `0`。而且对每一个数的各个位上的 1 的计数操作，可以使用位运算一次处理完，不需要循环 32 次。每一位上 1 的次数的取值范围为 `0 1 2`，因此对每一位计数需要两个 bit，因此使用两个 `int` 就可以了。
+
+设这两个 int 为 `a` 和 `b`，假设 `a` 和 `b` 的最低位分别为 `00, 01, 10`，分别代表 `nums` 中最低位上 1 的个数用 `3` 取余后为 `0 1 2` 个。`a` 和 `b` 的更新可以使用逻辑运算轻松完成。可以使用真值表得出运算的细节。
+
+| a' | b' | n  | a | b |
+|:---|:---|:---|:--|:--|
+| 0  |  0 | 0  | 0 | 0 |
+| 0  |  0 | 1  | 0 | 1 |
+| 0  |  1 | 0  | 0 | 1 |
+| 0  |  1 | 1  | 1 | 0 |
+| 1  |  0 | 0  | 1 | 0 |
+| 1  |  0 | 1  | 0 | 0 |
+| 1  |  1 | 0  | x | x | 
+| 1  |  1 | 0  | x | x |
+
+上表为 `a` 和 `b` 运算结果的真值表，`a'` 和 `b'` 分别为 `a` 和 `b` 的旧值。最后两行中 `a` 和 `b` 同时为 `1` 是不合理的。
+
+下面的代码中 `b` 作为最低位，`a` 作为最高位，每次迭代基于 `a` `b` `n` 更新 `a` 和 `b` 的值。因此最后各个位上 `1` 的个数只能是 `0` 或 `1`，因此只需要 `b` 中就记录的是各位中 `1` 的数量，而 `b` 不就恰恰是答案吗。 
+
+```c++
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int a = 0, b = 0, t = 0;
+        for(int n: nums){
+            int t = b;
+            b = (b & ~a & ~n) | (~b & ~a & n);
+            a = (a & ~t & ~n) | (~a & t & n);
+        }
+        return b;
+    }
+};
+```

@@ -1,0 +1,138 @@
+## 57 - II. 和为s的连续正数序列
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>输入一个正整数 <code>target</code> ，输出所有和为 <code>target</code> 的连续正整数序列（至少含有两个数）。</p>
+
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>target = 9
+<strong>输出：</strong>[[2,3,4],[4,5]]
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><strong>输入：</strong>target = 15
+<strong>输出：</strong>[[1,2,3,4,5],[4,5,6],[7,8]]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= target &lt;= 10^5</code></li>
+</ul>
+
+<p>&nbsp;</p>
+
+
+## 解法一：滑动窗口
+
+滑动窗口法，如果 `sum > target` 就增加 `lo` 并减小 `sum`。如果 `hi + hi - 1 > target` 就可以停止了。  
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> findContinuousSequence(int target) {
+        vector<vector<int>> ret;
+        int lo = 1, hi = 1, sum = 0;
+        while(true){
+            sum += hi;
+            hi++;
+            
+            while(sum > target){
+                sum -= lo;
+                lo++;
+            }
+            
+            if(sum == target){
+                ret.emplace_back(range(lo, hi));
+            }
+
+            if(hi * 2 - 1 > target){
+                break;
+            }
+        }
+        return ret;
+    }
+
+private:
+    static vector<int> range(int lo, int hi){
+        vector<int> ret;
+        ret.reserve(hi - lo);
+        while (lo < hi){
+            ret.push_back(lo);
+            lo++;
+        }
+        return ret;
+    }
+};
+```
+
+## 解法二：利用数学方法
+
+设序列的第一个数为 `a`，最后一个数为 `b`。则 `a~b` 之和为 `(a + b) * (b - a + 1) / 2`。即梯形面积求法：
+
+`S = (上底+下底)*高 / 2`
+
+这里 `S == target`，`上底 == a`，`下底 == b`，`高 = b - a + 1`。故：
+
+一旦高和面积确定了，就可以解出 `a+b`。由于 `高 = b - a + 1`，且 `a + b` 和 `高` 已知，就可以解出 `a` 和 `b`。
+
+因此，只需要遍历所有可能的的高，然后解出上下底即可。本题的设定中，高度最小为 2。当下底为 `1` 的时候，高度最大，且高度就是下底的值，`(1+b) * (b - 1 + 1) / 2 = target`，改写为 `b^2 = target`，可以让 `b` 比实际情况要大，因此可以解出高度的上界为：`b = sqrt(2 * target)`。
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> findContinuousSequence(int target) {
+        vector<vector<int>> ret;
+        int high = sqrt(2 * target) + 1;
+        int a = 0, b = 0, a_plus_b = 0;
+        while(high - 1 >= 2){
+            high -= 1;
+
+            // a + b 不是整数
+            if((target * 2) % high != 0){
+                continue;
+            }
+            
+            a_plus_b = (target * 2) / high;
+
+            // b - a + 1 = high
+            // a_plus_b - a - a + 1 = high
+            // a = (a_plus_b + 1 - high) / 2
+            if((a_plus_b +1 - high) % 2 != 0){
+                continue;
+            }
+
+            a = (a_plus_b + 1 - high) / 2;
+            b = a_plus_b - a;
+
+            ret.emplace_back(range(a, b+1));
+        }
+        return ret;
+    }
+
+private:
+    static vector<int> range(int lo, int hi){
+        vector<int> ret;
+        ret.reserve(hi - lo);
+        while (lo < hi){
+            ret.push_back(lo);
+            lo++;
+        }
+        return ret;
+    }
+};
+```

@@ -1,0 +1,108 @@
+## 06. 从尾到头打印链表
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>head = [1,3,2]
+<strong>输出：</strong>[2,3,1]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 链表长度 &lt;= 10000</code></p>
+
+
+## 解法一：把链表翻转过来然后顺序打印，然后再翻转回去
+
+经过两次翻转链表，对原链表没有任何影响，因此并没有破坏输入。
+
+```cpp
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        vector<int> result;
+
+        head = reverse(head);
+        
+        for(ListNode *p = head; p != nullptr; p = p->next){
+            result.push_back(p->val);
+        }
+        
+        reverse(head);
+        
+        return result;
+    }
+
+    ListNode* reverse(ListNode* head){
+        ListNode *p = head;
+        head = nullptr;
+
+        while(p != nullptr){
+            ListNode * next = p->next;
+            p->next = head;
+            head = p;
+            p = next; 
+        }
+
+        return head;
+    }
+};
+```
+
+关于翻转链表，需要稍稍分析一波。想法就是，拿一个节点作为翻转后的链表的头。然后遍历原链表，把每个节点添加到翻转后链表的头部，然后更新头节点指针。最后返回这个头节点即可。
+
+原链表的头节点在链表翻转后就是尾结点了，因此需要注意翻转后尾结点的 next 要是 null。因此，在一开始不妨设置反转后的头结点为 null。
+
+
+## 解法二：递归
+
+递归进入到链表的最后一个节点，把节点的值插入结果中。递归退出一层，在把节点中的值插入结果中。如此就完成了。
+
+```cpp
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        vector<int> result;
+        helper(head, result);
+        return result;
+    }
+
+    void helper(ListNode* node, vector<int> &result){
+        if(node == nullptr){
+            return;
+        }
+        helper(node->next, result);
+        result.push_back(node->val);
+    }
+};
+```
+
+## 解法三：简单直接
+
+我觉得这个问题最快的解法就是顺序收集节点的值，然后翻转数组。
+
+```cpp
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        vector<int> result;
+        for(ListNode *p = head; p != nullptr; p = p->next){
+            result.push_back(p->val);
+        }
+        reverse(result.begin(), result.end());
+        return result;
+    }
+};
+```

@@ -1,0 +1,75 @@
+## 05. 替换空格
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>请实现一个函数，把字符串 <code>s</code> 中的每个空格替换成&quot;%20&quot;。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>s = &quot;We are happy.&quot;
+<strong>输出：</strong>&quot;We%20are%20happy.&quot;</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= s 的长度 &lt;= 10000</code></p>
+
+
+## 解法：
+
+首先空格的长度为 1，替换后长度为 3，原字符串没办法存储替换后的字符串。作者的意思其实是在不利用额外存储空间的情况下来完成此题。但是字符串后面是否有足够的空间也没法保证。因此，这里假设 `\0` 后面还有空间可以使用。
+
+具体做法就是从后往前处理，先计算出替换后的字符串的长度。而后从原字符串结尾开始处理，非空格那就移动到最后面，空格那就往前加入 `%20`。
+
+```cpp
+char* replaceSpace(char* s){
+    int num_space = 0;
+    int len = 0;
+    for(char *p = s; *p != '\0'; p++){
+        if(*p == ' '){
+            num_space += 1;
+        }
+        len += 1;
+    }
+    int final_len = len + num_space * 2;
+    int i = final_len;
+    for(int j=len;j>=0;j--){
+        if(s[j] == ' '){
+            s[i--] = '0';
+            s[i--] = '2';
+            s[i--] = '%';
+        }else{
+            s[i--] = s[j];
+        }
+    }
+    return s;
+}
+
+int main(){
+    char s[] = new char[100];
+    strcpy(s, "hello world");
+    replaceSpace(s);
+    printf("%s\n", s);  
+}
+```
+
+本来挺简单的一个题，结果踩了一个大坑，在设置 `20%` 的时候，我使用了如下写法：
+
+```cpp
+strcpy(s + i - 2, "20%");
+```
+
+但没有意识到 `strcpy` 会在字符串后面加入 `\0`。因此放入的并不是单纯的 `20%`。一种方法是使用 `strncpy` 限定拷贝的长度。
+
+```cpp
+strncpy(s + i - 2, "20%", 3);
+```  

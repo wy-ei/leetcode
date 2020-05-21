@@ -1,0 +1,81 @@
+## 55 - II. 平衡二叉树
+
+- 难度：Easy
+- 题目链接：[https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/)
+
+
+## 题目描述
+
+来源于 [https://leetcode-cn.com/](https://leetcode-cn.com/)
+
+<p>输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code></p>
+
+<pre>    3
+   / \
+  9  20
+    /  \
+   15   7</pre>
+
+<p>返回 <code>true</code> 。<br>
+<br>
+<strong>示例 2:</strong></p>
+
+<p>给定二叉树 <code>[1,2,2,3,3,null,null,4,4]</code></p>
+
+<pre>       1
+      / \
+     2   2
+    / \
+   3   3
+  / \
+ 4   4
+</pre>
+
+<p>返回&nbsp;<code>false</code> 。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= 树的结点个数 &lt;= 10000</code></li>
+</ul>
+
+<p>注意：本题与主站 110&nbsp;题相同：<a href="https://leetcode-cn.com/problems/balanced-binary-tree/">https://leetcode-cn.com/problems/balanced-binary-tree/</a></p>
+
+<p>&nbsp;</p>
+
+
+## 解法：
+
+计算左右孩子的高度，在不平衡的时候抛出异常，彻底退出递归。也可以在不平衡的时候返回 `-1`，一旦发现孩子的高度为 `-1`，就立刻返回 `-1`，这样也能一下子退出递归。
+
+```c++
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        try{
+            check_balance(root);
+        }catch(...){
+            return false;
+        }
+        return true;
+    }
+
+    int check_balance(TreeNode* node){
+        if(node == nullptr) return 0;
+        int l = 1 + check_balance(node->left);
+        int r = 1 + check_balance(node->right);
+        if(abs(l - r) > 1){
+            throw exception();
+        }
+        return max(l, r);
+    }
+};
+```

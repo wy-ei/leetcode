@@ -93,7 +93,7 @@ class Solution:
         return results
         
     def __permute(self, remain_nums, path, results):
-        if len(remain_nums) == 0:
+        if len(remain_nums) == 1:
             results.append(path + remain_nums)
         else:
             for i, n in enumerate(remain_nums):
