@@ -62,7 +62,7 @@ public:
         int root = preorder.front();
         preorder.pop_front();
         
-        TreeNode *node = new TreeNode(root);
+        TreeNode *node = new TreeNode(root); 
         auto it = find(first, last, root);
         node->left = buildTree(first, it, preorder);
         node->right = buildTree(it+1, last, preorder);
