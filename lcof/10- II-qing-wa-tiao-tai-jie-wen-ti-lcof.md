@@ -61,10 +61,7 @@ public:
         }
 
         cache[n] = num_ways(n-1) + num_ways(n-2);
-
-        if(cache[n] >= 1000000007L){
-            cache[n] -= 1000000007L;
-        }
+        cache[n] %= 1000000007L;
 
         return cache[n];
     }
@@ -90,9 +87,7 @@ public:
         for(int i=1; i<n; i++){
             b = a + b;
             a = b - a;
-            if(b >= max_val){
-                b -= max_val;
-            }
+            b %= max_val;
         }
         return b;
     }

@@ -60,15 +60,11 @@ public:
 		unsigned int ret = 1;
 		for(int i=0;i<num_3;i++){
 			ret *= 3;
-			while(ret >= 1000000007){
-				ret -= 1000000007;
-			}
+            ret %= 1000000007;
 		}
 		for(int i=0;i<num_2;i++){
 			ret *= 2;
-			while(ret >= 1000000007){
-				ret -= 1000000007;
-			}
+            ret %= 1000000007;
 		}
 		return ret;
     }

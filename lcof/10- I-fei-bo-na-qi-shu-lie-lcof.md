@@ -59,9 +59,7 @@ public:
         for(int i=1; i<n; i++){
             b = a + b;
             a = b - a;
-            if(b >= max_val){
-                b -= max_val;
-            }
+            b %= max_val;
         }
         return b;
     }
