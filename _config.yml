@@ -5,7 +5,7 @@ kramdown:
   syntax_highlighter: nil
   toc_levels: 2..3
 
-permalink: /posts/:year/:slug/
+permalink: /:year/:slug/
 
 sass:
   sass_dir: /assets/scss

@@ -22,7 +22,7 @@ permalink: /
     <ul class="m-list">
     {% for post in tag.last %}
       <li class="list-item-inline">
-          <a href="{{ post.url }}">{{ post.qid }} - {{ post.title }}</a>
+          <a href="{{site.base_path}}{{ post.url }}">{{ post.qid }} - {{ post.title }}</a>
       </li>
     {% endfor %}
     </ul>
