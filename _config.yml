@@ -1,0 +1,53 @@
+encoding: utf-8
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: nil
+  toc_levels: 2..3
+
+permalink: /posts/:year/:slug/
+
+sass:
+  sass_dir: /assets/scss
+  style: compressed
+
+title: LeetCode 题解
+slogan: 积跬步，至千里。
+
+images: https://wangyu-name.oss-cn-hangzhou.aliyuncs.com/
+
+base_path: "/leetcode"
+# base_path: ""
+
+url: https://notes.wangyu.name/
+
+rss_path: /rss.xml
+atom_path: /atom.xml
+excerpt_separator: "<!--more-->"
+author :
+  name : wy-ei
+  email : wangyu_it@yeah.net
+  github : wy-ei
+
+defaults:
+  - scope:
+      path: "_posts/lcof"
+      type: posts
+    values:
+      layout: "post"
+      category: "剑指 Offer"
+
+  - scope:
+      path: "_posts/lcci"
+      type: posts
+    values:
+      layout: "post"
+      category: "程序员面试金典题解"
+
+  - scope:
+      path: "_posts/solution"
+      type: posts
+    values:
+      layout: "post"
+      category: "LeetCode"
+    

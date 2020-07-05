@@ -1,0 +1,59 @@
+---
+layout: page
+title: 分类
+nav: category
+description: 文章分类
+permalink: /categories/
+---
+
+
+
+<div class="tag-list">
+    {% for category in site.categories %}
+      <a href="#{{ category | first }}">{{ category | first }} ({{ category | last | size }})</a>
+    {% endfor %}
+</div>
+
+
+<div class="category-list">
+{% for category in site.categories reversed %}
+  <div id="{{ category | first }}">
+      <h3  class="m-list__title"><i class="icon iconfont icon-folder"></i>{{ category | first }}</h3>
+      <ul class="m-list">
+      {% for post in category.last %}
+        <li class="list-item-inline" data-qid="{{post.qid}}">
+            <a href="{{ post.url }}">{{ post.qid }} - {{ post.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+{% endfor %}
+</ul>
+
+
+<script>
+    function qid_to_int(qid){
+        if(qid.indexOf('.') == -1){
+            return parseInt(qid);
+        }else{
+            let items = qid.split('.');
+            return parseInt(items[0]) * 100 + parseInt(items[1]);
+        }
+    }
+
+    // sort by qid
+    let categories = document.querySelectorAll(".m-list");
+    for(let i=0;i<categories.length;i++){
+        let ul = categories[i];
+        let list = ul.querySelectorAll("li");
+        Array.from(list).sort(function(a, b){
+            let aqid = a.dataset.qid;
+            let bqid = b.dataset.qid;
+            return qid_to_int(aqid) - qid_to_int(bqid);
+
+        }).forEach(function(li){
+            ul.appendChild(li);
+        });
+    }
+
+</script>

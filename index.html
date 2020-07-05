@@ -1,0 +1,21 @@
+---
+layout: page
+description: 博客首页
+nav: home
+permalink: /list1
+---
+
+<div class="article-list">
+    <ul class="m-list">
+    {% for post in site.posts %}
+    {% unless post.hide == 'T' %}
+    <li class="list-item">
+        <a href="{{site.base_path}}{{ post.url }}">
+            <!-- <span class="post-date">{{ post.date|date:"%Y-%m-%d" }}</span><p class="post-title">{{ post.title }}</p> -->
+            <span class="post-date">{{ post.qid }}</span><p class="post-title">{{ post.title }}</p>
+        </a>
+    </li>
+    {% endunless  %}
+    {% endfor %}
+    </ul>
+</div>

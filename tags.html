@@ -1,0 +1,31 @@
+---
+layout: page
+title: 全部题解
+description: 标签
+permalink: /
+---
+
+
+
+
+<div class="tag-list">
+  {% for tag in site.tags %}
+  <a href="#{{ tag[0] }}">{{ tag[0] }} {{ tag[1] | size }}</a>
+  {% endfor %}
+</div>
+
+
+<div class="category-list">
+  {% for tag in site.tags %}
+<div class="">
+    <h3 id="{{ tag | first }}" class="m-list__title"><i class="icon iconfont icon-folder"></i>{{ tag | first }}</h3>
+    <ul class="m-list">
+    {% for post in tag.last %}
+      <li class="list-item-inline">
+          <a href="{{ post.url }}">{{ post.qid }} - {{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+</ul>

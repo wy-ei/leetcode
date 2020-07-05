@@ -3,3 +3,5 @@ test.ipynb
 .vscode/
 sql/
 note/
+_site/
+.sass-cache/
