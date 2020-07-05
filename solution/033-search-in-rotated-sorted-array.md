@@ -31,130 +31,48 @@
 <strong>输出:</strong> -1</pre>
 
 
-## 解法 1
+## 解法
 
-在 leetcode 上看到这个[解答](https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14435/Clever-idea-making-it-simple)，非常简洁，深深被折服。
+有序数组旋转后，可以看做两个有序数组拼接起来了。如果能够把范围限定在其中一个数组内，就可以运行二分查找。
 
-数组可以分为两段，其中前一段大于后一段，先确定需要查询的数它在那一段。如果在前半段，就让后半段的值为无穷大。如果在后半段，那就让前半段为无穷小。这样以来整个数组依然可以做是有序数组，可以进行二分查找。
+因为旋转后的前半部分中的值一定大于后半部分，且 `nums[0]` 是前半部分中最小的值。
 
-具体的做法就是在取 `nums[mid]` 的值时，分三种情况：
+因此 `nums[i] >= nums[0]` 说明 `i` 在前半部分。否则一定在右半部分。在二分查找时，根据 `nums[mid]` 和 `target` 的位置，来调整上下界。
 
-1. 如果 `nums[mid]` 和 target 处于同一段，那就取实际值 `nums[mid]`
-2. target 处于前一段，而 `nums[mid]` 处于后一段，那么取 inf
-3. target 处于后一段，而 `nums[mid]` 处于前一段，那么取 -inf
+当 target 和 `nums[mid]` 在同一侧时：
 
-```python
-def search(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: int
-    """
-    inf = float('inf')
-
-    lo, hi = 0, len(nums) - 1
-
-    while lo <= hi:
-        mid = lo + (hi - lo) // 2
-        
-        # nums[mid] and target on the same side
-        if (target < nums[0]) == (nums[mid] < nums[0]):
-            num = nums[mid]
-        else:
-            if target < nums[0]:
-                num = -inf
-            else:
-                num = inf
-
-        if num < target:
-            lo = mid + 1
-        elif num > target:
-            hi = mid - 1
-        else:
-            return mid
-
-    return -1
-                    
-```
-
-## 解法 2
-
-target 和 `nums[mid]` 的位置有以下几种情况：
-
-当 target 和`nums[mid]` 在同一侧时：
-
-- 当 `nums[mid]` > target 时，需要调小 hi，即 hi = mid
-- 当 `nums[mid]` < target 时，需要增大 lo，即 lo = mid + 1
-- 当 `nums[mid]` == target 时，就得到了结果  
+- 此时和常规的二分查找相同。
     
 当 target 和`nums[mid]` 不在同一侧时：
 
 - target 在左，`nums[mid]` 在右，需要调小 hi，即 hi = mid
 - target 在右，`nums[mid]` 在左，需要调大 lo，即 lo = mid + 1
 
-```python
-def search(nums, target):
-    lo, hi = 0, len(nums)
-
-    while lo < hi:
-        mid = (lo + hi) // 2
-
-        # nums[mid] and target on the same side
-        if (nums[mid] < nums[0]) == (target < nums[0]):
-            if (nums[mid] < target):
-                lo = mid + 1
-            elif (nums[mid] > target):
-                hi = mid
-            else:
-                return mid
-        elif target < nums[0]:
-            lo = mid + 1
-        else:
-            hi = mid
-
-    return -1
+```c++
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int lo = 0, hi = nums.size();
+        while(lo < hi){
+            int mid = lo + (hi - lo) / 2;
+            // 同一侧
+            if((nums[mid] < nums[0]) == (target < nums[0])){
+                if(nums[mid] > target){
+                    hi = mid;
+                }else if(nums[mid] < target){
+                    lo = mid + 1;
+                }else{
+                    return mid;
+                }
+            }else{
+                if(nums[mid] > target){
+                    lo = mid +1;
+                }else{
+                    hi = mid;
+                }
+            }
+        }
+        return -1;
+    }
+};
 ```
-
-### 关于二分查找
-
-在二分查找中 `lo` 初始化为 0，对 `hi` 的初始化有两种方案，不同的方案 while 条件写法不同，对 `hi` 更新的策略也不同。
-
-
-当 hi 为 `len(nums)` 时，`hi` 是当前有效范围的上边界，这个时候 while 循环有效条件是 `lo < hi`
-
-```python
-lo = 0
-hi = len(nums)
-
-while lo < hi:
-    mid = lo + (hi - lo) // 2
-    
-    if nums[mid] > target:
-        hi = mid   # 注意这里
-```
-
-这是因为 `hi` 是指向上边界的 `hi` 所指内容，不在下次迭代的有效的搜索范围内。
-
-当 hi 为 `len(nums) - 1` 时，`hi` 是当前有效范围中最后一个元素的下标，这个时候 while 循环的有效条件是 `lo <= hi`
-
-```python
-lo = 0
-hi = len(nums) - 1
-
-while lo <= hi:
-    mid = lo + (hi - lo) // 2
-    
-    if nums[mid] > target:
-        hi = mid - 1   # 注意这里
-```
-
-
-另外在求 mid 值得时候，常见的有下面这量种方法：
-
-```python
-mid = lo + (hi - lo) // 2
-
-mid = (lo + hi) // 2
-```
-
-其实在 python 中往往显示不出区别来，但是在 C/C++ 中，第二种写法中的 `lo + hi` 可能会导致整数溢出，因此推荐使用第一种写法。

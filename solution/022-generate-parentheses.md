@@ -26,39 +26,44 @@
 
 ## 解法：
 
-想了好久没想出来，看了看答案，看到了这个解法。
+用一个空字符串，先尝试添加左括号，再添加右括号。
 
-用一个空字符串，先尝试添加左括号，再添加右括号，利用递归的写法，会优先尝试添加左括号，而后尝试添加右括号，得出的答案符合题目要求。
+```c++
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+        string path;
+        if (n > 0) {
+            generate(n, path, result, 0, 0);
+        }
+        return result;
+    }
 
-这个解法可以看做是一种深度优先的搜索，只是在搜索过程中有某些限制条件，即每经过一个左括号，之后可以经过一个右括号。所以需要在搜索的过程中记录下剩余的左括号数，以及当前为封闭的左括号数。
+    static void generate(int n, string &path, vector<string> &result, int l, int r) {
+        if (l == n) {
+            string s(path);
+            s.append(n - r, ')');
+            result.push_back(::move(s));
+            return;
+        }
 
+        path.push_back('(');
+        generate(n, path, result, l + 1, r);
+        path.pop_back();
 
-```python
-class Solution(object):
-    def generateParenthesis(self, n):
-        """
-        :type n: int
-        :rtype: List[str]
-        """
-        results = []
-        self.__generateParenthesis(n, 0, '', results)
-        return results
-
-    def __generateParenthesis(self, left_remained, left_opened, s, results):
-        if left_remained == 0 and left_opened == 0:
-            results.append(s)
-            return
-
-        if left_remained > 0:
-            self.__generateParenthesis(left_remained - 1, left_opened + 1, '(' + s, results)
-
-        if left_opened > 0:
-            self.__generateParenthesis(left_remained, left_opened - 1, s + ')', results)
+        if (l > r) {
+            path.push_back(')');
+            generate(n, path, result, l, r + 1);
+            path.pop_back();
+        }
+    }
+};
 ```
 
-2020-1-4 更新
+也可以采用迭代的方法，每次加入一个括号。在上一步的每个结果之上，如果左括号还有余下的，就可以添加左括号，如果已经添加的左括号数大于右括号数，就可以添加一个右括号。
 
-不使用递归求解，消耗内存更小，速度更快。
+因此，需要使用一个数组保存当前的结果，使用另外一个数组来记录左括号的数量。
 
 ```cpp
 class Solution {

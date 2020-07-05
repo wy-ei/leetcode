@@ -42,3 +42,27 @@
 
 
 ## 解法：
+
+```c++
+class Solution {
+public:
+    string countAndSay(int n) {
+        string s = "1";
+        while(--n){
+            s = next(s);
+        }
+        return s;
+    }
+
+    string next(const string& s){
+        string t;
+        for(auto i = s.begin(); i != s.end();){
+            auto j = find_if(i, s.end(), bind(not_equal_to<>(), placeholders::_1, *i));
+            t.push_back(distance(i, j) + '0');
+            t.push_back(*i);
+            i = j;
+        }
+        return t;
+    }
+};
+```

@@ -29,89 +29,28 @@
 
 ## 解法：
 
-```cpp
+快慢指针，先让快指针先走 n 步，然后慢指针开始出发，当快指针到达尾部的时候，慢指针就处于倒数第 n 个节点处。要删除节点 node，需要得到 node 前一个节点。因此，可以考虑让 fast 多走一步，但是如果要删除的实际上是头结点呢，所以增加一个伪结点是比较方便的做法。
+
+```c++
 class Solution {
 public:
-	/*
-		n = 4;
-
-		[ ] -> [ ] -> [ ] -> [X] -> [ ] -> [ ] -> [ ] -> null
-		fast -------------------------------> 
-
-		[ ] -> [ ] -> [ ] -> [X] -> [ ] -> [ ] -> [ ] -> null
-								           fast ---------->
-	    pre------------>
-
-
-		[ ] -> [ ] -> [ ] -> [X] -> [ ] -> [ ] -> [ ] -> null
-					  pre
-	*/
-	ListNode* removeNthFromEnd(ListNode* head, int n) {
-		if (n == 0) {
-			return head;
-		}
-
-		ListNode* fast = head;
-		ListNode* pre = head;
-
-		int k = n;
-		while (k--) {
-			fast = fast->next;
-		}
-
-		if (!fast) {
-			
-		}
-
-		while (fast->next) {
-			fast = fast->next;
-			pre = pre->next;
-		}
-
-		// n = 1, remove the last one
-		if (n == 1) {
-			delete pre->next;
-			pre->next = nullptr;
-		}
-		else {
-			
-		}
-		return head;
-	}
-};
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode *fast = head, *slow = head;
-        while(n--){
+    ListNode *removeNthFromEnd(ListNode *head, int n) {
+        ListNode dummy(-1);
+        dummy.next = head;
+        ListNode *fast = &dummy, *slow = &dummy;
+        for (int i = 0; i < n; i++) {
             fast = fast->next;
         }
-        // remove first node
-        if(!fast){
-            ListNode* ret = head->next;
-            delete head;
-            return ret;
-        }
 
-        while(fast->next){
+        while (fast->next) {
             fast = fast->next;
             slow = slow->next;
         }
-        
-        ListNode* next = slow->next;
+
+        ListNode *next = slow->next;
         slow->next = slow->next->next;
         delete next;
-        
-        return head;
+        return dummy.next;
     }
 };
 ```

@@ -26,12 +26,11 @@
 
 
 
-## 解法
+## 解法一：中心扩散法
 
-确定一个中心，然后向两边扩展找到各个中心的对应的最长回文串。因为回文串中心可以是一个字符，也可以是两个字符（或中心位于两个字符中间），这样以来共有 2n - 1 个可能的中心，因此时间复杂度为 `O(n^2)`
+以字符串的每个位置为中心，向两边扩张，以此得到，当两边的字符串不同的时候，就停止。
 
 ```cpp
-
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -57,6 +56,45 @@ public:
             ++hi;
         }
         return hi - lo - 1;
+    }
+};
+```
+
+## 解法二：动态规划
+
+如果已知 `a[i:j]` 为回文串，那么如果 `a[i-1] == a[j]` 则 `a[i-1:j+1]` 为回文子串。
+
+用 `f(i,j)` 表示 `a[i:j]` 是否为回文串，那么：
+
+- `f(i, j) = true`，当 `i == j || i+1 == j` 时
+- `f(i+1, j+1) = f(i, j) && s[i-1] == s[j]`
+
+使用动态规划，需要存储空间为 `O(n^2)`，需要的计算时间为 `O(n^2)` 没有任何优势。
+
+```c++
+class Solution {
+public:
+    string longestPalindrome(string &s) {
+        if (s.empty()) return s;
+        const int n = s.size();
+        bool f[n][n];
+        fill_n(&f[0][0], n * n, false);
+
+        size_t max_len = 1, start = 0;
+
+        for (size_t i = 0; i < n; i++) {
+            f[i][i] = true;
+            for (size_t j = 0; j < i; j++) { // [j, i]
+                f[j][i] = (s[j] == s[i]) && (i - j == 1 || f[j + 1][i - 1]);
+                size_t len = i - j + 1;
+                if (f[j][i] && max_len < len) {
+                    max_len = len;
+                    start = j;
+                }
+            }
+        }
+
+        return s.substr(start, max_len);
     }
 };
 ```

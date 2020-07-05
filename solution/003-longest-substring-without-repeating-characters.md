@@ -34,23 +34,52 @@
 </pre>
 
 
-## 解法：
+## 解法一：滑动窗口
 
-使用 `start_index` 始终指向子字符串的开头，在一个 `map` 中记录各个字符出现的索引，如果在 `map` 中发现之前出现过的字符，那么子字符串的起始位置就应该调整到前面那个重复的字符处，因为子字符串不可能包含那个重复的字符。最长的子字符串只能出现在非重复的字符出现的时候。
+本题最容易想到的就是滑动窗口的解法，从左到右遍历字符串，使用一个集合保存字符，不断扩大窗口右边界，如果发现右边界的值已经存在于窗口中了，那就收缩窗口左边界。
 
-```python
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        start_index = -1
-        mp = {}
-        max_len = 0
-        
-        for i, c in enumerate(s):
-            if c in mp:
-                start_index = max(start_index, mp[c])
-            
-            max_len = max(max_len, i-start_index)
-            mp[c] = i
-        return max_len
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> charset;
+        int max_len = 0;
+        int lo = 0, hi = 0;
+        for(;hi < s.size();hi++){
+            while(charset.count(s[hi]) == 1){
+                charset.erase(s[lo++]);
+            }
+            charset.insert(s[hi]);
+            max_len = ::max(max_len, hi - lo + 1);
+        }
+        return max_len;
+    }
+};
+```
+
+## 解法二：哈希表
+
+滑动窗口在收缩窗口左边界的时候需要向后遍历，这导致算法时间复杂度为 `O(n^2)`，向右遍历的目的就是寻找等于 `s[hi]` 的值，如果能够把窗口中的值的下标记录下来，就省了内层的遍历了。
+
+如发现了重复的字符，窗口的起始位置就要更新为先前出现的重复字符的后一个位置处。
+
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> mp;
+        int start = 0;
+        int max_len = 0;
+        for(int i=0;i<s.size();i++){
+            char ch = s[i];
+            if(mp.find(ch) != mp.end()){
+                start = ::max(start, mp[ch] + 1);
+            }
+            mp[ch] = i;
+            max_len = ::max(max_len, i - start + 1);
+        }
+        return max_len;
+    }
+};
 ```
 

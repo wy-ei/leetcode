@@ -22,3 +22,6 @@
 
 
 ## 解法：
+
+
+[解答](../lcci/17.21-volume-of-histogram-lcci.md)

@@ -28,29 +28,26 @@
 
 ## 解法：
 
+要想盛的水多，底边要越长越好，左右两边的木板中较低者越高越好。首先可以保证底边最长，使用两个指针指向数组两个端点作为容器的两个边。
+
+其中一个较短，要想得到最大容积，自然需要提升这个木板的高度，因此移动较短的那端，试图让短板变高些。
+
 ```python
-class Solution:
-    def maxArea(self, heights):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
-        lo = 0
-        hi = len(heights) - 1
-        max_area = 0
-
-        while lo < hi:
-            width = hi - lo
-            min_height = min(heights[lo], heights[hi])
-            area = width * min_height
-
-            if area > max_area:
-                max_area = area
-
-            if heights[lo] > heights[hi]:
-                hi -= 1
-            else:
-                lo += 1
-
-        return max_area
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int left = 0, right = height.size() - 1;
+        int max_volume = 0;
+        while(left < right){
+            int volume = (right - left) * ::min(height[left], height[right]);
+            max_volume = ::max(max_volume, volume);
+            if(height[left] < height[right]){
+                left += 1;
+            }else{
+                right -= 1;
+            }
+        }
+        return max_volume;
+    }
+};
 ```

@@ -25,37 +25,28 @@
 
 ## 解法：
 
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        head = ListNode(0)
-        p = head
-        carry = 0
-        while l1 or l2:
-            sum_ = carry
-            if l1:
-                sum_ += l1.val
-                l1 = l1.next
-            if l2:
-                sum_ += l2.val
-                l2 = l2.next
-            carry = sum_ // 10
-            p.next = ListNode(sum_ % 10)
-            p = p.next
-
-        if carry > 0:
-            p.next = ListNode(carry)
-        return head.next
+```c++
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode dummy;
+        ListNode *p = &dummy;
+        int carry = 0;
+        while(l1 || l2 || carry){
+            int sum = carry;
+            if(l1){
+                sum += l1->val;
+                l1 = l1->next;
+            }
+            if(l2){
+                sum += l2->val;
+                l2 = l2->next;
+            }
+            p->next = new ListNode(sum % 10);
+            cy = sum / 10;
+            p = p->next;
+        }
+        return dummy.next;
+    }
+};
 ```

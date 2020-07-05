@@ -32,48 +32,37 @@
 
 ## 解法：
 
-不使用乘法、除法和 mod 运算符来完成除法，那么就只能使用减法了，一种方法是先将除数和被除数都转换为正数，然后不断地从被除数中减去除数，减一个除数商就加一。但是这种方法显得太慢了，因此考虑在迭代中倍增除数，这样商就可以每次 +1 +2 +4 ...。在某一时刻，当被除数小于除数的时候，把除数还原为初始值，然后继续倍增。
+不使用乘法、除法和 mod 运算符来完成除法，那么就只能使用减法了，一种方法是先将除数和被除数都转换为正数，然后不断地从被除数中减去除数，减一个除数商就加一。但是这种方法显得太慢了，因此考虑在迭代中倍增除数，这样商就可以每次 +1 +2 +4 ...。在某一时刻，当被除数小于除数的时候，把除数还原。
 
-```python
-class Solution:
-    def divide(self, dividend, divisor):
-        """
-        :type dividend: int
-        :type divisor: int
-        :rtype: int
-        """
-        MAX_INT = 2**31 -1
-        MIN_INT = -2**31
-        
-        if divisor == 0:
-            raise ZeroDivisionError()
-        
-        sign = 1
-        if min(dividend, divisor) < 0 and max(dividend, divisor) > 0:
-            sign = -1
-        
-        dividend = abs(dividend)
-        divisor = abs(divisor)
+```c++
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        long long m = dividend;
+        long long n = divisor;
+        int sign = (m < 0) ^ (n < 0) ? -1 : 1;
+        m = abs(m);
+        n = abs(n);
 
-        quotient = self.__divide(dividend, divisor)
+        long long result = 0;
+        while(m >= n){
+            long long a = 1;
+            long long nn = n;
+            while(m >= nn){
+                m -= nn;
+                result += a;
+                nn = nn << 1;
+                a = a << 1;
+            }
+        }
 
-        if sign == -1:
-            quotient = -quotient
-        if quotient > MAX_INT or quotient < MIN_INT:
-            return MAX_INT
-        return quotient
-
-
-    def __divide(self, dividend, divisor):
-        quotient = 0 # 商    
-        origin_divisor = divisor
-        i = 1
-        while dividend >= divisor:
-            quotient += i
-            dividend -= divisor
-            divisor += divisor
-            i += i
-        if dividend >= origin_divisor:
-            quotient += self.__divide(dividend, origin_divisor)
-        return quotient
+        if(sign == 1 && result > INT_MAX){
+            return INT_MAX;
+        }else if(sign == -1 && result < INT_MIN){
+            return INT_MAX;
+        }else{
+            return result * sign;
+        }
+    }
+};
 ```

@@ -38,23 +38,18 @@
 ```python
 class Solution:
     def simplifyPath(self, path):
-        """
-        :type path: str
-        :rtype: str
-        """
-        
-        components = path.split('/')
+        spans = path.split('/')
         stack = []
 
-        for component in components:
-            if component == '' or component == '.':
+        for span in spans:
+            if span == '' or span == '.':
                 continue
                 
-            if component == '..' and len(stack) > 0:
+            if span == '..' and len(stack) > 0:
                 stack.pop()
                 continue
                 
-            stack.append(component)
+            stack.append(span)
 
         return '/' + '/'.join(stack)
  ```

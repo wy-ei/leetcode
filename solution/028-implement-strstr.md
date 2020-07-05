@@ -32,24 +32,36 @@
 
 ## 解法：
 
-虽说简单吧，也不是随手就能写出来的，需要多多练习。
+面试中暴力解法就够了，本题最关键的是要细心。尤其是使用 C++ 来实现，存在很多坑。
 
-```python
-def strStr(self, haystack, needle):
-    """
-    :type haystack: str
-    :type needle: str
-    :rtype: int
-    """
-    m = len(haystack)
-    n = len(needle)
 
-    for i in range(m - n + 1):
-        j = 0
-        while j < n and needle[j] == haystack[i + j]:
-            j += 1
-        if j == n:
-            return i
 
-    return -1       
+```C++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (haystack.size() < needle.size()) return -1;
+        if (needle.empty()) return 0;
+
+        const size_t N = haystack.size() - needle.size() + 1;
+        for (size_t i = 0; i < N; i++) {
+            int j = 0;
+            while (j < needle.size() && needle[j] == haystack[i + j]) {
+                j++;
+            }
+            if (j == needle.size()) return i;
+        }
+        return -1;
+    }
+};      
 ```
+
+
+我第一次写出了下面这样的代码，出现了严重的 BUG。因为 `haystack` 可能比 `needle` 短，此时 `haystack.size() - needle.size()` 有可能会是负的，但是因为 `size` 返回的是无符号的数，因此发生了下溢。结果变成了一个非常大的正数。
+
+```c++
+for (size_t i = 0; i <= haystack.size() - needle.size(); i++){
+
+}
+```
+

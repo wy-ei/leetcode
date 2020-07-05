@@ -21,25 +21,33 @@
 所以返回 [<strong>0, 1</strong>]
 </pre>
 
-## 解法：
 
-需要在数组中寻找两个数使其和为 target，可以将数组中的值存放在 map 中并记录下标，这样在遍历的过程中，如果当前元素为 a，那么寻找值为 target - a 的元素即可。
+## 题目分析：
 
-```python
-class Solution:
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        mp = {}
-        for i, num in enumerate(nums):
-            other = target - num
-            if other in mp:
-                return [mp[other], i]
-            else:
-                mp[num] = i
-                
-        return [0, 0]
+- 方法一：暴力解法，所有数两两组合，时间复杂度为 `$O(n^2)$`。
+- 方法二：使用哈希表把每个数存储下来，对于 `nums[i]` 在哈希表中查找 `target - nums[i]` 即可。
+
+## 代码：
+
+这里实现方法二，另外可以渐进地把元素插入到哈希表中。
+
+```c++
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> mp;
+
+        for(int i=0;i<nums.size();i++){
+            int a = nums[i];
+            int b = target - a;
+            if(mp.find(b) != mp.end()){
+                return {i, mp[b]};
+            }else{
+                mp[a] = i;
+            }
+        }
+
+        return {-1, -1};
+    }
+};
 ```
