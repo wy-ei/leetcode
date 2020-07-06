@@ -7,7 +7,7 @@ tags: [广度优先搜索,数组,字符串,回溯算法]
 
 - 难度： 困难
 - 通过率： 16.4%
-- 题目链接：[https://leetcode.com/problems/word-ladder-ii](https://leetcode.com/problems/word-ladder-ii)
+- 题目链接：[https://leetcode-cn.com/problems/word-ladder-ii](https://leetcode-cn.com/problems/word-ladder-ii)
 
 
 ## 题目描述

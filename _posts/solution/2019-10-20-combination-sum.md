@@ -7,7 +7,7 @@ tags: [数组,回溯算法]
 
 - 难度： 中等
 - 通过率： 45.4%
-- 题目链接：[https://leetcode.com/problems/combination-sum](https://leetcode.com/problems/combination-sum)
+- 题目链接：[https://leetcode-cn.com/problems/combination-sum](https://leetcode-cn.com/problems/combination-sum)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [排序,数组]
 
 - 难度： 中等
 - 通过率： 34.1%
-- 题目链接：[https://leetcode.com/problems/merge-intervals](https://leetcode.com/problems/merge-intervals)
+- 题目链接：[https://leetcode-cn.com/problems/merge-intervals](https://leetcode-cn.com/problems/merge-intervals)
 
 
 ## 题目描述

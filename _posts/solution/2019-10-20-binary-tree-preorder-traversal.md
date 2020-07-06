@@ -7,7 +7,7 @@ tags: [栈,树]
 
 - 难度： 中等
 - 通过率： 49.5%
-- 题目链接：[https://leetcode.com/problems/binary-tree-preorder-traversal](https://leetcode.com/problems/binary-tree-preorder-traversal)
+- 题目链接：[https://leetcode-cn.com/problems/binary-tree-preorder-traversal](https://leetcode-cn.com/problems/binary-tree-preorder-traversal)
 
 
 ## 题目描述

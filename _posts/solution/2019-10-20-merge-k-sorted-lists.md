@@ -7,7 +7,7 @@ tags: [堆,链表,分治算法]
 
 - 难度： 困难
 - 通过率： 31.9%
-- 题目链接：[https://leetcode.com/problems/merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)
+- 题目链接：[https://leetcode-cn.com/problems/merge-k-sorted-lists](https://leetcode-cn.com/problems/merge-k-sorted-lists)
 
 
 ## 题目描述

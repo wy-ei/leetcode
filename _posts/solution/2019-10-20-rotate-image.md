@@ -7,7 +7,7 @@ tags: [数组]
 
 - 难度： 中等
 - 通过率： 45.6%
-- 题目链接：[https://leetcode.com/problems/rotate-image](https://leetcode.com/problems/rotate-image)
+- 题目链接：[https://leetcode-cn.com/problems/rotate-image](https://leetcode-cn.com/problems/rotate-image)
 
 
 ## 题目描述

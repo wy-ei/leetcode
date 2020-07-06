@@ -7,7 +7,7 @@ tags: [数学,字符串]
 
 - 难度： 中等
 - 通过率： 29.5%
-- 题目链接：[https://leetcode.com/problems/multiply-strings](https://leetcode.com/problems/multiply-strings)
+- 题目链接：[https://leetcode-cn.com/problems/multiply-strings](https://leetcode-cn.com/problems/multiply-strings)
 
 
 ## 题目描述
@@ -91,7 +91,7 @@ def multiply(num1, num2):
 
 ## 解法 2：
 
-[在 leetcode 讨论区](https://leetcode.com/problems/multiply-strings/discuss/17605/Easiest-JAVA-Solution-with-Graph-Explanation)看到另一个思路。
+[在 leetcode 讨论区](https://leetcode-cn.com/problems/multiply-strings/discuss/17605/Easiest-JAVA-Solution-with-Graph-Explanation)看到另一个思路。
 
 ```
         7 7 8

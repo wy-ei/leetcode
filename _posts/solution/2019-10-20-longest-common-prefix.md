@@ -7,7 +7,7 @@ tags: [字符串]
 
 - 难度： 简单
 - 通过率： 32.6%
-- 题目链接：[https://leetcode.com/problems/longest-common-prefix](https://leetcode.com/problems/longest-common-prefix)
+- 题目链接：[https://leetcode-cn.com/problems/longest-common-prefix](https://leetcode-cn.com/problems/longest-common-prefix)
 
 
 ## 题目描述

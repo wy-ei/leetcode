@@ -7,7 +7,7 @@ tags: [位运算,数组,分治算法]
 
 - 难度： 简单
 - 通过率： 50.7%
-- 题目链接：[https://leetcode.com/problems/majority-element](https://leetcode.com/problems/majority-element)
+- 题目链接：[https://leetcode-cn.com/problems/majority-element](https://leetcode-cn.com/problems/majority-element)
 
 
 ## 题目描述

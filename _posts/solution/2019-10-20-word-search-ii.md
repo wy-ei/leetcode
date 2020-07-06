@@ -7,7 +7,7 @@ tags: [字典树,回溯算法]
 
 - 难度： 困难
 - 通过率： 26.9%
-- 题目链接：[https://leetcode.com/problems/word-search-ii](https://leetcode.com/problems/word-search-ii)
+- 题目链接：[https://leetcode-cn.com/problems/word-search-ii](https://leetcode-cn.com/problems/word-search-ii)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [数组,二分查找]
 
 - 难度： 中等
 - 通过率： 32.5%
-- 题目链接：[https://leetcode.com/problems/search-in-rotated-sorted-array-ii](https://leetcode.com/problems/search-in-rotated-sorted-array-ii)
+- 题目链接：[https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii)
 
 
 ## 题目描述

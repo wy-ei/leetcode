@@ -7,7 +7,7 @@ tags: [数学,字符串]
 
 - 难度： 中等
 - 通过率： 14.3%
-- 题目链接：[https://leetcode.com/problems/string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi)
+- 题目链接：[https://leetcode-cn.com/problems/string-to-integer-atoi](https://leetcode-cn.com/problems/string-to-integer-atoi)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [数学,二分查找]
 
 - 难度： 中等
 - 通过率： 15.9%
-- 题目链接：[https://leetcode.com/problems/divide-two-integers](https://leetcode.com/problems/divide-two-integers)
+- 题目链接：[https://leetcode-cn.com/problems/divide-two-integers](https://leetcode-cn.com/problems/divide-two-integers)
 
 
 ## 题目描述

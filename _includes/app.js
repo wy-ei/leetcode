@@ -44,6 +44,7 @@ APP.prototype.init = function(){
         if(!window.__notebook__){
             _this.setImage();
             _this.renderMath();
+            _this.buildTOC();
         }    
         _this.addEventListener();
     });
@@ -308,27 +309,33 @@ APP.prototype.build_slug = function(value) {
 
 APP.prototype.buildTOC = function(){
     var container = document.querySelector('.post .content');
-    var toc = document.querySelector('.toc');
-
+    var toc = container.querySelector('.toc');
+    var select_level = toc.dataset.level;
+    if(select_level){
+        select_level = parseInt(select_level);
+    }
     if(toc){
-        toc = document.createElement('ul');
-        toc.setAttribute('id', 'markdown-toc');
+        let ul = document.createElement('ul');
+        ul.setAttribute('id', 'markdown-toc');
+        toc.appendChild(ul);
+        toc = ul;
     }else{
         return;
     }
 
-    
-    var head = container.querySelector('h1,h2,h3');
+    // var head = container.querySelector('h1,h2,h3');
 
-    head.parentElement.insertBefore(toc, head.nextElementSibling)
-
-    var hs = container.querySelectorAll('h2,h3,h4')
-    var hx = []
+    var hs = container.querySelectorAll('h1,h2,h3,h4');
+    var hx = [];
     var top_level = 4;
 
     for(var i = 0;i<hs.length;i++){
         var h = hs[i];
         var level = parseInt(h.tagName[1]);
+
+        if (select_level && level != select_level){
+            continue;
+        }
 
         var text = h.innerText;
         var slug = this.build_slug(text);
@@ -344,8 +351,6 @@ APP.prototype.buildTOC = function(){
             slug: slug,
             text: text
         });
-        
-        
     }
 
     hx = hx.map(function(h){
@@ -353,7 +358,7 @@ APP.prototype.buildTOC = function(){
         return h;
     });
 
-    items = [];
+    var items = [];
     for(var i=0;i< hx.length;i++){
         var h = hx[i];
 

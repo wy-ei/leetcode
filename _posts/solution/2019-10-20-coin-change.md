@@ -7,7 +7,7 @@ tags: [动态规划]
 
 - 难度： 中等
 - 通过率： 28.1%
-- 题目链接：[https://leetcode.com/problems/coin-change](https://leetcode.com/problems/coin-change)
+- 题目链接：[https://leetcode-cn.com/problems/coin-change](https://leetcode-cn.com/problems/coin-change)
 
 
 ## 题目描述

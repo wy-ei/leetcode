@@ -7,7 +7,7 @@ tags: [深度优先搜索,广度优先搜索,图,拓扑排序]
 
 - 难度： 中等
 - 通过率： 35.9%
-- 题目链接：[https://leetcode.com/problems/course-schedule](https://leetcode.com/problems/course-schedule)
+- 题目链接：[https://leetcode-cn.com/problems/course-schedule](https://leetcode-cn.com/problems/course-schedule)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [数组]
 
 - 难度： 简单
 - 通过率： 43.5%
-- 题目链接：[https://leetcode.com/problems/pascals-triangle](https://leetcode.com/problems/pascals-triangle)
+- 题目链接：[https://leetcode-cn.com/problems/pascals-triangle](https://leetcode-cn.com/problems/pascals-triangle)
 
 
 ## 题目描述

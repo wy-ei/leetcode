@@ -7,7 +7,6 @@ import json
 
 obj = None
 
-
 with open("all-tags.json", encoding="utf-8") as fin:
     obj = json.load(fin)
 

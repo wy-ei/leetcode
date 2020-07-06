@@ -7,7 +7,7 @@ tags: [链表,双指针]
 
 - 难度： 中等
 - 通过率： 33.8%
-- 题目链接：[https://leetcode.com/problems/remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list)
+- 题目链接：[https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)
 
 
 ## 题目描述

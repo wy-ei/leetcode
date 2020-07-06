@@ -7,7 +7,7 @@ tags: [数组,二分查找,分治算法]
 
 - 难度： 困难
 - 通过率： 24.9%
-- 题目链接：[https://leetcode.com/problems/median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+- 题目链接：[https://leetcode-cn.com/problems/median-of-two-sorted-arrays](https://leetcode-cn.com/problems/median-of-two-sorted-arrays)
 
 
 ## 题目描述

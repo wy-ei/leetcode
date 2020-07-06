@@ -7,7 +7,7 @@ tags: [数组,双指针]
 
 - 难度： 中等
 - 通过率： 39.0%
-- 题目链接：[https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii)
+- 题目链接：[https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii)
 
 
 ## 题目描述

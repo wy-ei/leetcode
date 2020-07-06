@@ -7,7 +7,7 @@ tags: [字符串,回溯算法]
 
 - 难度： 中等
 - 通过率： 30.2%
-- 题目链接：[https://leetcode.com/problems/restore-ip-addresses](https://leetcode.com/problems/restore-ip-addresses)
+- 题目链接：[https://leetcode-cn.com/problems/restore-ip-addresses](https://leetcode-cn.com/problems/restore-ip-addresses)
 
 
 ## 题目描述

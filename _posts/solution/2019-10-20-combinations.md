@@ -7,7 +7,7 @@ tags: [回溯算法]
 
 - 难度： 中等
 - 通过率： 45.0%
-- 题目链接：[https://leetcode.com/problems/combinations](https://leetcode.com/problems/combinations)
+- 题目链接：[https://leetcode-cn.com/problems/combinations](https://leetcode-cn.com/problems/combinations)
 
 
 ## 题目描述

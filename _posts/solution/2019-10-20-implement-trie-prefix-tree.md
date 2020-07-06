@@ -7,7 +7,7 @@ tags: [设计,字典树]
 
 - 难度： 中等
 - 通过率： 35.6%
-- 题目链接：[https://leetcode.com/problems/implement-trie-prefix-tree](https://leetcode.com/problems/implement-trie-prefix-tree)
+- 题目链接：[https://leetcode-cn.com/problems/implement-trie-prefix-tree](https://leetcode-cn.com/problems/implement-trie-prefix-tree)
 
 
 ## 题目描述

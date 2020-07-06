@@ -7,7 +7,7 @@ tags: [数学]
 
 - 难度： 简单
 - 通过率： 40.7%
-- 题目链接：[https://leetcode.com/problems/palindrome-number](https://leetcode.com/problems/palindrome-number)
+- 题目链接：[https://leetcode-cn.com/problems/palindrome-number](https://leetcode-cn.com/problems/palindrome-number)
 
 
 ## 题目描述

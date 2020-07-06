@@ -7,7 +7,7 @@ tags: [排序,数组,双指针]
 
 - 难度： 中等
 - 通过率： 40.7%
-- 题目链接：[https://leetcode.com/problems/sort-colors](https://leetcode.com/problems/sort-colors)
+- 题目链接：[https://leetcode-cn.com/problems/sort-colors](https://leetcode-cn.com/problems/sort-colors)
 
 
 ## 题目描述

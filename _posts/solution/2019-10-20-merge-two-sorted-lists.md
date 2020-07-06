@@ -7,7 +7,7 @@ tags: [链表]
 
 - 难度： 简单
 - 通过率： 44.7%
-- 题目链接：[https://leetcode.com/problems/merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)
+- 题目链接：[https://leetcode-cn.com/problems/merge-two-sorted-lists](https://leetcode-cn.com/problems/merge-two-sorted-lists)
 
 
 ## 题目描述

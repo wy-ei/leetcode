@@ -7,7 +7,7 @@ tags: [数组,双指针]
 
 - 难度： 中等
 - 通过率： 41.2%
-- 题目链接：[https://leetcode.com/problems/container-with-most-water](https://leetcode.com/problems/container-with-most-water)
+- 题目链接：[https://leetcode-cn.com/problems/container-with-most-water](https://leetcode-cn.com/problems/container-with-most-water)
 
 
 ## 题目描述
@@ -22,7 +22,7 @@ tags: [数组,双指针]
 
 <p><small>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为&nbsp;49。</small></p>
 
-<p>&nbsp;</p>
+
 
 <p><strong>示例:</strong></p>
 

@@ -7,7 +7,7 @@ tags: [设计,字典树,回溯算法]
 
 - 难度： 中等
 - 通过率： 28.3%
-- 题目链接：[https://leetcode.com/problems/add-and-search-word-data-structure-design](https://leetcode.com/problems/add-and-search-word-data-structure-design)
+- 题目链接：[https://leetcode-cn.com/problems/add-and-search-word-data-structure-design](https://leetcode-cn.com/problems/add-and-search-word-data-structure-design)
 
 
 ## 题目描述

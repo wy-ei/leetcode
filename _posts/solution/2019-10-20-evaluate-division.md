@@ -7,7 +7,7 @@ tags: [并查集,图]
 
 - 难度： 中等
 - 通过率： 45.5%
-- 题目链接：[https://leetcode.com/problems/evaluate-division](https://leetcode.com/problems/evaluate-division)
+- 题目链接：[https://leetcode-cn.com/problems/evaluate-division](https://leetcode-cn.com/problems/evaluate-division)
 
 
 ## 题目描述

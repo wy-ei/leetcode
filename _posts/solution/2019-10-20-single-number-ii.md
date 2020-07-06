@@ -7,7 +7,7 @@ tags: [位运算]
 
 - 难度： 中等
 - 通过率： 44.6%
-- 题目链接：[https://leetcode.com/problems/single-number-ii](https://leetcode.com/problems/single-number-ii)
+- 题目链接：[https://leetcode-cn.com/problems/single-number-ii](https://leetcode-cn.com/problems/single-number-ii)
 
 
 ## 题目描述

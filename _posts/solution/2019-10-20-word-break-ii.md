@@ -7,7 +7,7 @@ tags: [动态规划,回溯算法]
 
 - 难度： 困难
 - 通过率： 26.2%
-- 题目链接：[https://leetcode.com/problems/word-break-ii](https://leetcode.com/problems/word-break-ii)
+- 题目链接：[https://leetcode-cn.com/problems/word-break-ii](https://leetcode-cn.com/problems/word-break-ii)
 
 
 ## 题目描述

@@ -1,0 +1,13 @@
+
+{% for page in site.posts %}
+{% if page.post_id | contains {{include.post_id}} %}
+
+<div class="include_post">
+{% if {{include.hide_head}} != "true" %}
+<h1 class="page__title ">{{page.title}}</h1>
+{% endif %}
+{{ page.content | markdownify }}
+</div>
+
+{% endif %}
+{% endfor %}

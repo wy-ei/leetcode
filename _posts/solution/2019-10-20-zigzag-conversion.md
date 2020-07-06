@@ -7,7 +7,7 @@ tags: [字符串]
 
 - 难度： 中等
 - 通过率： 29.8%
-- 题目链接：[https://leetcode.com/problems/zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)
+- 题目链接：[https://leetcode-cn.com/problems/zigzag-conversion](https://leetcode-cn.com/problems/zigzag-conversion)
 
 
 ## 题目描述
@@ -82,4 +82,4 @@ class Solution:
 
 ## 解法 2
 
-如果仔细分析每一行的各个字符在字符串中的下标，是能够发现规律的。这里不再尝试该方法了。详见[Solution](https://leetcode.com/problems/zigzag-conversion/solution/)。
+如果仔细分析每一行的各个字符在字符串中的下标，是能够发现规律的。这里不再尝试该方法了。详见[Solution](https://leetcode-cn.com/problems/zigzag-conversion/solution/)。

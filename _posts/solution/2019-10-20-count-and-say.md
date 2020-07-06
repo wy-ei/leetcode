@@ -7,7 +7,7 @@ tags: [字符串]
 
 - 难度： 简单
 - 通过率： 38.8%
-- 题目链接：[https://leetcode.com/problems/count-and-say](https://leetcode.com/problems/count-and-say)
+- 题目链接：[https://leetcode-cn.com/problems/count-and-say](https://leetcode-cn.com/problems/count-and-say)
 
 
 ## 题目描述
@@ -31,7 +31,7 @@ tags: [字符串]
 
 <p>注意：整数顺序将表示为一个字符串。</p>
 
-<p>&nbsp;</p>
+
 
 <p><strong>示例&nbsp;1:</strong></p>
 

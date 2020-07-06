@@ -20,9 +20,9 @@ permalink: /
 <div class="">
     <h3 id="{{ tag | first }}" class="m-list__title"><i class="icon iconfont icon-folder"></i>{{ tag | first }}</h3>
     <ul class="m-list">
-    {% for post in tag.last %}
+    {% for post in tag.last | sort: 'qid' %}
       <li class="list-item-inline">
-          <a href="{{site.base_path}}{{ post.url }}">{{ post.qid }} - {{ post.title }}</a>
+          <a href="{{site.base_path}}{{ post.url }}">{{ post.qid }}. {{ post.title }}</a>
       </li>
     {% endfor %}
     </ul>

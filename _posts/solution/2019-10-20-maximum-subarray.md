@@ -7,7 +7,7 @@ tags: [数组,分治算法,动态规划]
 
 - 难度： 简单
 - 通过率： 42.2%
-- 题目链接：[https://leetcode.com/problems/maximum-subarray](https://leetcode.com/problems/maximum-subarray)
+- 题目链接：[https://leetcode-cn.com/problems/maximum-subarray](https://leetcode-cn.com/problems/maximum-subarray)
 
 
 ## 题目描述

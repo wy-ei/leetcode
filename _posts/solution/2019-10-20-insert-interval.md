@@ -7,7 +7,7 @@ tags: [排序,数组]
 
 - 难度： 困难
 - 通过率： 30.4%
-- 题目链接：[https://leetcode.com/problems/insert-interval](https://leetcode.com/problems/insert-interval)
+- 题目链接：[https://leetcode-cn.com/problems/insert-interval](https://leetcode-cn.com/problems/insert-interval)
 
 
 ## 题目描述
@@ -37,7 +37,7 @@ tags: [排序,数组]
 这道题的难度被定为 hard，我开始不以为然，然后自己上手编了一下，提交了 5 次才成功，而且代码修修补补写的很烂。主要问题在于没有看透此问题的本质，因此用了一些笨办法。
 
 
-下面是 LeetCode 上 StefanPochmann 的解法：[7+ lines, 3 easy solutions](https://leetcode.com/problems/insert-interval/discuss/21622/7%2B-lines-3-easy-solutions)，这段代码实在是太帅了。
+下面是 LeetCode 上 StefanPochmann 的解法：[7+ lines, 3 easy solutions](https://leetcode-cn.com/problems/insert-interval/discuss/21622/7%2B-lines-3-easy-solutions)，这段代码实在是太帅了。
 
 
 ```python

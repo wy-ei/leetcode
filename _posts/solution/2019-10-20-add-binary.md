@@ -7,7 +7,7 @@ tags: [数学,字符串]
 
 - 难度： 简单
 - 通过率： 37.1%
-- 题目链接：[https://leetcode.com/problems/add-binary](https://leetcode.com/problems/add-binary)
+- 题目链接：[https://leetcode-cn.com/problems/add-binary](https://leetcode-cn.com/problems/add-binary)
 
 
 ## 题目描述

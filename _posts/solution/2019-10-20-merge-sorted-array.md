@@ -7,7 +7,7 @@ tags: [数组,双指针]
 
 - 难度： 简单
 - 通过率： 34.2%
-- 题目链接：[https://leetcode.com/problems/merge-sorted-array](https://leetcode.com/problems/merge-sorted-array)
+- 题目链接：[https://leetcode-cn.com/problems/merge-sorted-array](https://leetcode-cn.com/problems/merge-sorted-array)
 
 
 ## 题目描述

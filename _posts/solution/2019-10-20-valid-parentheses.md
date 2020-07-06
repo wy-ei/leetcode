@@ -7,7 +7,7 @@ tags: [栈,字符串]
 
 - 难度： 简单
 - 通过率： 35.4%
-- 题目链接：[https://leetcode.com/problems/valid-parentheses](https://leetcode.com/problems/valid-parentheses)
+- 题目链接：[https://leetcode-cn.com/problems/valid-parentheses](https://leetcode-cn.com/problems/valid-parentheses)
 
 
 ## 题目描述

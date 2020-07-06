@@ -5,3 +5,4 @@ sql/
 note/
 _site/
 .sass-cache/
+.jekyll-metadata

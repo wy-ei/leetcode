@@ -7,7 +7,7 @@ tags: [贪心算法,数组]
 
 - 难度： 简单
 - 通过率： 50.2%
-- 题目链接：[https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii)
+- 题目链接：[https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)
 
 
 ## 题目描述

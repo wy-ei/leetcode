@@ -7,7 +7,7 @@ tags: [位运算,哈希表]
 
 - 难度： 简单
 - 通过率： 58.1%
-- 题目链接：[https://leetcode.com/problems/single-number](https://leetcode.com/problems/single-number)
+- 题目链接：[https://leetcode-cn.com/problems/single-number](https://leetcode-cn.com/problems/single-number)
 
 
 ## 题目描述

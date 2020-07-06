@@ -7,7 +7,7 @@ tags: [树,深度优先搜索]
 
 - 难度： 中等
 - 通过率： 38.7%
-- 题目链接：[https://leetcode.com/problems/path-sum-ii](https://leetcode.com/problems/path-sum-ii)
+- 题目链接：[https://leetcode-cn.com/problems/path-sum-ii](https://leetcode-cn.com/problems/path-sum-ii)
 
 
 ## 题目描述

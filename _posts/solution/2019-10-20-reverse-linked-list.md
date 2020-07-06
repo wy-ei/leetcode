@@ -7,7 +7,7 @@ tags: [链表]
 
 - 难度： 简单
 - 通过率： 51.4%
-- 题目链接：[https://leetcode.com/problems/reverse-linked-list](https://leetcode.com/problems/reverse-linked-list)
+- 题目链接：[https://leetcode-cn.com/problems/reverse-linked-list](https://leetcode-cn.com/problems/reverse-linked-list)
 
 
 ## 题目描述

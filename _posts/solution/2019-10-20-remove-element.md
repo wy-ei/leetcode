@@ -7,7 +7,7 @@ tags: [数组,双指针]
 
 - 难度： 简单
 - 通过率： 42.9%
-- 题目链接：[https://leetcode.com/problems/remove-element](https://leetcode.com/problems/remove-element)
+- 题目链接：[https://leetcode-cn.com/problems/remove-element](https://leetcode-cn.com/problems/remove-element)
 
 
 ## 题目描述

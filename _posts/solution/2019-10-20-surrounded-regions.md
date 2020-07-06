@@ -7,7 +7,7 @@ tags: [深度优先搜索,广度优先搜索,并查集]
 
 - 难度： 中等
 - 通过率： 21.6%
-- 题目链接：[https://leetcode.com/problems/surrounded-regions](https://leetcode.com/problems/surrounded-regions)
+- 题目链接：[https://leetcode-cn.com/problems/surrounded-regions](https://leetcode-cn.com/problems/surrounded-regions)
 
 
 ## 题目描述

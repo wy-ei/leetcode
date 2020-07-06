@@ -7,7 +7,7 @@ tags: [哈希表,双指针,字符串]
 
 - 难度： 中等
 - 通过率： 25.7%
-- 题目链接：[https://leetcode.com/problems/longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
+- 题目链接：[https://leetcode-cn.com/problems/longest-substring-without-repeating-characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [数组]
 
 - 难度： 中等
 - 通过率： 38.4%
-- 题目链接：[https://leetcode.com/problems/set-matrix-zeroes](https://leetcode.com/problems/set-matrix-zeroes)
+- 题目链接：[https://leetcode-cn.com/problems/set-matrix-zeroes](https://leetcode-cn.com/problems/set-matrix-zeroes)
 
 
 ## 题目描述
@@ -92,7 +92,7 @@ class Solution:
 
 ## 解法 2：不使用额外空间
 
-在 leetcode 上看了一下[大佬的解答](https://leetcode.com/problems/set-matrix-zeroes/discuss/26014/Any-shorter-O(1)-space-solution)，我咋没想到哩。
+在 leetcode 上看了一下[大佬的解答](https://leetcode-cn.com/problems/set-matrix-zeroes/discuss/26014/Any-shorter-O(1)-space-solution)，我咋没想到哩。
 
 使用 matrix 的第一行来记录各列中是否有 0，使用 matrix 的第一列记录各行中是否含有 0。
 

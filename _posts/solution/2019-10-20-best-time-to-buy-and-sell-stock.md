@@ -7,7 +7,7 @@ tags: [数组,动态规划]
 
 - 难度： 简单
 - 通过率： 45.4%
-- 题目链接：[https://leetcode.com/problems/best-time-to-buy-and-sell-stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock)
+- 题目链接：[https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)
 
 
 ## 题目描述

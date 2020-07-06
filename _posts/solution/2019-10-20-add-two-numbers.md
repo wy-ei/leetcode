@@ -7,7 +7,7 @@ tags: [链表,数学]
 
 - 难度： 中等
 - 通过率： 30.0%
-- 题目链接：[https://leetcode.com/problems/add-two-numbers](https://leetcode.com/problems/add-two-numbers)
+- 题目链接：[https://leetcode-cn.com/problems/add-two-numbers](https://leetcode-cn.com/problems/add-two-numbers)
 
 
 ## 题目描述

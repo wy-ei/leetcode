@@ -7,7 +7,7 @@ tags: [数学]
 
 - 难度： 简单
 - 通过率： 24.9%
-- 题目链接：[https://leetcode.com/problems/reverse-integer](https://leetcode.com/problems/reverse-integer)
+- 题目链接：[https://leetcode-cn.com/problems/reverse-integer](https://leetcode-cn.com/problems/reverse-integer)
 
 
 ## 题目描述

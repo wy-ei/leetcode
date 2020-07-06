@@ -17,7 +17,7 @@ tags: [几何,数学]
 
 <p>要求浮点型误差不超过<code>10^-6</code>。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。</p>
 
-<p>&nbsp;</p>
+
 
 <p><strong>示例 1：</strong></p>
 
@@ -43,7 +43,7 @@ line2 = {1, 0}, {2, 1}
 <strong>输出：</strong> {}，两条线段没有交点
 </pre>
 
-<p>&nbsp;</p>
+
 
 <p><strong>提示：</strong></p>
 

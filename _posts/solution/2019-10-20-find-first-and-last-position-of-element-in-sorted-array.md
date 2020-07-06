@@ -7,7 +7,7 @@ tags: [数组,二分查找]
 
 - 难度： 中等
 - 通过率： 32.6%
-- 题目链接：[https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)
+- 题目链接：[https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array)
 
 
 ## 题目描述

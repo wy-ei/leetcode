@@ -7,7 +7,7 @@ tags: [栈,设计]
 
 - 难度： 中等
 - 通过率： 45.9%
-- 题目链接：[https://leetcode.com/problems/flatten-nested-list-iterator](https://leetcode.com/problems/flatten-nested-list-iterator)
+- 题目链接：[https://leetcode-cn.com/problems/flatten-nested-list-iterator](https://leetcode-cn.com/problems/flatten-nested-list-iterator)
 
 
 ## 题目描述

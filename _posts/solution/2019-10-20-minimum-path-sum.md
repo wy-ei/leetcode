@@ -7,7 +7,7 @@ tags: [数组,动态规划]
 
 - 难度： 中等
 - 通过率： 44.5%
-- 题目链接：[https://leetcode.com/problems/minimum-path-sum](https://leetcode.com/problems/minimum-path-sum)
+- 题目链接：[https://leetcode-cn.com/problems/minimum-path-sum](https://leetcode-cn.com/problems/minimum-path-sum)
 
 
 ## 题目描述

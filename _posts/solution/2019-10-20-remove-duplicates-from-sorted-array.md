@@ -7,7 +7,7 @@ tags: [数组,双指针]
 
 - 难度： 简单
 - 通过率： 38.9%
-- 题目链接：[https://leetcode.com/problems/remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
+- 题目链接：[https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)
 
 
 ## 题目描述
@@ -77,7 +77,7 @@ public:
 
 ## 解法 2：
 
-在[这里](https://leetcode.com/problems/remove-duplicates-from-sorted-array/discuss/11782/Share-my-clean-C%2B%2B-code)看到如下解法，稍作改进如下：
+在[这里](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/discuss/11782/Share-my-clean-C%2B%2B-code)看到如下解法，稍作改进如下：
 
 思路是使用一个变量记录下重复的元素个数，这样下标 `i-count` 就是当前未重复的元素的位置了。结果用总长度减去重复元素个数就好了。
 

@@ -7,7 +7,7 @@ tags: [贪心算法]
 
 - 难度： 中等
 - 通过率： 32.3%
-- 题目链接：[https://leetcode.com/problems/gas-station](https://leetcode.com/problems/gas-station)
+- 题目链接：[https://leetcode-cn.com/problems/gas-station](https://leetcode-cn.com/problems/gas-station)
 
 
 ## 题目描述

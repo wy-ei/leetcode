@@ -7,7 +7,7 @@ tags: [哈希表,字符串]
 
 - 难度： 中等
 - 通过率： 43.4%
-- 题目链接：[https://leetcode.com/problems/group-anagrams](https://leetcode.com/problems/group-anagrams)
+- 题目链接：[https://leetcode-cn.com/problems/group-anagrams](https://leetcode-cn.com/problems/group-anagrams)
 
 
 ## 题目描述

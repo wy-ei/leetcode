@@ -7,7 +7,7 @@ tags: [回溯算法]
 
 - 难度： 中等
 - 通过率： 38.7%
-- 题目链接：[https://leetcode.com/problems/palindrome-partitioning](https://leetcode.com/problems/palindrome-partitioning)
+- 题目链接：[https://leetcode-cn.com/problems/palindrome-partitioning](https://leetcode-cn.com/problems/palindrome-partitioning)
 
 
 ## 题目描述

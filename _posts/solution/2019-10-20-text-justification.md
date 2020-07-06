@@ -7,7 +7,7 @@ tags: [字符串]
 
 - 难度： 困难
 - 通过率： 21.9%
-- 题目链接：[https://leetcode.com/problems/text-justification](https://leetcode.com/problems/text-justification)
+- 题目链接：[https://leetcode-cn.com/problems/text-justification](https://leetcode-cn.com/problems/text-justification)
 
 
 ## 题目描述

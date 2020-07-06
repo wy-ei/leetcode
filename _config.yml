@@ -19,8 +19,6 @@ images: https://wangyu-name.oss-cn-hangzhou.aliyuncs.com/
 base_path: "/leetcode"
 # base_path: ""
 
-url: https://notes.wangyu.name/
-
 rss_path: /rss.xml
 atom_path: /atom.xml
 excerpt_separator: "<!--more-->"

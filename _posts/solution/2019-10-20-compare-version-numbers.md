@@ -7,7 +7,7 @@ tags: [字符串]
 
 - 难度： 中等
 - 通过率： 22.1%
-- 题目链接：[https://leetcode.com/problems/compare-version-numbers](https://leetcode.com/problems/compare-version-numbers)
+- 题目链接：[https://leetcode-cn.com/problems/compare-version-numbers](https://leetcode-cn.com/problems/compare-version-numbers)
 
 
 ## 题目描述

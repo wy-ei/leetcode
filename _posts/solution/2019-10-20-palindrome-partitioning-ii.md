@@ -7,7 +7,7 @@ tags: [动态规划]
 
 - 难度： 困难
 - 通过率： 26.3%
-- 题目链接：[https://leetcode.com/problems/palindrome-partitioning-ii](https://leetcode.com/problems/palindrome-partitioning-ii)
+- 题目链接：[https://leetcode-cn.com/problems/palindrome-partitioning-ii](https://leetcode-cn.com/problems/palindrome-partitioning-ii)
 
 
 ## 题目描述

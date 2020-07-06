@@ -6,7 +6,7 @@ qid: 421
 
 - 难度： 中等
 - 通过率： 49.8%
-- 题目链接：[https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array)
+- 题目链接：[https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array](https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array)
 
 
 ## 题目描述

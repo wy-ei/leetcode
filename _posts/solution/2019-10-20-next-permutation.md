@@ -8,7 +8,7 @@ tags: [数组]
 
 - 难度： 中等
 - 通过率： 29.7%
-- 题目链接：[https://leetcode.com/problems/next-permutation](https://leetcode.com/problems/next-permutation)
+- 题目链接：[https://leetcode-cn.com/problems/next-permutation](https://leetcode-cn.com/problems/next-permutation)
 
 ## 题目描述
 

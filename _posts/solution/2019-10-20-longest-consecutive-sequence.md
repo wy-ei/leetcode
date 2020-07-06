@@ -7,7 +7,7 @@ tags: [并查集,数组]
 
 - 难度： 困难
 - 通过率： 40.3%
-- 题目链接：[https://leetcode.com/problems/longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence)
+- 题目链接：[https://leetcode-cn.com/problems/longest-consecutive-sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence)
 
 
 ## 题目描述

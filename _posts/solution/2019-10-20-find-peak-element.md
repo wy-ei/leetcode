@@ -7,7 +7,7 @@ tags: [数组,二分查找]
 
 - 难度： 中等
 - 通过率： 40.4%
-- 题目链接：[https://leetcode.com/problems/find-peak-element](https://leetcode.com/problems/find-peak-element)
+- 题目链接：[https://leetcode-cn.com/problems/find-peak-element](https://leetcode-cn.com/problems/find-peak-element)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [树,深度优先搜索]
 
 - 难度： 中等
 - 通过率： 40.2%
-- 题目链接：[https://leetcode.com/problems/flatten-binary-tree-to-linked-list](https://leetcode.com/problems/flatten-binary-tree-to-linked-list)
+- 题目链接：[https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list)
 
 
 ## 题目描述

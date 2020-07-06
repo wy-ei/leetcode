@@ -19,7 +19,7 @@ tags: [哈希表,字符串]
 
 <p>回文串不一定是字典当中的单词。</p>
 
-<p>&nbsp;</p>
+
 
 <p><strong>示例1：</strong></p>
 
@@ -27,7 +27,7 @@ tags: [哈希表,字符串]
 <strong>输出：</strong>true（排列有&quot;tacocat&quot;、&quot;atcocta&quot;，等等）
 </pre>
 
-<p>&nbsp;</p>
+
 
 
 ## 解法：

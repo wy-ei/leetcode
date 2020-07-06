@@ -7,7 +7,7 @@ tags: [链表]
 
 - 难度： 中等
 - 通过率： 31.7%
-- 题目链接：[https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii)
+- 题目链接：[https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii)
 
 
 ## 题目描述

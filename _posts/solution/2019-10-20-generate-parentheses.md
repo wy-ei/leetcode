@@ -7,7 +7,7 @@ tags: [字符串,回溯算法]
 
 - 难度： 中等
 - 通过率： 52.0%
-- 题目链接：[https://leetcode.com/problems/generate-parentheses](https://leetcode.com/problems/generate-parentheses)
+- 题目链接：[https://leetcode-cn.com/problems/generate-parentheses](https://leetcode-cn.com/problems/generate-parentheses)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [栈,字符串]
 
 - 难度： 中等
 - 通过率： 27.7%
-- 题目链接：[https://leetcode.com/problems/simplify-path](https://leetcode.com/problems/simplify-path)
+- 题目链接：[https://leetcode-cn.com/problems/simplify-path](https://leetcode-cn.com/problems/simplify-path)
 
 
 ## 题目描述

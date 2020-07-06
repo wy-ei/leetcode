@@ -7,7 +7,7 @@ tags: [数组,动态规划]
 
 - 难度： 中等
 - 通过率： 45.5%
-- 题目链接：[https://leetcode.com/problems/unique-paths](https://leetcode.com/problems/unique-paths)
+- 题目链接：[https://leetcode-cn.com/problems/unique-paths](https://leetcode-cn.com/problems/unique-paths)
 
 
 ## 题目描述

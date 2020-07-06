@@ -7,7 +7,7 @@ tags: [数组,回溯算法]
 
 - 难度： 中等
 - 通过率： 29.8%
-- 题目链接：[https://leetcode.com/problems/word-search](https://leetcode.com/problems/word-search)
+- 题目链接：[https://leetcode-cn.com/problems/word-search](https://leetcode-cn.com/problems/word-search)
 
 
 ## 题目描述

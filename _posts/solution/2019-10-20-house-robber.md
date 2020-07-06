@@ -7,7 +7,7 @@ tags: [动态规划]
 
 - 难度： 简单
 - 通过率： 40.6%
-- 题目链接：[https://leetcode.com/problems/house-robber](https://leetcode.com/problems/house-robber)
+- 题目链接：[https://leetcode-cn.com/problems/house-robber](https://leetcode-cn.com/problems/house-robber)
 
 
 ## 题目描述

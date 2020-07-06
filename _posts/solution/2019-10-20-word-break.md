@@ -7,7 +7,7 @@ tags: [动态规划]
 
 - 难度： 中等
 - 通过率： 33.7%
-- 题目链接：[https://leetcode.com/problems/word-break](https://leetcode.com/problems/word-break)
+- 题目链接：[https://leetcode-cn.com/problems/word-break](https://leetcode-cn.com/problems/word-break)
 
 
 ## 题目描述

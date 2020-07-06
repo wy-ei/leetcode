@@ -7,7 +7,7 @@ tags: [回溯算法]
 
 - 难度： 中等
 - 通过率： 52.1%
-- 题目链接：[https://leetcode.com/problems/permutations](https://leetcode.com/problems/permutations)
+- 题目链接：[https://leetcode-cn.com/problems/permutations](https://leetcode-cn.com/problems/permutations)
 
 
 ## 题目描述

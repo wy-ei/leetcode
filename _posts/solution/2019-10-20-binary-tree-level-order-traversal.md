@@ -7,7 +7,7 @@ tags: [树,广度优先搜索]
 
 - 难度： 中等
 - 通过率： 46.1%
-- 题目链接：[https://leetcode.com/problems/binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal)
+- 题目链接：[https://leetcode-cn.com/problems/binary-tree-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
 
 
 ## 题目描述

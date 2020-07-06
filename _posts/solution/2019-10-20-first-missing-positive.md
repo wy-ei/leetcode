@@ -7,7 +7,7 @@ tags: [数组]
 
 - 难度： 困难
 - 通过率： 27.7%
-- 题目链接：[https://leetcode.com/problems/first-missing-positive](https://leetcode.com/problems/first-missing-positive)
+- 题目链接：[https://leetcode-cn.com/problems/first-missing-positive](https://leetcode-cn.com/problems/first-missing-positive)
 
 
 ## 题目描述

@@ -7,7 +7,7 @@ tags: [字符串,回溯算法]
 
 - 难度： 中等
 - 通过率： 39.5%
-- 题目链接：[https://leetcode.com/problems/letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)
+- 题目链接：[https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number)
 
 
 ## 题目描述

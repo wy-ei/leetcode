@@ -7,7 +7,7 @@ tags: [树,深度优先搜索,数组]
 
 - 难度： 中等
 - 通过率： 38.4%
-- 题目链接：[https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+- 题目链接：[https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 
 ## 题目描述

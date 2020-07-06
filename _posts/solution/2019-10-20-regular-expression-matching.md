@@ -7,7 +7,7 @@ tags: [字符串,动态规划,回溯算法]
 
 - 难度： 困难
 - 通过率： 24.7%
-- 题目链接：[https://leetcode.com/problems/regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)
+- 题目链接：[https://leetcode-cn.com/problems/regular-expression-matching](https://leetcode-cn.com/problems/regular-expression-matching)
 
 
 ## 题目描述

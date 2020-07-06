@@ -7,7 +7,7 @@ tags: [深度优先搜索,广度优先搜索,图]
 
 - 难度： 中等
 - 通过率： 25.1%
-- 题目链接：[https://leetcode.com/problems/clone-graph](https://leetcode.com/problems/clone-graph)
+- 题目链接：[https://leetcode-cn.com/problems/clone-graph](https://leetcode-cn.com/problems/clone-graph)
 
 
 ## 题目描述
