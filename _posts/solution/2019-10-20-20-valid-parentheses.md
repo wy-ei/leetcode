@@ -59,20 +59,28 @@ tags: [栈,字符串]
 
 使用栈很容易解决，需要注意的是在 `pop` 的时候需要检查栈是否为空。
 
-```python
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        start = {'(', '[', '{'}
-        mapping = {')': '(', ']': '[', '}': '{'}
-        stack = []
-        for c in s:
-            if c in start:
-                stack.append(c)
-            elif len(stack) == 0 or stack.pop() != mapping[c]:
-                return False
-        return len(stack) == 0
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        unordered_map<char, char> mapping{
+            {')', '('},
+            {']', '['},
+            {'}', '{'}
+        };
+        stack<char> stk;
+        for(auto c: s){
+            if(c == '(' || c == '[' || c == '{'){
+                stk.push(c);
+            }else{
+                if(stk.empty() || stk.top() != mapping[c]){
+                    return false;
+                }else{
+                    stk.pop();
+                }
+            }
+        }
+        return stk.empty();
+    }
+};
 ```
