@@ -310,11 +310,13 @@ APP.prototype.build_slug = function(value) {
 APP.prototype.buildTOC = function(){
     var container = document.querySelector('.post .content');
     var toc = container.querySelector('.toc');
-    var select_level = toc.dataset.level;
-    if(select_level){
-        select_level = parseInt(select_level);
-    }
+    var select_level = null;
     if(toc){
+        select_level = toc.dataset.level;
+        if (select_level) {
+            select_level = parseInt(select_level);
+        }
+
         let ul = document.createElement('ul');
         ul.setAttribute('id', 'markdown-toc');
         toc.appendChild(ul);

@@ -31,43 +31,52 @@ tags: [栈,树]
 <p><strong>进阶:</strong>&nbsp;递归算法很简单，你可以通过迭代算法完成吗？</p>
 
 
-## 解法：
+## 递归解法：
 
-**递归实现**
+```c++
+class Solution {
+  public:
+    vector<int> inorderTraversal(TreeNode* root){
+        vector<int> res;
+        traversal(root, res);
+        return res;
+    }
 
-```python
-class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
-        
-        if not root:
-            return []
-        
-        result = [root.val]        
-        result += self.preorderTraversal(root.left)
-        result += self.preorderTraversal(root.right)
-        
-        return result
+    void traversal(TreeNode *node, vector<int>& res) {
+        if (!node){
+            return;
+        }
+        res.push_back(node->val);
+        traversal(node->left, res);
+        traversal(node->right, res);
+    }
+};
 ```
 
-**基于栈的实现**
+## 基于栈的解法
 
-```python
-class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
-        stack, result = [], []
+```cpp
+class Solution {
+  public:
+    vector<int> preorderTraversal(TreeNode *root) {
+        vector<int> res;
+        stack<TreeNode*> stk;
+        if(root){
+            stk.push(root);
+        }
 
-        if root:
-            stack.append(root)
-
-        while stack:
-            node = stack.pop()
-            result.append(node.val)
-            if node.right:
-                stack.append(node.right)
-            if node.left:
-                stack.append(node.left)
-
-        return result
+        while(!stk.empty()){
+            TreeNode *node = stk.top();
+            stk.pop();
+            while(node){
+                res.push_back(node->val);
+                if(node->right){
+                    stk.push(node->right);
+                }
+                node = node->left;
+            }
+        }
+        return res;
+    }
+};
 ```
-
-2019-8-3 19:41:45

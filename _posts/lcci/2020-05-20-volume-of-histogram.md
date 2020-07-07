@@ -1,7 +1,7 @@
 ---
 title: 直方图的水量
 qid: 17.21
-tags: [栈,数组,双指针]
+tags: [数组,双指针,单调栈]
 ---
 
 
@@ -63,7 +63,7 @@ public:
 
 ## 解法二：双指针
 
-上面那种方法，需要存储下左右两边的最大高度，那其实是不必要的。一个柱子上的水量只依赖于本身高度和左右两边的最大高度中的较小者。考虑从左右两端起第二个柱子，它们分别知晓左边和右边的最大高度。这两个高度一比较，必然有一端更矮，矮的那一端就可以计算水量了。
+上面那种方法，需要存储下左右两边的最大高度，那其实是不必要的。一个柱子上的水量只依赖于本身高度和左右两边的最大高度中的较小者。考虑从左右两端起第二个柱子，它们分别知晓左边和右边的最大高度。这两个高度比较，必然有一端更矮，矮的那一端就可以计算水量了。
 
 计算完成后，可以更新最大高度，而后边上的两个柱子，其中一个又可以计算水量了。如此，就可以从两边开始累积水量，不需要额外的存储。
 
@@ -87,6 +87,37 @@ public:
                 r--;
                 r_max = max(r_max, height[r]);
             }
+        }
+        return volume;
+    }
+};
+```
+
+## 解法三：单调栈
+
+解释请参考：[leetcode 题解](https://leetcode-cn.com/problems/trapping-rain-water/solution/trapping-rain-water-by-ikaruga/)
+
+```cpp
+class Solution {
+  public:
+    int trap(vector<int> &heights) {
+        if (heights.size() <= 2) {
+            return 0;
+        }
+        stack<int> stk;
+        int volume = 0;
+
+        for (size_t i = 0; i < heights.size(); i++) {
+            while (!stk.empty() && heights[i] > heights[stk.top()]) {
+                int h = heights[stk.top()];
+                stk.pop();
+                if (stk.empty()) {
+                    break;
+                }
+                int diff = min(heights[stk.top()], heights[i]) - h;
+                volume += diff * (i - stk.top() - 1);
+            }
+            stk.push(i);
         }
         return volume;
     }

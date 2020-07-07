@@ -34,56 +34,51 @@ tags: [栈,树,哈希表]
 
 中序变量，即按照 左->中->右 的次序来对二叉树进行遍历。对树进行遍历使用递归会非常简单。当然，不使用递归能够带来性能上的提升。
 
-### 解法 1 - 递归
+### 递归解法
 
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+```c++
+class Solution {
+  public:
+    vector<int> inorderTraversal(TreeNode* root){
+        vector<int> res;
+        traversal(root, res);
+        return res;
+    }
 
-class Solution:
-    def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        result = []
-        self.__inorderTraversal(root, result)
-        return result
-        
-    def __inorderTraversal(self, node, result):
-        if not node:
-            return
-        
-        self.__inorderTraversal(node.left, result)
-        result.append(node.val)
-        self.__inorderTraversal(node.right, result)
+    void traversal(TreeNode *node, vector<int>& res) {
+        if (!node){
+            return;
+        }
+
+        traversal(node->left, res);
+        res.push_back(node->val);
+        traversal(node->right, res);
+    }
+};
 ```
 
-### 解法 2 - 基于栈
+### 基于栈的迭代解法
 
 
-```python
-class Solution:
-    def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        result = []
-        stack = []
-        node = root
-        while stack or node:
-            if node:
-                stack.append(node)
-                node = node.left
-            else:
-                node = stack.pop()
-                result.append(node.val)
-                node = node.right
+```cpp
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode *root) {
+        vector<int> res;
+        stack<TreeNode*> stk;
+        TreeNode* node = root;
 
-        return result
+        while(node || !stk.empty()){
+            while(node){
+                stk.push(node);
+                node = node->left;
+            }
+            node = stk.top();
+            stk.pop();
+            res.push_back(node->val);
+            node = node->right;
+        }
+        return res;
+    }
+};
 ```
