@@ -44,7 +44,7 @@ tags: [树,广度优先搜索]
 
 ```cpp
 class Solution {
-  public:
+public:
     vector<vector<int>> levelOrder(TreeNode *root) {
         vector<vector<int>> res;
         queue<TreeNode *> queue_;
@@ -80,7 +80,7 @@ class Solution {
 
 ```cpp
 class Solution {
-  public:
+public:
     vector<vector<int>> levelOrder(TreeNode *root) {
         vector<vector<int>> res;
         traverse(root, 1, res);

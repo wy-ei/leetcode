@@ -23,12 +23,12 @@ tags: [树,深度优先搜索]
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        return isValidBST(root, numeric_limits<long long>::min(), numeric_limits<long long>::max());
+        return isValidBST(root, numeric_limits<int64_t>::min(), numeric_limits<int64_t>::max());
     }
 
-    bool isValidBST(TreeNode* root, long long lo, long long hi){
+    bool isValidBST(TreeNode* root, int64_t lo, int64_t hi){
         if(root == nullptr) return true;
-        long long val = root->val;
+        int64_t val = root->val;
         if(val >= hi) return false;
         if(val <= lo) return false;
         return isValidBST(root->left, lo, root->val)
@@ -43,13 +43,12 @@ public:
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        long long prev = numeric_limits<long long>::min();
+        int64_t prev = numeric_limits<int64_t>::min();
         return traversal(root, &prev);
     }
 
-    bool traversal(TreeNode* node, long long *prev){
+    bool traversal(TreeNode* node, int64_t *prev){
         if(node == nullptr) return true;
-
         bool ret = traversal(node->left, prev);
         if(ret == false){
             return false;

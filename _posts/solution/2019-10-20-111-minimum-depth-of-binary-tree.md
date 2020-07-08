@@ -37,22 +37,65 @@ tags: [树,深度优先搜索,广度优先搜索]
 
 层次遍历，遇到第一个没有左右孩子的节点时停止。
 
-```python
-class Solution:
-    def minDepth(self, root):
-        if not root:
-            return 0
-        
-        queue = [(root, 1)]
-        
-        while queue:
-            node, depth = queue.pop(0)
-            if not (node.left or node.right):
-                return depth
-            
-            depth += 1
-            if node.left:
-                queue.append((node.left, depth))
-            if node.right:
-                queue.append((node.right, depth))
+```c++
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        queue<TreeNode *> queue_;
+        if(root){
+            queue_.push(root);
+        }
+        int level = 0;
+        while(!queue_.empty()){
+            level += 1;
+            int size = queue_.size();
+            for (size_t i = 0; i < size; i++){
+                TreeNode* node = queue_.front();
+                queue_.pop();
+
+                if(!node->left && !node->right){
+                    return level;
+                }
+
+                if(node->left){
+                    queue_.push(node->left);
+                }
+                if(node->right){
+                    queue_.push(node->right);
+                }
+            }
+        }
+        return level;
+    }
+};
 ```
+
+深度优先遍历也行：
+
+```cpp
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(!root) return 0;
+        int min_depth = INT_MAX;
+        traversal(root, 1, &min_depth);
+        return min_depth;
+    }
+
+    void traversal(TreeNode *node, int depth, int *min_depth) {
+        if (!node){
+            return;
+        }
+        if(!node->left && !node->right){
+            *min_depth = min(*min_depth, depth);
+        }
+        if(depth == *min_depth){
+            // 剪枝
+            return;
+        }
+        traversal(node->left, depth + 1, min_depth);
+        traversal(node->right, depth + 1, min_depth);
+    }
+};
+```
+

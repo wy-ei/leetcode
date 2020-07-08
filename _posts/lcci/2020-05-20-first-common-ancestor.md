@@ -62,15 +62,17 @@ public:
 
         TreeNode *left = lowestCommonAncestor(root->left, p, q);
         TreeNode *right = lowestCommonAncestor(root->right, p, q);
-
+        
+        // 找到了公共祖先
         if(left && right){
             return root;
         }
 
+        // 这句有多重意思，返回左子树中找到的节点，或者是返回答案
         if(left){
             return left;
         }
-
+        // 同上
         if(right){
             return right;
         }

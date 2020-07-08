@@ -34,36 +34,7 @@ tags: [树,深度优先搜索]
 
 ## 解法：
 
-2019-8-2 21:26:01
-
-
-解法一：层次遍历
-
-```python
-
-class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
-        max_depth = 0
-        queue = [(root, 1)]
-        
-        while queue:
-            node, depth = queue.pop(0)
-            
-            if not node:
-                continue
-                
-            queue.append((node.left, depth + 1))
-            queue.append((node.right, depth + 1))
-
-            if max_depth < depth:
-                max_depth = depth
-            
-        return max_depth
-```
-
-解法二：深度优先遍历
-
-整个树的最大深度为左右子树的最大深度加 1 ，有了这样的理论基础，就不难写下如下递归解法。
+整个树的最大深度为左右子树的最大深度加 1，有了这样的理论基础，就不难写下如下递归解法。
 
 ```python
 class Solution:
