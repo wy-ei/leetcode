@@ -52,53 +52,36 @@ tags: [树,深度优先搜索]
 
 ## 解法：
 
-这个问题可以递归地去检查子树的是否平衡，深度的计算应该是从树的叶子开始，然后复用子树的求得的深度。看到一些解法，直接去求子树的深度，但是没有复用深度，造成了很多没必要的计算。
+这个问题可以递归地去检查子树的是否平衡，深度的计算应该是从树的叶子开始，然后复用子树的求得的深度一些解法，直接去求子树的深度，但是没有复用深度，造成了很多没必要的计算。
 
 这里一个困难点在于，如何在计算深度的同时，向外层传递不平衡的信息，以便在发现不平衡时，算法可以立刻停止。这里我使用了异常机制，在出现不平衡后断言不成立，会抛出异常。
 
-```python
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        try:
-            self.check_balance(root)
-        except:
-            return False
-        
-        return True
-    
-    def check_balance(self, node):
-        if not node:
-            return 0
-        
-        left_height = self.check_balance(node.left)
-        right_height = self.check_balance(node.right)
-        
-        assert abs(left_height - right_height) <= 1, 'unblance'
-        
-        return 1 + max(left_height, right_height)
-```
+递归地计算左右子树的深度，发现不平衡后，抛出异常，由此立刻退出递归调用。
 
-后来，又看到了下面这种解法，相当精妙。代码非常干净，没有一点拖泥带水。`blance` 函数中发现不平衡后，就返回 -1，随后整个递归过程就全部退出了。
+```c++
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        try{
+            throw_if_unbalance(root);
+            return true;
+        }catch(...){
+            return false;
+        }
+    }
+private:
+    int throw_if_unbalance(TreeNode* node) {
+        if(node == nullptr){
+            return 0;
+        }
 
-```python
-class Solution:
-    def isBalanced(self, root: TreeNode) -> bool:
-        return self.blance(root) != -1
-    
-    def blance(self, node):
-        if not node:
-            return 0
-        
-        lh = self.blance(node.left)
-        if lh == -1:
-            return -1
-        
-        rh = self.blance(node.right)
-        if rh == -1:
-            return -1
-        
-        if abs(lh - rh) > 1:
-            return -1
-        
-        return 1 + max(lh, rh)
+        int left_depth = throw_if_unbalance(node->left);
+        int right_depth = throw_if_unbalance(node->right);
+
+        if(abs(left_depth - right_depth) > 1){
+            throw exception();
+        }
+        return 1 + max(left_depth, right_depth);
+    }
+};
 ```

@@ -2,7 +2,7 @@
 title: 化栈为队
 qid: 03.04
 tags: [栈]
-published: false
+dup: true
 ---
 
 
@@ -18,4 +18,4 @@ published: false
 
 ## 解法：
 
-同 [剑指 Offer - 09. 用两个栈实现队列](../lcof/09-yong-liang-ge-zhan-shi-xian-dui-lie-lcof.md)
+解答见：{% include post_link qid="offer_9" %}

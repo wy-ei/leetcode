@@ -53,21 +53,23 @@ tags: [数组,分治算法,动态规划]
 1. 修改 `max_sum` 的初始值为 `nums[0]`
 2. 将 `esle if` 修改为 `if`，因为就算 `sum_ > max_sum`，`sum_` 也有可能小于 0。
 
-本题 Aaccept 的代码如下：
+本题 accept 的代码如下：
 
-```python
-class Solution:
-    def maxSubArray(self, nums):
-        max_sum = nums[0]
-        sum_ = 0
-        
-        for n in nums:
-            sum_ += n
-            if sum_ > max_sum:
-                max_sum = sum_
 
-            if sum_ < 0:
-                sum_ = 0
-                
-        return max_sum
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int max_sum = nums[0];
+        int sum = 0;
+        for(int num: nums){
+            sum += num;
+            max_sum = max(max_sum, sum);
+            if(sum < 0){
+                sum = 0;
+            }
+        }
+        return max_sum;
+    }
+};
 ```

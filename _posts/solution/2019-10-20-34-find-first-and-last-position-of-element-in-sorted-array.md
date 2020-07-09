@@ -33,109 +33,59 @@ tags: [数组,二分查找]
 
 ## 解法：
 
-使用二分查找来寻找上界和下界。和二分查找不同之处在于找到 target 之后，需要判断 mid 是不是上下界，如果不是就继续更新 lo 或者 hi。
-
-```python
-class Solution:
-    
-    def lower_bound(self, nums, target):
-        lo = 0
-        hi = len(nums)
-        
-        while lo < hi:
-            mid = lo + (hi - lo) // 2
-            if nums[mid] < target:
-                lo = mid + 1
-            elif nums[mid] > target:
-                hi = mid
-            else:
-                if mid == 0 or nums[mid - 1] < target:
-                    return mid
-                else:
-                    hi = mid
-
-        return -1
-    
-    def upper_bound(self, nums, target):
-        lo = 0
-        hi = len(nums)
-        length = len(nums)
-        
-        while lo < hi:
-            mid = lo + (hi - lo) // 2
-            if nums[mid] < target:
-                lo = mid + 1
-            elif nums[mid] > target:
-                hi = mid
-            else:
-                if mid + 1 == length or nums[mid + 1] > target:
-                    return mid + 1
-                else:
-                    lo = mid + 1
-
-        return -1
-    
-    def searchRange(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        
-        lower_bound = self.lower_bound(nums, target)
-        
-        if lower_bound == -1:
-            return [-1, -1]
-        
-        upper_bound = self.upper_bound(nums, target)
-
-        return [lower_bound, upper_bound - 1]
-```
-
-### 寻找上下界
-
-在 C++ 算法模块中存在 `lowe_bound` 和 `upper_bound` 这两个函数，它们都位于二分查找类别下。在[这里](http://www.cplusplus.com/reference/algorithm/lower_bound/)看到了 `lower_bound` 的一种写法：
+在排序数组中寻找某个数的 `lower_bound` 和 `upper_bound`，然后计算两者之差，就能知道这个数出现了多少次。
 
 ```c++
-template <class ForwardIterator, class T>
-ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T& val){
-    ForwardIterator it;
-    iterator_traits<ForwardIterator>::difference_type count, step;
-    count = distance(first,last);
-    while (count>0){
-        it = first;
-        step=count/2;
-        advance (it,step);
-        
-        if (*it<val) {                 // or: if (comp(*it,val)), for version (2)
-            first=++it;
-            count-=step+1;
-        }
-        else{
-            count=step;
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        auto it1 = lower_bound(nums.begin(), nums.end(), target);
+        auto it2 = upper_bound(it1, nums.end(), target);
+        return distance(it1, it2);
+    }
+};
+```
+
+自己动手实现 `lower_bound` 和 `upper_bound` 如下：
+
+```c++
+int lower_bound(const vector<int> &nums, int val){
+    int lo = 0, hi = nums.size();
+    
+    while(lo < hi){
+        int mid = lo + (hi - lo) / 2;
+        if(nums[mid] < val){
+            lo = mid + 1;
+        }else{
+            hi = mid;
         }
     }
-    return first;
+    return lo;
 }
+
+int upper_bound(const vector<int> &nums, int val){
+    int lo = 0, hi = nums.size();
+
+    while(lo < hi){
+        int mid = lo + (hi - lo) / 2;
+        if(nums[mid] <= val){
+            lo = mid + 1;
+        }else{
+            hi = mid;
+        }
+    }
+    return lo;
+}
+
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        return upper_bound(nums, target) - lower_bound(nums, target);
+    }
+};
 ```
 
-感觉这段代码写的更好一些，我把它改写成 python 如下： 
+实现 `lower_bound` 和 `upper_bound` 的关键在于更新 `lo` 的条件。`lower_bound` 返回的是第一个大于等于 `val` 的值的下标，因此只有 `nums[mid] < val` 的时候，才能设置 `low = mid + 1`。
 
-```python
-def lower_bound(nums, target):
-    count = len(nums)
-    lo = 0
-    while count > 0:
-        step = count // 2
-        mid = lo + step
-        
-        if nums[mid] < target:
-            lo = mid + 1
-            count -= step + 1
-        else:
-            count = step
-    return lo
-```
-
-它采用的策略是使用不同的步长，拿数组中间位置元素和 target 比较，如果小于 target，那么更新 `lo=mid+1`，并减小搜索区间长度。如果不小于 target，就将步长减半。直到最后最后区间长度为 0，这个时候 lo 指向的就是 `lower_bound`。
-
+`lower_bound` 返回第一个大于 `val` 的值的下标，因此在 `nums[mid] <= val` 的时候，可以让 `lo` 指向 `mid` 后一个元素。

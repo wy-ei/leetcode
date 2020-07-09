@@ -38,20 +38,23 @@ tags: [位运算,数组,分治算法]
 
 想象一个投票的场景，只有某个选项的投票人数超过总人数的一半时，此选项才能通过。
 
-```python
-class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        count = 0
-        ret = float('nan')
-        
-        for num in nums:
-            if ret == num:
-                count += 1
-            else:
-                count -= 1
-                
-                if count < 0:
-                    ret = num
-                    count = 1
-        return ret
+```c++
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = 0;
+        int count = 0;
+        for(int num: nums){
+            if(count == 0){
+                n = num;
+            }
+            if(n == num){
+                count += 1;
+            }else{
+                count -= 1;
+            }
+        }
+        return n;
+    }
+};
 ```

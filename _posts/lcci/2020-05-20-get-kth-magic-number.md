@@ -2,6 +2,7 @@
 title: 第 k 个数
 qid: 17.09
 tags: [堆,队列,数学]
+dup: true
 ---
 
 
@@ -25,24 +26,4 @@ tags: [堆,队列,数学]
 
 ## 解法：
 
-同 [剑指Offer 49. 丑数](../lcof/49-chou-shu-lcof.md)
-
-```c++
-class Solution {
-public:
-    int getKthMagicNumber(int k) {
-        vector<int> nums{1};
-        int i3 = 0;
-        int i5 = 0;
-        int i7 = 0;
-        for(int i=1;i<k;i++){
-            int next = min({nums[i3]*3, nums[i5]*5, nums[i7]*7});
-            if(nums[i3] * 3 == next) i3++;
-            if(nums[i5] * 5 == next) i5++;
-            if(nums[i7] * 7 == next) i7++;
-            nums.push_back(next);
-        }
-        return nums.back();
-    }
-};
-```
+解答见：{% include post_link qid="264" %}

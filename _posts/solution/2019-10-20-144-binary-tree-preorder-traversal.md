@@ -55,6 +55,9 @@ class Solution {
 
 ## 基于栈的解法
 
+
+观察递归解法，递归调用的第一层就访问 `node->val`，而后遍历 `node->left`，而 `node->right` 是保存在调用栈上的，因此在迭代的写法中，需要将 `node->right` 保存在栈里。
+
 ```cpp
 class Solution {
   public:

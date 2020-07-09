@@ -14,6 +14,7 @@ permalink: /
   {% endfor %}
 </div>
 
+<p style="margin-bottom: 10px;">共计 {{site.posts | where: "dup", nil | size}} 篇</p>
 
 <div class="category-list">
 {% for tag in site.tags %}
@@ -21,9 +22,11 @@ permalink: /
     <h3 id="{{ tag | first }}" class="m-list__title"><i class="icon iconfont icon-tag"></i>{{ tag | first }}</h3>
     <ul class="m-list">
     {% for post in tag.last | sort: 'qid' %}
+    {% if post.dup != true %}
       <li class="list-item-inline">
           <a href="{{site.base_path}}{{ post.url }}">{{ post.title }}</a>
       </li>
+    {% endif %}
     {% endfor %}
     </ul>
 </div>

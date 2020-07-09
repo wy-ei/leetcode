@@ -39,58 +39,61 @@ tags: [动态规划]
 </pre>
 
 
-## 解法：
+## 解法一：自顶向下
 
-上 n 层楼梯，可以上到 n-1 层然后一步跨一阶上去，也可以上到 n-2 层一步跨两阶上去。因此上 n 层楼的走法等于上 n-1 层楼和上 n-2 层楼的走法之和。这也算是动态规划类型的问题了。
+青蛙登上 n 级台阶，有两种可能：从 n-1 级台阶跳上来，或者从 n-2 级台阶跳上来。因此，这可能性数量为 F 则：
 
-递归解，使用一个变量缓存结果，这样的解法往往出现在讲编程技巧的书籍中，实际场景中当然希望避免使用递归。
+F(n) = F(n-1) + F(n-2)
 
-```python
-class Solution:
-    def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        cache = {}
-        
-        return self.__climb(n, cache)
-    
-    def __climb(self, n, cache):
-        if n in cache:
-            return cache[n]
-        
-        if n <= 2:
-            return n
-        
-        cache[n] = self.__climb(n-1, cache) + self.__climb(n-2, cache)
-        
-        return cache[n]
+这可以写个递归轻松解决，因为其中涉及很多重复计算，可以加个备忘录。
+
+```c++
+class Solution {
+public:
+    int numWays(int n) {
+        return num_ways(n);
+    }
+
+    int num_ways(int n){
+        if(n == 0 || n == 1){
+            return 1;
+        }
+
+        auto it = cache.find(n);
+        if(it != cache.end()){
+            return cache[n];
+        }
+
+        cache[n] = num_ways(n-1) + num_ways(n-2);
+        cache[n] %= 1000000007L;
+
+        return cache[n];
+    }
+private:
+    unordered_map<int, int> cache;
+};
 ```
 
-前面采用递归，考虑的是最后一步的情况，即最后跨一级台阶或者跨两级台阶。但在迭代解法中，就要从跨第一步开始考虑了。
+## 解法二：自底向上
 
-台阶高度为 1 时，只有一种选择（一步跨上去）。台阶高度为 2 时，有两种选择（一步一级台阶，一步两级台阶）。
+考虑青蛙在第 2 级台阶有几种可能？0->2 和 1->2，不难看出，每一级可能的跳法只和前两级的跳法有关，而且是两者只和。这就和斐波那契数列差不多了，知道初始状态，然后不断累加即可。
 
-这里使用 a 表示 `n-2` 级台阶的走法总数，使用 b 代表 `n-1` 台阶的走法总数。因此 `a=1` 以及 `b=2`
+可以几乎完全复用前一题的代码，只需要稍微修改启动阶段的初始值即可。
 
-```python
-class Solution:
-    def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-
-        if n <= 2:
-            return n
-        
-        a = 1
-        b = 2
-        for i in range(2, n):
-            c = a + b
-            a = b
-            b = c
-            
-        return c
+```cpp
+class Solution {
+public:
+    int numWays(int n) {
+        const long max_val = 1000000007L;
+        if(n == 1) return 1;
+        if(n == 1) return 1;
+        long a = 1, b = 1;
+        for(int i=1; i<n; i++){
+            b = a + b;
+            a = b - a;
+            b %= max_val;
+        }
+        return b;
+    }
+};
 ```

@@ -27,36 +27,24 @@ tags: [链表]
 
 本题很容易解答，其中一个技巧是创建一个 head，这样可以避免单独从 l1 和 l2 中找出头结点。
 
-```python
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-class Solution:
-    def mergeTwoLists(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        head = ListNode(0);
-        p = head
-        
-        while l1 and l2:
-            if l1.val < l2.val:
-                p.next = l1
-                l1 = l1.next
-            else:
-                p.next = l2
-                l2 = l2.next
-            p = p.next
-        
-        if l1:
-            p.next = l1
-        else:
-            p.next = l2
-        
-        return head.next
+```c++
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode pre(0);
+        ListNode *p = &pre;
+        while(l1 && l2){
+            if(l1->val < l2->val){
+                p->next = l1;
+                l1 = l1->next;
+            }else{
+                p->next = l2;
+                l2 = l2->next;
+            }
+            p = p->next;
+        }
+        p->next = l1 ? l1 : l2;
+        return pre.next;
+    }
+};
 ```

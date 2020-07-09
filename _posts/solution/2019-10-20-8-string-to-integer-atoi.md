@@ -77,80 +77,47 @@ tags: [数学,字符串]
 
 当输入是空串或者全部是空白的字符串时，为了避免发生越界错误，需要判断 `i` 是否在范围内，可以在字符串尾巴上加一个哨兵字符。
 
-```python
-def atoi(self, str):
-    """
-    :type str: str
-    :rtype: int
-    """
-    sign = 1
-    x = 0
-    str += '#'  # guard        
-    i = 0
 
-    while str[i].isspace():
-        i += 1
+为了检测是否发生了溢出，这里使用 64 位整形来存储结构。
 
-    if str[i] == '-':
-        sign = -1
-        i += 1
-    elif str[i] == '+':
-        i += 1
-
-    while str[i].isdigit():
-        x = x * 10 + int(str[i])
-        i += 1
-
-    x *= sign
-
-    if x < -2 ** 31:
-        return -2 ** 31
-
-    if x > 2 ** 31 - 1:
-        return 2 ** 31 - 1
-
-    return x
-```
-
-用 C++ 解：
-
-```cpp
-int myAtoi(string str) {
-    int n = 0;
-    auto it = str.begin();
-    while(isblank(*it)){
-        ++it;
-    }
-    int sign = 1;
-
-    if(*it == '+' || *it == '-'){
-        if(*it == '-'){
+```c++
+class Solution {
+public:
+    int strToInt(string str) {
+        int i = 0;
+        while(isspace(str[i])){
+            i++;
+        }
+        int sign = 1;
+        if(str[i] == '-'){
             sign = -1;
         }
-        ++it;
-    }
+        if(str[i] == '+' || str[i] == '-'){
+            i++;
+        }
+        if(!isdigit(str[i])){
+            return 0;
+        }
 
+        const unsigned int MAX_INT = numeric_limits<int>::max();
+        const unsigned int ABS_MIN_INT = MAX_INT + 1;
+        long long num = 0;
 
-    int int_min = numeric_limits<int>::min();
-    int int_max = numeric_limits<int>::max();
-
-    while(isdigit(*it) && it != str.end()){
-        int m = sign * (*it - '0');
-
-        if(sign == 1){
-            if((int_max / 10 < n) || (int_max / 10 == n && int_max % 10 <= m)){
-                return int_max;
-            }
-        }else{
-            if((int_min / 10 > n) || (int_min / 10 == n && int_min % 10 >= m)){
-                return int_min;
+        for(;i < str.size() && isdigit(str[i]); i++){
+            int n = str[i] - '0';
+            num = num * 10 + n;
+            if(sign == 1){
+                if(num > MAX_INT){
+                    return MAX_INT;
+                }
+            }else{
+                if(num > ABS_MIN_INT){
+                    return -ABS_MIN_INT;
+                }
             }
         }
 
-        n = n * 10 + m;
-        ++it;
+        return num * sign;
     }
-
-    return n;
-}
+};
 ```

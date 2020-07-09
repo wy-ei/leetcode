@@ -2,6 +2,7 @@
 title: 检查平衡性
 qid: 04.04
 tags: [树,深度优先搜索]
+dup: true
 ---
 
 

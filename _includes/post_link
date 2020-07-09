@@ -1,0 +1,1 @@
+{% for page in site.posts %}{% capture iqid %}{{ include.qid | append:'' | lstrip | rstrip }}{% endcapture %}{% capture qid %}{{ page.qid | append:'' | lstrip | rstrip }}{% endcapture %}{% if qid == iqid %}<a href="{{site.base_path}}{{page.url}}">{{page.title}}</a>{% break %}{% endif %}{% endfor %}

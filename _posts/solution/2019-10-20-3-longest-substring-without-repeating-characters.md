@@ -88,3 +88,21 @@ public:
 };
 ```
 
+
+滑动窗口的套路如下：
+
+```c++
+int lo = 0, hi = 0;
+
+while(hi < nums.size()){
+    char n = nums[hi];
+    hi++;
+    while(/* 需要收缩窗口 */){
+        // 缩小窗口
+        // 更新窗口信息
+        lo ++;
+    }
+    window.insert(ch);
+    //根据窗口信息，更新答案
+}
+```

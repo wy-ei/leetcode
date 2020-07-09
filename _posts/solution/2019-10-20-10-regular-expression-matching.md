@@ -73,57 +73,54 @@ p = &quot;mis*is*p*.&quot;
 <strong>输出:</strong> false</pre>
 
 
-## 解法 1
 
-使用动态规划，利用一个二维数组来记录模式与字符串的匹配情况，具体说来 `match[i][j] == True` 表示 `s[0:i]` 与 `p[0:j]` 匹配。
+## 解法：动态规划
 
-```python
-1. 当 s[i] == p[j] or p[j] == '.' 时，有 match[i+1][j+1] = match[i][j]
-2. 当 p[j] == '*' 时，分两种情况：
-  1. p[j-1] == s[i] or p[j-1] == '.'，即 `*` 前面的字符与 `s[i]` 匹配，那么加一个 `*` 可以表示重复1次，重复 0 次，重复多次，此时有：
-      match[i+1][j+1] = match[i+1][j]   # 表示 `*` 将前面字符重复一次
-                     or match[i+1][j-1] # 表示 `*` 将前面字符重复零次
-                     or match[i][j+1]   # 表示 `*` 将前面字符重复多次，就是说如果 p[0:j+1] 能匹配 s[0:i]，
-                                        # 说明这个 `*` 已经与 s[i-1] 匹配了，那么 s[i] 再重复一次，也能匹配上。
-                
-      # 只要前面匹配了，那么多个 *  就可以通过重复 0 次、1 次、多次继续进行匹配
-    
-  2. p[j-1] != s[i]，表示 `*` 前面的字符与 `s[i]` 不匹配，那么加一个 `*` 可以表示重复 0 次。
-      match[i+1][j+1] = match[i+1][j-1] # 表示 `*` 将前面字符重复零次
-```
+设字符串为 s，模式串为 p。使用 i 作为 s 的下标，使用 j 作为 p 的下标。使用 `match[i][j] = true` 来表示 `s[0:i]` 与 `p[0:j]` 匹配。这里采用 python 中的表示法，`s[0:0]` 代表空串。`match[0][0] = true`，表示空字符串和空模式串匹配。
 
-代码如下：
+模式串中有三类字符：
 
-```python
-class Solution:
-    def isMatch(self, s, p):
-        """
-        :type s: str
-        :type p: str
-        :rtype: bool
-        """
-        m = len(s)
-        n = len(p)
-        match = [[False for _ in range(n + 1)] for __ in range(m + 1)]
-        match[0][0] = True
+- 常规字符：若 `s[i] == p[j]` 且 `match[i][j] == true` 时 `match[i+1][j+1] == true`。
+- `.`：因为`.`能匹配任意字符，此时 `match[i+1][j+1] = match[i][j]`
+- `*`：`*` 可以把前面的字符重复 0 次或数次。因此，只需要考虑这两种情况：
+  - 重复 0 次，那么就忽略 `*` 和 `*` 前面的字符。`match[i+1][j+1] = match[i+1][j-1]`
+  - 重复多次，需要满足 `s[i] == p[j-1] || p[j-1] == '.'`，此时 `match[i+1][j+1] = match[i][j+1]`。即查看 `s[0:i]` 是否和 p[:j+1] 匹配，由于 `p[j]` 是 `*`，如果匹配，那么必然有 `s[i] == s[i-1]`。
 
-        # 处理空字符串的情况
-        # 对于空字符串，模式也需要能够匹配
-        for i in range(n):
-            if p[i] == '*' and match[0][i-1]:
-                match[0][i+1] = True
 
-        for i in range(m):
-            for j in range(n):
-                if p[j] == s[i] or p[j] == '.':
-                    match[i+1][j+1] = match[i][j]
-                if p[j] == '*':
-                    if p[j - 1] == s[i] or p[j - 1] == '.':
-                        match[i+1][j+1] = match[i+1][j] or match[i+1][j-1] or match[i][j+1]
-                    else:
-                        match[i+1][j+1] = match[i+1][j-1]
+初始状态：
 
-        return match[len(s)][len(p)]
+- `match[0][0] = true`
+- 空字符串可能和非空模式串匹配，比如 `" "` 和 `"a*b*c*"` 匹配。空串时，遇到 `*` 比如选择重复其之前的字符 0 次，此时 `match[0][i+1] = match[0][i-1]`。
+
+
+```c++
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        vector<vector<bool>> match(s.size()+1, vector<bool>(p.size()+1, false));
+        match[0][0] = true;
+        for(int i=0;i<p.size();i++){
+            if(p[i] == '*'){
+                match[0][i+1] = match[0][i-1];
+            }
+        }
+        for(int i=0;i<s.size();i++){
+            for(int j=0;j<p.size();j++){
+                if(p[j] == s[i] || p[j] == '.'){
+                    match[i+1][j+1] = match[i][j];
+                }
+                if( p[j] == '*'){
+                    match[i+1][j+1] = match[i+1][j-1];
+
+                    if(p[j-1] == '.' || p[j-1] == s[i]){
+                        match[i+1][j+1] = match[i+1][j+1] || match[i][j+1];
+                    }
+                }
+            }
+        }
+        return match[s.size()][p.size()];
+    }
+};
 ```
 
 ## 解法 2

@@ -30,14 +30,6 @@ tags: [链表]
 把链表节点以此插到新链表的头部即可。
 
 ```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {

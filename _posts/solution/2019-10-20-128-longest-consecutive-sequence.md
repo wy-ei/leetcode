@@ -38,27 +38,38 @@ tags: [并查集,数组]
 
 为了记录更新后的新序列长度，只需要更新左右端点对应的序列长度即可。`num-left` 就是左端点，`num+left` 就是右端点。在 map 中更新这两个键的值为新序列的长度即可。
 
+同一个数字出现多次时，需要跳过重复数字，否则之前累积来的长度会再次累积。
 
 ```python
-class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
-        mp = {}
-        max_len = 0
-        
-        for num in nums:
-            if num in mp:
-                continue
-                
-            left = mp.get(num-1, 0)
-            right = mp.get(num+1, 0)
-            
-            total = left + right + 1
-            
-            mp[num] = total
-            mp[num - left] = total
-            mp[num + right] = total
-        
-            max_len = max(max_len, total)
-            
-        return max_len
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int max_len = 0;
+        unordered_map<int, int> mp;
+        for(auto n: nums){
+            if(mp.find(n) != mp.end()){
+                continue;
+            }
+
+            int left = 0;
+            int right = 0;
+
+            if(mp.find(n-1) != mp.end()){
+                left = mp[n-1];
+            }
+            if(mp.find(n+1) != mp.end()){
+                right = mp[n+1];
+            }
+            int total = left + right + 1;
+
+            mp[n] = total;
+            mp[n-left] = total;
+            mp[n+right] = total;
+            max_len = max(max_len, total);
+        }
+        return max_len;
+    }
+};
 ```
+
+https://wy-ei.github.io/leetcode/128-longest-consecutive-sequence/

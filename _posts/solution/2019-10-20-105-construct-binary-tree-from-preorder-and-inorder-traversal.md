@@ -35,23 +35,36 @@ tags: [树,深度优先搜索,数组]
 
 ## 解法：
 
-先序遍历的第一个元素，为树的根节点，而后是左子树中的各个节点，之后是右子树的各个节点。
+前序遍历，访问顺序为：根节点->左节点->右节点。中序遍历，访问顺序为：左节点->根节点->右节点。
 
-先序遍历的第一个值可以将中序遍历的列表分成左右子树。以题目描述中的树为例，`3` 把中序遍历的序列中分为 `[9]` 和 `[15, 20, 7]`。
+前序遍历的第一个节点一定是根节点，根据这个根节点的值，可以把中序遍历结果分为左右两个部分，左边的就是左子树，右边是右子树。
 
-构造过程递归地进行，不断地从 preorder 的前端取值，作为根节点的值。切分了左右子树的序列，判断序列是否为空，为空则停止递归。
+左子树的根节点，自然就是前序遍历的第二个元素了，根据根节点的值，可以再次把左子树分为两个部分。因此，从前序遍历的前端 pop 一个值，划分左右子树。然后先重建左子树，根节点的值从前序遍历的前面 pop 即可。左子树为空的时候，开始重建右子树，右子树的根节点还是从前序遍历的前端 pop 一个值。
 
-```python
-class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if not inorder:
-            return None
-            
-        root = TreeNode(preorder[0])
+```cpp
+class Solution {
+    using iterator = vector<int>::iterator;
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        auto pre = deque<int>(preorder.begin(), preorder.end());
+        TreeNode* root = buildTree(inorder.begin(), inorder.end(), pre);
+        return root;
+    }
 
-        i = inorder.index(root.val)
-        root.left = self.buildTree(preorder[1:i+i], inorder[:i])
-        root.right = self.buildTree(preorder[i+1:], inorder[i+1:])
+    TreeNode* buildTree(iterator first, iterator last, deque<int>& preorder) {
+        if(first == last){
+            return nullptr;
+        }
         
-        return root    
+        int root = preorder.front();
+        preorder.pop_front();
+        
+        TreeNode *node = new TreeNode(root); 
+        auto it = find(first, last, root);
+        node->left = buildTree(first, it, preorder);
+        node->right = buildTree(it+1, last, preorder);
+        
+        return node;
+    }
+};
 ```
