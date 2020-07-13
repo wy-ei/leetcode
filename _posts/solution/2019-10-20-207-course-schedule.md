@@ -50,68 +50,66 @@ tags: [深度优先搜索,广度优先搜索,图,拓扑排序]
 </ol>
 
 
-## 解法：
+## 解法一：
 
-课程之间互相依赖，构成一个有向图。只要这个有向图中没有环，即不存在循环依赖，那么所有可能都能够修完。
+课程之间互相依赖，构成一个有向图。只要这个有向图中没有环，即不存在循环依赖，那么所有课程都能够修完。
 
-解法一：
+遍历图，并记录下图中节点是否访问过，当一个节点被两次访问到的时候，说明存在环。遍历使用 DFS 或者 BFS 均可。这里我使用了两个标记 `visited` 和 `onstack`，其中 `visited[i] = true` 表示节点 i 在某次遍历中访问过了，而 `onstack[i] = true` 表示节点 i 在本次深度优先遍历中访问过了。
 
-使用 dfs 判断图中是否有环：
+因为深度优先遍历要从所有的顶点都进行一次，只有在其中一次深度优先遍历中发现某个点被访问多次，才证明存在环。另外，其中一个点可能会指向另外一个子图，之前这个子图可能已经遍历过了，如果不使用 `visited` 来标记，就会重复遍历。
 
 ```cpp
 class Solution {
-    enum {NOT_VISITED, VISITED};
+private:
+    bool has_cycle = false;
+    unordered_map<int, unordered_set<int>> graph;
+    vector<bool> visited;
+    vector<bool> onstack;
 public:
-    
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         graph.clear();
         graph.reserve(numCourses);
-        for(auto& item: prerequisites){
-            add_edge(item[0], item[1]);
+        visited.resize(numCourses);
+        onstack.resize(numCourses);
+
+        for(auto& edge: prerequisites){
+            int w = edge[0];
+            int v = edge[1];
+            graph[v].insert(w);
         }
-        return !has_circle();
+
+        for(auto & item : graph){
+            int v = item.first;
+            if(!visited[v]){
+                dfs(v);
+            }
+        }
+        return !has_cycle;
     }
 
 private:
-    bool has_circle(){
-        unordered_map<int, int> visited;
-        visited.reserve(graph.size());
-        for(auto & it : graph){
-            visited[it.first] = NOT_VISITED;
-            if(dfs(it.first, visited)){
-                return true;
+    void dfs(int v){
+        visited[v] = true;
+        onstack[v] = true;
+        unordered_set<int> &nodes = graph[v];
+        for(int w: nodes){
+            if(has_cycle){
+                return;
+            }
+            if(!visited[w]){
+                dfs(w);
+            }else if(onstack[w]){
+                has_cycle = true;
             }
         }
-        return false;
+        onstack[v] = false;
     }
-
-    void add_edge(int w, int v){
-        graph[w].insert(v);
-    }
-
-    bool dfs(int w, unordered_map<int, int>& visited){
-        if(visited[w] == VISITED){
-            return true;
-        }
-        visited[w] = VISITED;
-        unordered_set<int> &nodes = graph[w];
-        for(int k: nodes){
-            if(dfs(k, visited)){
-                return true;
-            }
-        }
-        visited[w] = NOT_VISITED;
-        return false;
-    }
-
-private:
-    unordered_map<int, unordered_set<int>> graph;
 };
 ```
 
-解法二：
+## 解法二：
 
-先把那些不需要前驱课程的课修了，然后进一步修依赖这些课的其他可能，而后继续。最后判断能够修的课程和全部课程是否相等。
+先把那些不需要前驱课程的课修了，然后进一步修依赖这些课的其他课程，而后继续。最后判断能够修的课程和全部课程是否相等。
 
 不需要前驱课程，就是图中入度为 0 的点。当一个入度为 0 的点，消除后，该点指向的节点的入度就减 1，那么节点如果入度减为 0，那就可以进一步消除其他节点。
 
@@ -120,34 +118,34 @@ class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         unordered_map<int, int> in_degrees(numCourses);
-        unordered_map<int, unordered_set<int>> adj(numCourses);
+        unordered_map<int, unordered_set<int>> graph(numCourses);
         for(auto& item: prerequisites){
-            in_degrees[item[1]] += 1;
-            adj[item[0]].insert(item[1]);
+            graph[item[1]].insert(item[0]);
+            in_degrees[item[0]] += 1;
         }
 
-        queue<int> free_node_queue;
+        queue<int> zero_dep_queue;
         for(int i=0;i<numCourses;i++){
-           if(in_degrees[i] == 0){
-               free_node_queue.push(i);
-           }
+            if(in_degrees[i] == 0){
+                zero_dep_queue.push(i);
+            }
         }
 
-        int free_node_count = 0;
-        while (!free_node_queue.empty()){
-            int w = free_node_queue.front();
-            free_node_queue.pop();
-            free_node_count += 1;
+        int count = 0;
+        while (!zero_dep_queue.empty()){
+            int w = zero_dep_queue.front();
+            zero_dep_queue.pop();
+            count += 1;
 
-            for(int v: adj[w]){
+            for(int v: graph[w]){
                 in_degrees[v] -= 1;
                 if (in_degrees[v] == 0){
-                    free_node_queue.push(v);
+                    zero_dep_queue.push(v);
                 }
             }
         }
 
-        return free_node_count == numCourses;
+        return count == numCourses;
     }
 };
 ```

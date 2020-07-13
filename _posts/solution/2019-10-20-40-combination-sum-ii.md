@@ -1,7 +1,7 @@
 ---
 title: 组合总和 II
 qid: 40
-tags: [数组,回溯算法]
+tags: [数组,回溯算法,深度优先搜索]
 ---
 
 
@@ -49,49 +49,54 @@ tags: [数组,回溯算法]
 
 ## 解法：
 
-本题和 [39. Combination Sum](./039-combination-sum.md) 的区别在于本题中存在重复元素，且同一个元素不能多次使用。如果采用[ 39 题的解法](./039-combination-sum.md)，会出现重复。但只需要稍做改动即可。
+本题和 39 题 {% include post_link qid="39" %} 的区别在于本题中存在重复元素，且同一个元素不能多次使用。如果采用 39 题的解法，会出现重复。
 
-和前一道题相比，本题的解空间小了很多，如下图所示：
+此处只需要在 39 的基础上稍做改动即可。
 
-![](../images/40.jpg)
+1\. 跳过上次使用的数字：
 
-一个节点下如果存在多个值相同的子节点，那么只取其中一个，其他分支被剪掉。在 `candidates` 中该节点对应值后面的数，构成该节点的子节点。
+```cpp
+auto it = candidates.begin() + start + 1;
+```
 
-对数组进行排序，就可以快速跳过值相同的子节点了，本题中排序的作用体现在这里。
+2\. 不使用重复元素：
 
-解答如下：
+```cpp
+it = upper_bound(candidates.begin(), candidates.end(), *it);
+```
 
-```python
-class Solution:
-    def combinationSum2(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        # 保存遍历过程中遇到的可行解
-        results = []
-        candidates.sort()
-        self._combinationSum(candidates, 0, [], target, results)
+3\. `dfs` 的第三个参数 `start` 指向下一个元素。
+
+
+```cpp
+
+class Solution {
+public:
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end());
+        vector<vector<int>> result;
+        vector<int> path; // 中间结果
+        dfs(candidates, path, result, 0, target);
+        return result;
+    }
+
+    void dfs(const vector<int>& candidates, vector<int>& path,
+                vector<vector<int>>& result, size_t start, int target){
         
-        return results
-        
-    
-    # 这里的参数 i 用于记录当前遍历的值是数组中的第几个元素，
-    # 因为在下一层遍历过程中，不需要考虑此下标之前的那些元素。
-    def _combinationSum(self, candidates, i, nums, target, results):
-        last = -1
-        for j in range(i, len(candidates)):
-            n = candidates[j]
-            
-            # 值相同的子节点只取第一个
-            if n == last:
-                continue
+        if(target == 0){
+            result.push_back(path);
+        }
 
-            last = n
-            
-            if n == target:
-                results.append(nums + [n])
-            elif n < target:
-                self._combinationSum(candidates, j+1, nums + [n], target - n, results)
+        auto it = candidates.begin() + start;
+        while(it != candidates.end()){
+            if(target < *it){
+                return;
+            }   
+            path.push_back(*it);
+            dfs(candidates, path, result, it - candidates.begin() + 1, target - *it);
+            path.pop_back();
+            it = upper_bound(candidates.begin(), candidates.end(), *it);
+        }
+    }
+};
 ```

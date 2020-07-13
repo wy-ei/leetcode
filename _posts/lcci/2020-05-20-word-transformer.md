@@ -61,7 +61,10 @@ public:
     }
 
 
-    bool dfs(const string& head, const string& tail, unordered_set<string>& word_set, unordered_set<string>& seen_words, vector<string>& path){
+    bool dfs(const string& head, const string& tail,
+                unordered_set<string>& word_set,
+                unordered_set<string>& seen_words,
+                vector<string>& path){
         if(head == tail){
             return true;
         }

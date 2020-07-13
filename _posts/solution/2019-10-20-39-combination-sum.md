@@ -1,7 +1,7 @@
 ---
 title: 组合总和
 qid: 39
-tags: [数组,回溯算法]
+tags: [数组,回溯算法,深度优先搜索]
 ---
 
 
@@ -48,53 +48,38 @@ tags: [数组,回溯算法]
 
 ## 解法：
 
-此问题可以采用回溯法来搜索可行解。
+采用深度优先搜索来搜索解空间。先对数组由小达大排序，每次取一个数字，然后把 target 减掉此值，然后在此数及之后的数中继续寻找。
 
-回溯算法是一种搜索问题解的方法，基本思想是，对解空间树进行深度优先遍历，在遍历过程中，根据当前状态决定是否继续前进。回溯算法解决问题的一般步骤为：
+对数组进行排序，是为了避免重复，选取的下一个数字必须等于等于前一个。这样就不会出现 `1 + 2 = 3` 和 `2 + 1 = 3` 这样的重复组合了。
 
-1. 根据实际问题定义解空间，解空间中包含问题的解
-2. 采用深度优先搜索对解空间进行搜索
-3. 在搜索过程中用根据某种条件避免不必要的搜索，即对解空间树进行剪枝。
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end());
+        vector<vector<int>> result;
+        vector<int> path; // 中间结果
+        dfs(candidates, path, result, 0, target);
+        return result;
+    }
 
-本题，本题的解空间就是 `candidates` 数组中所有元素的各种可能的组合，其中每个元素都可以重复任意次。
-
-将解空间看成一个树，其中第一层包含 `candidates` 中所有元素，其中每个元素对应一个节点，第二层中 1 对应的节点为 `{1,2,3,4,5}`, 2 对应的节点为 `{2,3,4,5}` …… 第三层中各个节点的子节点依然这样对应。
-
-```
-1 层                  [1,2,3,4,5]
-
-2 层     [1,2,3,4,5] [2,3,4,5]  [3,4,5] [4,5] [5]
+    void dfs(const vector<int>& candidates, vector<int>& path,
+                vector<vector<int>>& result, size_t start, int target){
         
-3 层  [1,2,3,4,5] [2,3,4,5] [3,4,5] [4,5] [5]  ...
-```
+        if(target == 0){
+            result.push_back(path);
+        }
 
-在进行深度优先搜索的过程中，需要保存当前已经遍历过的节点，因此在递归调用的时候需要使用一个数组保存这些数。如果当前节点的值等于 target，那么就得到了问题的一个解。如果当前值大于 target，那么深入下一层后，所搜寻的 target 就要减去当前节点的值。
-
-使用文字描述算法思想真不是一件容易的事情，佩服写算法书的人。我想还是直接看代码来的清楚：
-
-```python
-class Solution:
-    def combinationSum(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        # 保存遍历过程中遇到的可行解
-        results = []
-        
-        self._combinationSum(candidates, 0, [], target, results)
-        
-        return results
-        
-    
-    # 这里的参数 i 用于记录当前遍历的值是数组中的第几个元素，
-    # 因为在下一层遍历过程中，不在需要考虑此下标之前的那些元素。
-    def _combinationSum(self, candidates, i, nums, target, results):
-        for j in range(i, len(candidates)):
-            n = candidates[j]
-            if n == target:
-                results.append(nums + [n])
-            elif n < target:
-                self._combinationSum(candidates, j, nums + [n], target - n, results)
+        auto it = candidates.begin() + start; 
+        while(it != candidates.end()){
+            if(target < *it){
+                return;
+            }
+            path.push_back(*it);
+            dfs(candidates, path, result, it - candidates.begin(), target - *it);
+            path.pop_back();
+            ++it
+        }
+    }
+};
 ```

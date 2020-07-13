@@ -41,58 +41,52 @@ X O X X
 
 ## 解法：
 
-先从四个边缘做深度优先搜索，把与边缘上的 `O` 相连的坐标都记录下来。然后对整个 board 遍历，将其中不与边缘上的 `O` 相连的 `O` 修改为 `X`。
+先从四个边缘做深度优先搜索，把与边缘上的 `O` 相连的位置标记为 `*`。然后对整个 `board` 遍历，把 `O` 设为 `X`，把 `*` 设为 `O`。
 
 
 ```python
 class Solution:
-    def solve(self, board: List[List[str]]) -> None:
-        """
-        Do not return anything, modify board in-place instead.
-        """
+    def solve(self, board) -> None:
         if not board:
             return
-        
-        n_row = len(board)        
-        n_col = len(board[0])
-        seen = set()
-        
-        for i in range(n_row):
-            self.mark(i, 0, board, seen)
-            self.mark(i, n_col-1, board, seen)
-            
-        for i in range(n_col):
-            self.mark(0, i, board, seen)
-            self.mark(n_row-1, i, board, seen)
-            
-        for i_row in range(n_row):
-            for i_col in range(n_col):
-                if board[i_row][i_col] == 'O' and (i_row, i_col) not in seen:
-                    board[i_row][i_col] = 'X'
-        
-            
-    def mark(self, i_row, i_col, board, seen):
-        if (i_row, i_col) in seen:
-            return
-        
+
         n_row = len(board)
         n_col = len(board[0])
-        
-        
-        if i_row < 0 or i_row >= n_row:
+
+        for i in range(n_row):
+            self.dfs(i, 0, board)
+            self.dfs(i, n_col-1, board)
+
+        for i in range(n_col):
+            self.dfs(0, i, board)
+            self.dfs(n_row-1, i, board)
+
+        for row in range(n_row):
+            for col in range(n_col):
+                ch = board[row][col]
+                if ch == 'O':
+                    board[row][col] = 'X'
+                if ch == '*':
+                    board[row][col] = 'O'
+                
+    def dfs(self, row, col, board):
+        n_row = len(board)
+        n_col = len(board[0])
+
+        if row < 0 or row >= n_row:
             return
-        
-        if i_col < 0 or i_col >= n_col:
+
+        if col < 0 or col >= n_col:
             return
-        
-        if board[i_row][i_col] == 'X':
+
+        ch = board[row][col]
+        if ch == 'X' or ch == '*':
             return
-        
-        
-        seen.add((i_row, i_col))
-        
-        self.mark(i_row-1, i_col, board, seen)
-        self.mark(i_row+1, i_col, board, seen)
-        self.mark(i_row, i_col-1, board, seen)
-        self.mark(i_row, i_col+1, board, seen)
+
+        board[row][col] = '*'
+        self.dfs(row-1, col, board)
+        self.dfs(row+1, col, board)
+        self.dfs(row, col-1, board)
+        self.dfs(row, col+1, board)
+
 ```
