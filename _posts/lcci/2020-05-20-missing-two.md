@@ -36,7 +36,7 @@ tags: [数组,数学]
 
 ## 解法：
 
-思路和 [56 - I. 数组中数字出现的次数](./lcof/56%20-%20I-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof.md) 相同。
+给原数组中加入数字 1-n，问题就和 {% include post_link qid="offer_56_1" %} 相同了。
 
 ```c++
 class Solution {

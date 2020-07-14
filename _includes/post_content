@@ -1,0 +1,13 @@
+{% capture iqid %}
+{{ include.qid | append:'' | lstrip | rstrip }}
+{% endcapture %}
+{% for page in site.posts %}
+{% capture qid %}
+{{ page.qid | append:'' | lstrip | rstrip }}
+{% endcapture %}
+{% if qid == iqid %}
+<div class="include_post">
+<h1 class="page__title ">{{page.title}}</h1>
+{{ page.content}}
+</div>
+{% break %}{% endif %}{% endfor %}

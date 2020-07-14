@@ -2,7 +2,7 @@
 title: 最小K个数
 qid: 17.14
 tags: [堆,排序,分治算法]
-published: false
+dup: true
 ---
 
 
@@ -32,4 +32,4 @@ published: false
 
 ## 解法：
 
-和 [剑指Offer - 40. 最小的k个数](../lcof/40-zui-xiao-de-kge-shu-lcof.md) 一样。
+{% include post_link qid="offer_40" %}

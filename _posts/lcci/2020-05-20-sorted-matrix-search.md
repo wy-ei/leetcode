@@ -2,6 +2,7 @@
 title: 排序矩阵查找
 qid: 10.09
 tags: [双指针,二分查找,分治算法]
+dup: true
 ---
 
 
@@ -35,7 +36,7 @@ tags: [双指针,二分查找,分治算法]
 
 ## 解法：
 
-详细说明请参考 [剑指 Offer - 04. 二维数组中的查找](../lcof/04-er-wei-shu-zu-zhong-de-cha-zhao-lcof.md)
+详细说明请参考 {% include post_link qid="offer_4" %}
 
 ```c++
 class Solution {
