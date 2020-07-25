@@ -46,7 +46,7 @@ class Solution {
 public:
     TreeNode* mirrorTree(TreeNode* root) {
         if(root == nullptr){
-            return root;
+            return nullptr;
         }
         TreeNode *node = new TreeNode(root->val);
         node->left = mirrorTree(root->right);

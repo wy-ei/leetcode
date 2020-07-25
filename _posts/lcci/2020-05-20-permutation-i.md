@@ -37,9 +37,8 @@ tags: [回溯算法]
 </ol>
 
 
-## 解法：
+## 解法一：迭代
 
-采用回溯法，首先可以在所有字符中选择一个作为第一个字符，然后余下的字符中选择第二个，...直到没得选，这样就得到了一个排列组合了。
 
 考虑字符集合`{a,b,c}`，首先取一个字符 `a` 构成字符串 `a`，然后在取一个字符，在先前构成的字符串的各个位置插入 `b`，就可以得到新的字符串。
 同理，在前一步生成的各个字符串的各个位置插入字符 `c`，又可以得到大量新的字符串。
@@ -66,26 +65,28 @@ class Solution {
 public:
     vector<string> permutation(string s) {
         vector<string> result;
-        result.push_back(s.substr(0, 1));
-        for(int i=1;i<s.size();i++){
-            int len = result.size();
+        result.push_back("");
+
+        for(char ch: s){
             vector<string> new_result;
-            for(int j=0;j<len;j++){
-                const string t = result[j];
-                for(int k=0;k<=t.size();k++){
-                    string next = t;
-                    next.insert(k, 1, s[i]);
-                    new_result.push_back(::move(next));
+            for(const string& perm: result){
+                for(int i = 0; i <= perm.size(); i++){
+                    string next_perm = perm;
+                    next_perm.insert(i, 1, ch);
+                    new_result.push_back(std::move(next_perm));
                 }
             }
-            ::swap(new_result, result);
+            result = std::move(new_result);
         }
         return result;
     }
 };
 ```
 
+
 ## 解法二：回溯法
+
+采用回溯法，首先可以在所有字符中选择一个作为第一个字符，然后余下的字符中选择第二个，...直到没得选，这样就得到了一个排列组合了。
 
 ```c++
 class Solution {
@@ -93,26 +94,64 @@ public:
     vector<string> permutation(string s) {
         vector<string> result;
         vector<bool> visited(s.size(), false);
-        string perm;
-        dfs(perm, s.size(), s, visited, result);
+        string path;
+        dfs(path, s, visited, result);
         return result;
     }
 
-    void dfs(string& perm, int n, const string &s, vector<bool>& visited, vector<string>& result){
-        if(n == 0){
-            result.push_back(perm);
-        }else{
-            for(int i = 0;i<s.size();i++){
-                if(visited[i]){
-                    continue;
-                }
-                visited[i] = true;
-                perm += s[i];
-                dfs(perm, n-1, s, visited, result);
-                visited[i] = false;
-                perm.pop_back();
-            }
+    void dfs(string& path, const string &s, vector<bool>& visited, vector<string>& result){
+        if(path.size() == s.size()){
+            result.push_back(path);
+            return;
         }
+        
+        for(int i = 0; i < s.size(); i++){
+            if(visited[i]){
+                continue;
+            }
+            visited[i] = true;
+            path += s[i];
+            dfs(path, s, visited, result);
+            visited[i] = false;
+            path.pop_back();
+        }
+    }
+};
+```
+
+## 解法三：下一个排列组合
+
+先排序，让字符串中各个字符呈现升序排列。然后不断调用 `next_permutation`，得到所有的组合。关于 `next_permutation` 的详细解释可以参考 {% include post_link qid="31" %}。
+
+
+```c++
+class Solution {
+public:
+    vector<string> permutation(string s) {
+        vector<string> ret;        
+        sort(s.begin(), s.end());
+        ret.push_back(s);
+        while(next_permutation(s)){
+            ret.push_back(s);
+        }
+        return ret;
+    }
+
+    bool next_permutation(string& s){
+        int i = s.size() - 2;
+        while(i >= 0 && s[i] >= s[i+1]){
+            i--;
+        }
+        if(i < 0){
+            return false;
+        }
+        int j = s.size() - 1;
+        while(j >= 0 && s[j] <= s[i]){
+            j--;
+        }
+        ::swap(s[i], s[j]);
+        reverse(s.begin()+i+1, s.end());
+        return true;
     }
 };
 ```

@@ -37,7 +37,7 @@ tags: [回溯算法]
 
 ## 解法：
 
-由于字符串中存在重复的字符，上一题中的方法就需要做些许改进。
+由于字符串中存在重复的字符，上一题 {% include post_link qid="8.07" title="无重复字符串的排列组合" %} 中的方法就需要做些许改进。
 
 
 ### 失败的尝试：基于迭代
@@ -59,32 +59,33 @@ public:
     vector<string> permutation(string s) {
         vector<string> result;
         vector<bool> visited(s.size(), false);
-        string perm;
+        string path;
         
-        dfs(perm, s.size(), s, visited, result);
+        dfs(path, s, visited, result);
         return result;
     }
 
-    void dfs(string& perm, int n, const string &s, vector<bool>& visited, vector<string>& result){
-        if(n == 0){
-            result.push_back(perm);
-        }else{
-            unordered_set<char> vistied_chars;
-            for(int i = 0;i<s.size();i++){
-                if(visited[i]){
-                    continue;
-                }
-                if(vistied_chars.count(s[i]) == 1){
-                    continue;
-                }
-                vistied_chars.insert(s[i]);
- 
-                visited[i] = true;
-                perm += s[i];
-                dfs(perm, n-1, s, visited, result);
-                visited[i] = false;
-                perm.pop_back();
+    void dfs(string& path, const string &s, vector<bool>& visited, vector<string>& result){
+        if(path.size() == s.size()){
+            result.push_back(path);
+            return;
+        }
+
+        unordered_set<char> vistied_in_this_loop;
+        for(int i = 0; i<s.size(); i++){
+            if(visited[i]){
+                continue;
             }
+            if(vistied_in_this_loop.count(s[i]) == 1){
+                continue;
+            }
+            vistied_in_this_loop.insert(s[i]);
+            
+            visited[i] = true;
+            path += s[i];
+            dfs(path, s, visited, result);
+            visited[i] = false;
+            path.pop_back();
         }
     }
 };
@@ -98,30 +99,31 @@ public:
     vector<string> permutation(string s) {
         vector<string> result;
         vector<bool> visited(s.size(), false);
-        string perm;
+        string path;
         
         sort(s.begin(), s.end());
-        dfs(perm, s.size(), s, visited, result);
+        dfs(path, s, visited, result);
         return result;
     }
 
-    void dfs(string& perm, int n, const string &s, vector<bool>& visited, vector<string>& result){
-        if(n == 0){
-            result.push_back(perm);
-        }else{
-            for(int i = 0;i<s.size();i++){
-                if(visited[i]){
-                    continue;
-                }
-                if(i > 0 && s[i] == s[i-1] && !visited[i-1]){
-                    continue;
-                }
-                visited[i] = true;
-                perm += s[i];
-                dfs(perm, n-1, s, visited, result);
-                visited[i] = false;
-                perm.pop_back();
+    void dfs(string& path, const string &s, vector<bool>& visited, vector<string>& result){
+        if(path.size() == s.size()){
+            result.push_back(path);
+            return;
+        }
+        
+        for(int i = 0;i<s.size();i++){
+            if(visited[i]){
+                continue;
             }
+            if(i > 0 && s[i] == s[i-1] && !visited[i-1]){
+                continue;
+            }
+            visited[i] = true;
+            path += s[i];
+            dfs(path, s, visited, result);
+            visited[i] = false;
+            path.pop_back();
         }
     }
 };
