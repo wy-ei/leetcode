@@ -38,6 +38,8 @@ permalink: /categories/
 <script>
     function qid_to_int(qid){
         try{
+            qid = qid.replace('offer_', '');
+
             if(qid.indexOf('.') == -1){
                 return parseInt(qid);
             }else{

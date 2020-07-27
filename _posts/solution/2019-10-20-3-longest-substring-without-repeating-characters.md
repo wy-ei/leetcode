@@ -47,14 +47,14 @@ tags: [哈希表,双指针,字符串]
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_set<char> charset;
-        int max_len = 0;
         int lo = 0, hi = 0;
+        unordered_set<char> seen;
+        int max_len = 0;
         for(;hi < s.size();hi++){
-            while(charset.count(s[hi]) == 1){
-                charset.erase(s[lo++]);
+            while(seen.count(s[hi]) == 1){
+                seen.erase(s[lo++]);
             }
-            charset.insert(s[hi]);
+            seen.insert(s[hi]);
             max_len = ::max(max_len, hi - lo + 1);
         }
         return max_len;
@@ -88,21 +88,3 @@ public:
 };
 ```
 
-
-滑动窗口的套路如下：
-
-```c++
-int lo = 0, hi = 0;
-
-while(hi < nums.size()){
-    char n = nums[hi];
-    hi++;
-    while(/* 需要收缩窗口 */){
-        // 缩小窗口
-        // 更新窗口信息
-        lo ++;
-    }
-    window.insert(ch);
-    //根据窗口信息，更新答案
-}
-```

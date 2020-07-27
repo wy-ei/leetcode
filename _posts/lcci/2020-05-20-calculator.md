@@ -44,4 +44,4 @@ tags: [字符串]
 
 ## 解法：
 
-TODO
+{% include post_link qid="227" %}
