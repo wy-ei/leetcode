@@ -163,7 +163,7 @@ mark {
 
 p code{
   color: #a31515;
-  font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace; 
+  font-family: Consolas,Liberation Mono,monospace, PingFang SC;
 }
 
 /* 代码片断 */
@@ -183,8 +183,7 @@ p code{
 }
 .typo pre,
 .typo pre code{
-    font-family: 'Source Code Pro', Courier, 'Courier New', PingFang SC;
-    font-size: 90%;
+    font-family: Consolas,Liberation Mono,monospace, PingFang SC;
 }
 
 /* 一致化 horizontal rule */

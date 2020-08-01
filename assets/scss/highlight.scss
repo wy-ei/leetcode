@@ -4,7 +4,7 @@ pre.highlight{
 }
 
 pre.highlight code{
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace, PingFang SC;
+    font-family: Consolas,Liberation Mono,monospace, PingFang SC;
 }
 
 /**
@@ -13,9 +13,8 @@ pre.highlight code{
  * @author Lea Verou
  */
 
-
  pre.highlight{
-    font-family: 'Source Code Pro', Courier, 'Courier New', PingFang SC;
+    font-family: Consolas,Liberation Mono,monospace, PingFang SC;
      color: black;
      text-align: left;
      white-space: pre;
