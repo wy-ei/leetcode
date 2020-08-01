@@ -2,14 +2,16 @@
 title: 求多个区间的最大重合数量
 layout: post
 category: 总结
+qid: note_00731
 ---
+
+这一题不是 leetcode 上的，是我在笔试中遇到的一个问题，在此总结一下。
 
 问题描述：
 
-小明选了 n 门在线课程，每门课程的开始和结束时间为 `(s[i], e[i])`，小明可以一心多用，问小明最多需要同时打开多少个播放器窗口才能顺利地上完这些课程。 
+小明选了 n 门在线课程，课程 `i` 开始和结束时间分别为 `s[i]` 和 `e[i]`。小明可以一心多用，可以同时打开多少个播放器窗口来上课，问小明在上完这些课程的过程中，最多需要打开多少个窗口。 
 
-这个问题的本质是：给定了 n 个区间，问重合的区间的最大数量是多少。
-
+这个问题的本质是：给定了 n 个区间，问重合区间的数量最大是多少。
 
 ## 思路一
 
@@ -55,33 +57,38 @@ struct Point{
     POINT_TYPE type;
 };
 
-int max_overlapped_interval_count1(const vector<Interval>& intervals){
+int max_overlapped_interval_count(const vector<Interval>& intervals){
     vector<Point> points;
-    
+
     for(const Interval& item: intervals){
         points.emplace_back(item.start, START);
         points.emplace_back(item.end, END);
     }
-    
+
     sort(points.begin(), points.end(), [](const Point& a, const Point& b){
-        return a.val < b.val;
+        if(a.val < b.val){
+            return true;
+        }else if(a.val > b.val){
+            return false;
+        }else{
+            return a.type == END && b.type == START; // 让终点排在前面
+        }
     });
 
     int res = 0;
     int n = 0;
-    for(int i = 0; i< points.size(); i++){
-        if(points[i].type == START){
+    for(auto & point : points){
+        if(point.type == START){
             n += 1;
         }else{
             n -= 1;
         }
-        // 同一时刻有可能会存在多个区间的起点和终点，因此需要把某个点上的
-        // 起点和终点都处理完成，然后再更新最大重叠数量
-        if(i > 0 && points[i].val != points[i-1].val){
-            res = max(res, n);
-        }
+        res = max(res, n);
     }
-    res = max(res, n);
     return res;
 }
 ```
+
+这里如果在同一个点上存在区间起点和终点，那么先处理终点，然后处理起点。也就是先关闭播放器窗口，在打开窗口，然后再更新打开窗口的最大数量。
+
+另外 leetcode 上原题 {% include post_link qid="16.1" %} 和本题其实是一样的，可以使用上面的思路去解答。不过这一题中在 sort 的时候，需要把起点放在前面。
