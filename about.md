@@ -14,4 +14,4 @@ permalink: /about/
 
 <br>
 
-这里记录了我在 [leetcode-cn](https://leetcode-cn.com) 上解过的题和解题思路。代码可以在这里找到：[leetcode](https://github.com/wy-ei/leetcode)。
+这里记录了我在 [力扣](https://leetcode-cn.com) 上解过的题的题解和解题思路。本站的源代码可以在这里找到：[leetcode](https://github.com/wy-ei/leetcode)。
