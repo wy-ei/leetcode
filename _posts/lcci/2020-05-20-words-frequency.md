@@ -49,13 +49,14 @@ wordsFrequency.get(&quot;pen&quot;); //返回1
 
 ```c++
 
+struct Node{
+    Node():count(0){}
+    int count;
+    Node* children[26]{};
+};
+
 class Trie{
 private:
-    struct Node{
-        Node():count(0){}
-        int count;
-        Node* children[26]{};
-    };
 public:
     void insert(const string& word){
         Node *node = &root;
@@ -81,7 +82,6 @@ public:
         }
         return node->count;
     }
-
 private:
     Node root;
 };

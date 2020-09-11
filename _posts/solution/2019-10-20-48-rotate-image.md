@@ -61,29 +61,30 @@ tags: [数组]
 
 ## 解法：
 
-从外层向内，对矩阵的最外层进行旋转。这里采用 `offset` 用来确定层数，使用 `width` 来记录当前矩阵的大小，使用 `top,right,bottom,right` 来记录矩阵边界的索引。
+从外层向内，逐层旋转。
 
-```python
-class Solution:
-    def rotate(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: void Do not return anything, modify matrix in-place instead.
-        """
-        m = matrix
-        rank = len(matrix)
-        
-        for offset in range(0, rank // 2):
-            width = rank - 2 * offset
-            for j in range(0, width - 1):
-                top = offset
-                left = offset
-                bottom = offset + width - 1
-                right = offset + width - 1
-                
-                t = m[top][left+j]
-                m[top][left+j] = m[bottom-j][left]
-                m[bottom-j][left] = m[bottom][right-j]
-                m[bottom][right-j] = m[top+j][right]
-                m[top+j][right] = t
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        if(matrix.empty() || matrix.back().empty()){
+            return;
+        }
+        int row_lo = 0, row_hi = matrix.size() - 1;
+        int col_lo = 0, col_hi = matrix.back().size() - 1;
+        while(row_lo < row_hi){
+            for(int i=0; i < row_hi - row_lo; i++){
+                int t = matrix[row_lo][col_lo + i];
+                matrix[row_lo][col_lo + i] = matrix[row_hi-i][col_lo];
+                matrix[row_hi-i][col_lo] = matrix[row_hi][col_hi-i];
+                matrix[row_hi][col_hi-i] = matrix[row_lo + i][col_hi];
+                matrix[row_lo + i][col_hi] = t;
+            }
+            row_lo++;
+            row_hi--;
+            col_lo++;
+            col_hi--;
+        }
+    }
+};
 ```
