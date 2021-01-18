@@ -1,4 +1,4 @@
-#!env python
+# encoding: utf-8
 
 import requests
 import json
@@ -92,8 +92,10 @@ def build_template(start, end=None):
 
         date = datetime.datetime.now()
 
+        # filename = './{:02}-{:02}-{:02}-{:03}-{}.md'.format(
+        #     date.year, date.month, date.day, question_id, question['stat']['question__title_slug'])
         filename = './{:02}-{:02}-{:02}-{:03}-{}.md'.format(
-            date.year, date.month, date.day, question_id, question['stat']['question__title_slug'])
+            2019,10,20, question_id, question['stat']['question__title_slug'])
         with open(filename, mode='w', encoding='utf-8') as fout:
             fout.write(markdowm_content)
 

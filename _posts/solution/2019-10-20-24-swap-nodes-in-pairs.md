@@ -28,43 +28,81 @@ tags: [链表]
 </ul>
 
 
-## 解法：
+## 解法一
 
-一开始考虑到没有 pre 结点，在循环中加了不少判断，代码写的很长。后来看了看别人的代码，发现可以自己创建一个 pre 节点，一下就把问题简化了。
-在 while 循环中给 `pre.next`, `pre.next.next` 起名字 `cur`，`_next` 可以让逻辑更清晰一些。
+使用栈。这个方法可以解决，k 个一组进行翻转的问题。
 
-返回的头结点是交换后的头结点，但这个头结点一定是开始创建的 `pre.next`，在 `while` 循环执行第一次未更新 pre 的时候，`pre.next` 就是返回值。所以只需要使用一个变量将 `pre` 记录下来即可。
+```c++
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode dummy(0);
+        ListNode* q = &dummy;
+        stack<ListNode*> stk;
+        for(head != nullptr; head = head->next){
+            stk.push(head);
+            if(stk.size() == 2){
+                while(!stk.empty()){
+                    ListNode* node = stk.top();
+                    stk.pop();
+                    q->next = node;
+                    q = q->next;
+                }
+            }
+        }
+        if(!stk.empty()){
+            q->next = stk.top();
+            q = q->next;
+        }
+        q->next = nullptr;  // 这个非常非常重要，如果不设置最后一个节点的 next 为 nullptr，链表就会出现环。
+        return dummy.next;
+    }
+};
+```
 
-真是太聪明了。
+## 方法二：
 
-使用 `_next` 是因为 `next` 是 Python 中的关键字。
+使用递归:
 
-```python
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+```c++
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if(!head){
+            return nullptr;
+        }
+        if(!head->next){
+            return head;
+        }
+        ListNode* next = head->next;
+        head->next = swapPairs(next->next);
+        next->next = head;
+        return next;
+    }
+};
+```
 
-class Solution:
-    def swapPairs(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        pre = ListNode(0)
-        pre_copy = pre
-        pre.next = head
-        
-        while pre.next and pre.next.next:
-            cur = pre.next
-            _next = cur.next
-            
-            pre.next = _next
-            cur.next = _next.next
-            _next.next = cur
-            
-            pre = cur
+## 解法三
 
-        return pre_copy.next
+```c++
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode dummy(0);
+        ListNode* pre = &dummy;
+        pre->next = head;
+
+        while(pre->next && pre->next->next){
+            ListNode* curr = pre->next;
+            ListNode* next = curr->next;
+
+            pre->next = next;
+            curr->next = next->next;
+            next->next = curr;
+
+            pre = curr;
+        }
+        return dummy.next;
+    }
+};
 ```

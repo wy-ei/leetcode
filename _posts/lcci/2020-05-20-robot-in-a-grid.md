@@ -43,74 +43,43 @@ tags: [动态规划]
 
 在二维空间做 dfs 时，常常在 dfs 之前标记该点已访问，在退出时取消标记。但在此处是不需要取消标记的。取消标记通常是在二维空间中寻找一个路径，此处只要一个点被访问过，那么肯定不用在访问了。
 
-假设负对角线上除了左下角外全都是障碍，那么深度优先搜索会向右或向下知道触及障碍的时候，才会向上回溯。但如果能够事先把不可行的区域标记出来，就可以减小 dfs 的搜索范围。 下面代码中 `update_obstacles` 函数就做这件事。
-
-```
-* 0 0 0 0 0 0 1
-0 0 0 0 0 0 1 0
-0 0 0 0 0 1 0 0
-0 0 0 0 1 0 0 0
-0 0 0 1 0 0 0 0
-0 0 1 0 0 0 0 0
-0 1 0 0 0 0 0 0
-0 0 0 0 0 0 0 *
-```
-
 ```c++
-class Solution {
 public:
     vector<vector<int>> pathWithObstacles(vector<vector<int>>& obstacleGrid) {
-        vector<vector<int>> path;
-        int n_rows = obstacleGrid.size();
-        if(n_rows == 0) return path;
-        int n_cols = obstacleGrid.back().size();
-        if(n_cols == 0) return path;
-        update_obstacles(obstacleGrid);
-        dfs(obstacleGrid, path, 0, 0);
+        vector<vector<int>> result;
 
-        return path;
+        int n_rows = obstacleGrid.size();
+        if(n_rows == 0) return result;
+        int n_cols = obstacleGrid.back().size();
+        if(n_cols == 0) return result;
+
+        vector<vector<int>> visited(n_rows, vector<int>(n_cols, 0));
+        dfs(0, 0, result, obstacleGrid, visited);
+        return result;
     }
 
-    void update_obstacles(vector<vector<int>>& obstacleGrid){
-        int n_rows = obstacleGrid.size();
-        int n_cols = obstacleGrid.back().size();
-        for(int row = n_rows-1; row >= 0; row--){
-            for(int col = n_cols-1; col >= 0; col--){
-                int right = 0;
-                int bottom = 0;
-                if(col + 1 < n_cols){
-                    right = obstacleGrid[row][col+1];
-                }
-                if(row + 1 < n_rows){
-                    bottom = obstacleGrid[row+1][col];
-                }
-                if(right == 1 && bottom == 1){
-                    obstacleGrid[row][col] = 1;
-                }
-            }
+    bool dfs(int row, int col, vector<vector<int>>& result,
+             vector<vector<int>>& grid, vector<vector<int>>& visited){
+
+        int n_rows = grid.size();
+        int n_cols = grid.back().size();
+
+        if(row == n_rows || col == n_cols) return false;
+        if(visited[row][col] == 1) return false;
+        if(grid[row][col] == 1) return false;
+
+        result.push_back({row, col});
+        if(row == n_rows-1 && col == n_cols-1){
+            return true;
         }
-    }
+        visited[row][col] = 1;
 
-    bool dfs(vector<vector<int>>& obstacleGrid, vector<vector<int>>& path, int x, int y){
-        int n_rows = obstacleGrid.size();
-        int n_cols = obstacleGrid.back().size();
-
-        if(x == n_rows) return false;
-        if(y == n_cols) return false;
-        if(obstacleGrid[x][y] == 1) return false;
-
-        obstacleGrid[x][y] = 1;
-        path.push_back({x, y});
-
-        if(x == (n_rows - 1) && y == (n_cols - 1)) return true;
-        
-        bool found = dfs(obstacleGrid, path, x+1, y);
-        if(found) return true;
-        found = dfs(obstacleGrid, path, x, y+1);
-        if(found) return true;
-        path.pop_back();
-
-        return false;
+        bool found = dfs(row+1, col, result, grid, visited)
+                     || dfs(row, col+1, result, grid, visited);
+        if(!found){
+            result.pop_back();
+        }
+        return found;
     }
 };
 ```

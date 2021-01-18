@@ -40,32 +40,31 @@ tags: [双指针,字符串]
 面试中暴力解法就够了，本题最关键的是要细心。尤其是使用 C++ 来实现，存在很多坑。
 
 
-
 ```C++
 class Solution {
 public:
     int strStr(string haystack, string needle) {
         if (haystack.size() < needle.size()) return -1;
-        if (needle.empty()) return 0;
 
-        const size_t N = haystack.size() - needle.size() + 1;
-        for (size_t i = 0; i < N; i++) {
+        for (int i = 0; i <= haystack.size() - needle.size(); i++) {
             int j = 0;
             while (j < needle.size() && needle[j] == haystack[i + j]) {
                 j++;
             }
-            if (j == needle.size()) return i;
+            if (j == needle.size()){
+                return i;
+            }
         }
         return -1;
     }
-};      
+};     
 ```
 
 
 我第一次写出了下面这样的代码，出现了严重的 BUG。因为 `haystack` 可能比 `needle` 短，此时 `haystack.size() - needle.size()` 有可能会是负的，但是因为 `size` 返回的是无符号的数，因此发生了下溢。结果变成了一个非常大的正数。
 
 ```c++
-for (size_t i = 0; i <= haystack.size() - needle.size(); i++){
+for (int i = 0; i <= haystack.size() - needle.size(); i++){
 
 }
 ```

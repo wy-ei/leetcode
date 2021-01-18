@@ -47,15 +47,15 @@ tags: [哈希表,双指针,字符串]
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int lo = 0, hi = 0;
-        unordered_set<char> seen;
         int max_len = 0;
-        for(;hi < s.size();hi++){
-            while(seen.count(s[hi]) == 1){
-                seen.erase(s[lo++]);
+        unordered_set<char> window;
+        for(int lo=0,hi=0; hi < s.size(); hi++){
+            char ch = s[hi];
+            while(window.find(ch) != window.end()){
+                window.erase(s[lo++]);
             }
-            seen.insert(s[hi]);
-            max_len = ::max(max_len, hi - lo + 1);
+            window.insert(ch);
+            max_len = max(max_len, hi - lo + 1);
         }
         return max_len;
     }
